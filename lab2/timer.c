@@ -4,12 +4,28 @@
 #include <stdint.h>
 
 #include "i8254.h"
+#define TIMER_SELECT(timer) (timer << 6)
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint8_t control_word = 0;
+  uint16_t f;
+  uint8_t lsb;
+  uint8_t msb;
 
-  return 1;
+  timer_get_conf(timer, &control_word);  // Obter 4 bits menos significativos do timer
+
+  control_word <<= 4;
+  control_word >>= 4;
+
+  control_word |= TIMER_SELECT(timer); // Seleccionar o timer
+  control_word |= TIMER_LSB_MSB;  // Seleccionar as partes do contador do TIMER que se pretende alterar
+  sys_outb(TIMER_CTRL, control_word);  // Passar control word para TIMER CONTROL
+  f = TIMER_FREQ / freq;
+  util_get_LSB(f, &lsb);
+  util_get_MSB(f, &msb);
+  sys_outb(0x40 + timer, lsb);  // Passar lsb para o timer 0;
+  sys_outb(0x40 + timer, msb);  // Passar msb para o timer 0;
+  return 0;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
@@ -35,7 +51,7 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
   uint8_t read_back_command = TIMER_RB_CMD | TIMER_RB_SEL(timer) | TIMER_RB_COUNT_; 
   sys_outb(TIMER_CTRL,read_back_command);
-  return util_sys_inb(0x40+timer,st);
+  return util_sys_inb(0x40 + timer, st);
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st,
@@ -72,11 +88,18 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
         val.in_mode = INVAL_val;
       }
     }
+    break;
   }
 
   case tsf_mode:{
-    st =<< 4;
-    st =>> 5;
+    uint8_t mask = ~BIT(2);
+    st <<= 4;
+    st >>= 5;
+
+    if(st == 7 || st == 6){ // Compatibilidade com produtos Intel como referido na ficha
+      st &= mask;
+    }
+
     val.count_mode = st;
     break;
   }
