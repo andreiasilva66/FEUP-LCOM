@@ -5,37 +5,26 @@
 int(util_get_LSB)(uint16_t val, uint8_t *lsb) {
 
   *lsb = (uint8_t) val;
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
 
-  return 1;
+  return 0;
 }
 
 int(util_get_MSB)(uint16_t val, uint8_t *msb) {
-  /* To be implemented by the students */
 
-    uint16_t arcade = val >> 8;
+  uint16_t arcade = val >> 8;
 
-    *msb = (uint8_t) arcade;
+  *msb = (uint8_t) arcade;
 
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  return 0;
 }
 
 int (util_sys_inb)(int port, uint8_t *value) {
 
   uint32_t val32;
 
-   sys_inb(port, &val32);
+  sys_inb(port, &val32);
    
   *value = (uint8_t) val32;
 
   return 0;
-
-
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
 }

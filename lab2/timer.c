@@ -32,12 +32,10 @@ void (timer_int_handler)() {
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  
 
   uint8_t read_back_command = TIMER_RB_CMD | TIMER_RB_SEL(timer) | TIMER_RB_COUNT_; 
   sys_outb(TIMER_CTRL,read_back_command);
-  util_sys_inb(timer,*st);
-  return 0;
+  return util_sys_inb(0x40+timer,st);
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st,
@@ -46,29 +44,53 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
 
   union timer_status_field_val val;
 
-  switch (field)
-  {
-  case tsf_all:
+  switch (field){
+
+  case tsf_all: {
     val.byte = st;
-    break;
-
-  case tsf_initial:
-
-  val.count_mode =  
-
-  case tsf
-  
-  default:
     break;
   }
 
+  case tsf_initial:{
+    st <<= 2;
+    st >>= 6;
+
+    switch(st){
+      case 1:{
+        val.in_mode = LSB_only;
+        break;
+      }
+      case 2:{
+        val.in_mode = MSB_only;
+        break;
+      }
+      case 3:{
+        val.in_mode = MSB_after_LSB;
+        break;
+      }
+      default:{
+        val.in_mode = INVAL_val;
+      }
+    }
+  }
+
+  case tsf_mode:{
+    st =<< 4;
+    st =>> 5;
+    val.count_mode = st;
+    break;
+  }
+
+  case tsf_base:{
+    uint8_t mask = 1;
+    val.bcd = st & mask;
+    break;
+  }
   
-  val.count_mode = 
+  default:{
+    return 1;
+  }
+  }
 
-  timer_print_config(timer,field,val);
-    
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  return timer_print_config(timer,field,val);
 }
