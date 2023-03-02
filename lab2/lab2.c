@@ -49,7 +49,7 @@ int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
 
 int(timer_test_int)(uint8_t time) {
   
-uint8_t hook;
+uint8_t hook = 4;
 timer_subscribe_int(&hook);
 uint32_t irq_set = BIT(hook);
 
@@ -60,7 +60,7 @@ message msg;
 
 while(time != 0){
 
-  if(r = driver_recieve(ANY,&msg,&ipc_status) != 0){
+  if((r = driver_receive(ANY,&msg,&ipc_status)) != 0){
     printf("driver_receive failed with: %d", r);
     continue;
   }
