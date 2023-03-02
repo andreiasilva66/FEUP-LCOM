@@ -6,7 +6,13 @@
 #include "i8254.h"
 #define TIMER_SELECT(timer) (timer << 6)
 
+uint32_t timerCount = 0;
+int hook;
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
+  if(freq < (1193181 / 0xffff) || freq > 1193181){
+    return 1;
+  }
   uint8_t control_word = 0;
   uint16_t f;
   uint8_t lsb;
@@ -29,22 +35,16 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  hook = *bit_no;
+  return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook);
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  return sys_irqrmpolicy(&hook);
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  timerCount++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
