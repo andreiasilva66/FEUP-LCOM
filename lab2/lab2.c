@@ -4,6 +4,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include <i8254.h>
+
+extern int count;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -31,21 +34,48 @@ int main(int argc, char *argv[]) {
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
   /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
 
-  return 1;
+  uint8_t timer_status = 0;
+
+  return (timer_get_conf(timer,&timer_status) || timer_display_conf(timer,timer_status,field));
+
 }
 
 int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
   /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  
+  return timer_set_frequency(timer,freq);
 }
 
 int(timer_test_int)(uint8_t time) {
   /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  
+  uint8_t hook = 1;
+  message msg;
+  int ipc_st;
+  uint32_t irq_set = BIT(hook);
 
-  return 1;
+  if(timer_subscribe_int(&hook))
+    return 1;
+
+  while(time){
+    if(driver_receive(ANY,&msg,&ipc_st))
+      continue;
+
+    if(is_ipc_notify(ipc_st)){
+      switch(_ENDPOINT_P(msg.m_source)){
+        case HARDWARE:
+          if(msg.m_notify.interrupts & irq_set){
+              timer_int_handler();
+              if(count%60==0){
+                time--;
+                timer_print_elapsed_time();}
+            }
+          break;
+        default:
+          break;
+        }
+    }
+  }
+  return timer_unsubscribe_int();
 }
