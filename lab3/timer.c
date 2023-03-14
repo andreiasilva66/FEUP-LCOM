@@ -114,6 +114,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
 
     }
 
+
   case tsf_mode:
 
   val.count_mode =(st & (BIT(3) | BIT(2) | BIT(1)));

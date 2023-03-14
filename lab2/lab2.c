@@ -49,7 +49,7 @@ int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
 
 int(timer_test_int)(uint8_t time) {
   
-uint8_t hook = 4;
+uint8_t hook = 4;  // 0 e 31  000000000001000   8 != 0  000100000    
 timer_subscribe_int(&hook);
 uint32_t irq_set = BIT(hook);
 
@@ -78,12 +78,13 @@ while(time != 0){
           break;
         }
 
-  default:
-  break;
+  
       }
-    }
+    default:
+    break;
+  }
   }
 }
-
+  timer_unsubscribe_int();
   return 0;
 }
