@@ -8,6 +8,7 @@
 #include <stdint.h>
 
 extern uint8_t data;
+extern uint32_t cntt;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -62,6 +63,7 @@ while(data != KBC_ESC){
       if(msg.m_notify.interrupts & irq_set){
 
         kbc_ih();
+          printf( "codigo atual %d / t", data);
 
         if (data == TWO_SCAN_CODE) {
 
@@ -93,15 +95,56 @@ while(data != KBC_ESC){
 }
 
 KBC_unsubscribe_int();
+kbd_print_no_sysinb(cntt);
+
 
 return 0;
 }
 
 int(kbd_test_poll)() {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
 
-  return 1;
+  //dar pool ao status register até OBF e AUX tarem topc
+  uint8_t cmd;
+  uint8_t code[2];
+  bool db = false;
+
+  buffer_reader(KBC_CMD_RED);
+  cmd = data;
+  data = 0x00;
+
+  while(data != KBC_ESC){
+
+    if(data_reader() != 0){
+      continue;
+    }
+
+    if (data == TWO_SCAN_CODE) {
+
+              code[0] = data;
+              db = true;
+              continue;
+             // printf("code of double %d \t", code[0]);
+            
+            }
+
+            else{ 
+              if(db){code[1] = data;
+              db = false;}
+              else {code[0] = data;
+                    }
+             // printf("code of first %d \t", code[1]);
+
+              kbd_print_scancode( !(data & KBC_MSB_SCNCD) , code[0] == TWO_SCAN_CODE ? 2 : 1, code);
+              code[1] = 0x00;
+             
+            }
+  }
+
+
+
+  KBD_activate_interrupt(); 
+  kbd_print_no_sysinb(cntt);
+  return 0;
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
