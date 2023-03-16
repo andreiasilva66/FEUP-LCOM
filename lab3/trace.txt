@@ -2,492 +2,56 @@
   kbd_test_poll()
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff734)
-  < sys_inb(0x60, addr: 0xeffff734 [0xfa = 0b11111010])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -497,54 +61,54 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0x21 = 0b00100001])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
+    "Makecode: 0x21"
+  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x21]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -554,54 +118,39 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0x20 = 0b00100000])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
+    "Makecode: 0x20"
+  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x20]) -> (ret: 0)
+  @utils.c:33, util_sys_inb
+    sys_inb(port, &val32)
+  > sys_inb(0x64, addr: 0xeffff71c)
+  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
+  @utils.c:33, util_sys_inb
+    sys_inb(port, &val32)
+  > sys_inb(0x60, addr: 0xeffff71c)
+  < sys_inb(0x60, addr: 0xeffff71c [0x1f = 0b00011111])
+  @lab3.c:134, kbd_test_poll
+    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
+    "Makecode: 0x1f"
+  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x1f]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -611,45 +160,48 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0xa1 = 0b10100001])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
+    "Breakcode: 0xa1"
+  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa1]) -> (ret: 0)
+  @utils.c:33, util_sys_inb
+    sys_inb(port, &val32)
+  > sys_inb(0x64, addr: 0xeffff71c)
+  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
+  @utils.c:33, util_sys_inb
+    sys_inb(port, &val32)
+  > sys_inb(0x60, addr: 0xeffff71c)
+  < sys_inb(0x60, addr: 0xeffff71c [0x1e = 0b00011110])
+  @lab3.c:134, kbd_test_poll
+    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
+    "Makecode: 0x1e"
+  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x1e]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -659,171 +211,27 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0x21 = 0b00100001])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
+    "Makecode: 0x21"
+  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x21]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -833,81 +241,27 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0xa0 = 0b10100000])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
+    "Breakcode: 0xa0"
+  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa0]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -917,18 +271,27 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0x9f = 0b10011111])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
+    "Breakcode: 0x9f"
+  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0x9f]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
+    tickdelay(micros_to_ticks(WAIT_KBC))
+  > tickdelay(1 [16.7 ms])
+  @utils.c:33, util_sys_inb
+    sys_inb(port, &val32)
+  > sys_inb(0x64, addr: 0xeffff71c)
+  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
+  @kbc_utils.c:69, data_reader
+    micros_to_ticks(WAIT_KBC)
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -938,45 +301,27 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x25 = 0b00100101])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0x9e = 0b10011110])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x25"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x25]) -> (ret: 0)
+    "Breakcode: 0x9e"
+  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0x9e]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -986,1023 +331,333 @@
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa5 = 0b10100101])
-  @lab3.c:137, kbd_test_poll
+  < sys_inb(0x60, addr: 0xeffff71c [0xa1 = 0b10100001])
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa5"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa5]) -> (ret: 0)
+    "Breakcode: 0xa1"
+  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa1]) -> (ret: 0)
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x25 = 0b00100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x25"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x25]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa5 = 0b10100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa5"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa5]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x25 = 0b00100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x25"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x25]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x26 = 0b00100110])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x26"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x26]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa5 = 0b10100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa5"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa5]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa6 = 0b10100110])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa6"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa6]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x23 = 0b00100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x23"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x23]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa3 = 0b10100011])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa3"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa3]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0x25 = 0b00100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Makecode: 0x25"
-  < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x25]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1d = 0b00011101])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff71c)
-  < sys_inb(0x60, addr: 0xeffff71c [0xa5 = 0b10100101])
-  @lab3.c:137, kbd_test_poll
-    kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
-    "Breakcode: 0xa5"
-  < kbd_print_scancode(false, 1, addr: 0xeffff76e [0xa5]) -> (ret: 0)
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -2013,7 +668,7 @@
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
   < sys_inb(0x60, addr: 0xeffff71c [0x01 = 0b00000001])
-  @lab3.c:137, kbd_test_poll
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
     "Makecode: 0x01"
   < kbd_print_scancode(true, 1, addr: 0xeffff76e [0x01]) -> (ret: 0)
@@ -2021,72 +676,54 @@
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
   > sys_inb(0x64, addr: 0xeffff71c)
   < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
-    tickdelay(micros_to_ticks(WAIT_KBC))
-  > tickdelay(1 [16.7 ms])
-  @utils.c:33, util_sys_inb
-    sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff71c)
-  < sys_inb(0x64, addr: 0xeffff71c [0x1c = 0b00011100])
-  @kbc_utils.c:66, data_reader
-    micros_to_ticks(WAIT_KBC)
-  @kbc_utils.c:66, data_reader
+  @kbc_utils.c:69, data_reader
     tickdelay(micros_to_ticks(WAIT_KBC))
   > tickdelay(1 [16.7 ms])
   @utils.c:33, util_sys_inb
@@ -2097,69 +734,45 @@
     sys_inb(port, &val32)
   > sys_inb(0x60, addr: 0xeffff71c)
   < sys_inb(0x60, addr: 0xeffff71c [0x81 = 0b10000001])
-  @lab3.c:137, kbd_test_poll
+  @lab3.c:134, kbd_test_poll
     kbd_print_scancode(!(data & KBC_MSB_SCNCD), code[0] == TWO_SCAN_CODE ? 2 : 1, code)
     "Breakcode: 0x81"
   < kbd_print_scancode(false, 1, addr: 0xeffff76e [0x81]) -> (ret: 0)
-  @kbc_utils.c:103, KBD_activate_interrupt
-    printf("etapa1")
-    "etapa1"
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff6e8)
-  < sys_inb(0x64, addr: 0xeffff6e8 [0x1c = 0b00011100])
-  @kbc_utils.c:89, buffer_writter
+  > sys_inb(0x64, addr: 0xeffff6fc)
+  < sys_inb(0x64, addr: 0xeffff6fc [0x1c = 0b00011100])
+  @kbc_utils.c:92, buffer_writter
     sys_outb(KBC_CMD_REG, entry)
   > sys_outb(0x64, 0x60 = 0b01100000)
-  @kbc_utils.c:90, buffer_writter
+  @kbc_utils.c:93, buffer_writter
     sys_outb(0x60, entry2)
   > sys_outb(0x60, 0x20 = 0b00100000)
-  @kbc_utils.c:105, KBD_activate_interrupt
-    printf("etapa2")
-    "etapa2"
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
-  > sys_inb(0x60, addr: 0xeffff718)
-  < sys_inb(0x60, addr: 0xeffff718 [0x81 = 0b10000001])
-  @kbc_utils.c:107, KBD_activate_interrupt
-    printf("etapa3")
-    "etapa3"
-  @kbc_utils.c:109, KBD_activate_interrupt
-    printf("etapa4 %d",stat)
-    "etapa4 129"
-  @kbc_utils.c:111, KBD_activate_interrupt
-    printf("etapa5 %d",stat)
-    "etapa5 129"
-  @kbc_utils.c:113, KBD_activate_interrupt
-    printf("etapa5")
-    "etapa5"
+  > sys_inb(0x60, addr: 0xeffff72c)
+  < sys_inb(0x60, addr: 0xeffff72c [0x81 = 0b10000001])
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff6e8)
-  < sys_inb(0x64, addr: 0xeffff6e8 [0x1c = 0b00011100])
-  @kbc_utils.c:89, buffer_writter
+  > sys_inb(0x64, addr: 0xeffff6fc)
+  < sys_inb(0x64, addr: 0xeffff6fc [0x1c = 0b00011100])
+  @kbc_utils.c:92, buffer_writter
     sys_outb(KBC_CMD_REG, entry)
   > sys_outb(0x64, 0x60 = 0b01100000)
-  @kbc_utils.c:90, buffer_writter
+  @kbc_utils.c:93, buffer_writter
     sys_outb(0x60, entry2)
   > sys_outb(0x60, 0x60 = 0b01100000)
-  @kbc_utils.c:115, KBD_activate_interrupt
-    printf("etapa6 \n")
-    "etapa6 "
   @utils.c:33, util_sys_inb
     sys_inb(port, &val32)
-  > sys_inb(0x64, addr: 0xeffff6e8)
-  < sys_inb(0x64, addr: 0xeffff6e8 [0x1c = 0b00011100])
-  @kbc_utils.c:89, buffer_writter
+  > sys_inb(0x64, addr: 0xeffff6fc)
+  < sys_inb(0x64, addr: 0xeffff6fc [0x1c = 0b00011100])
+  @kbc_utils.c:92, buffer_writter
     sys_outb(KBC_CMD_REG, entry)
   > sys_outb(0x64, 0x60 = 0b01100000)
-  @kbc_utils.c:90, buffer_writter
+  @kbc_utils.c:93, buffer_writter
     sys_outb(0x60, entry2)
   > sys_outb(0x60, 0x81 = 0b10000001)
-  @kbc_utils.c:117, KBD_activate_interrupt
-    printf("sussy files %d", stat)
-    "sussy files 129"
-  @lab3.c:146, kbd_test_poll
+  @lab3.c:140, kbd_test_poll
     kbd_print_no_sysinb(cntt)
-    "sys_inb_calls: 254"
+    "sys_inb_calls: 94"
 < kbd_test_poll() -> (ret: 0)

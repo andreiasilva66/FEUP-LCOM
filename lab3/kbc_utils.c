@@ -6,7 +6,8 @@
 // perguntar sobre a note 2 do slide 19 do teclado
 
 uint8_t data = 0x00;
-int hook;
+int hookKBC;
+int counter = 0;
 
 void(kbc_ih)() {
 
@@ -19,12 +20,14 @@ void(kbc_ih)() {
 }
 
 int(KBC_subscribe_int)(uint8_t *bit_no) {
-  hook = *bit_no;
-  return sys_irqsetpolicy(1, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook);
+  hookKBC = *bit_no;
+  return sys_irqsetpolicy(1, IRQ_REENABLE | IRQ_EXCLUSIVE, &hookKBC);
 }
 
+
+
 int(KBC_unsubscribe_int)() {
-  return sys_irqrmpolicy(&hook);
+  return sys_irqrmpolicy(&hookKBC);
 }
 
 int(status_reader)(uint8_t *stat) {
@@ -100,21 +103,21 @@ int(KBD_activate_interrupt)() {
 
   uint8_t stat;
   uint8_t commando = 0x20;
-  printf("etapa1");
+ // printf("etapa1");
   buffer_writter(KBC_ST_REG, &commando);
-  printf("etapa2");
+ // printf("etapa2");
   buffer_reader(0x60);
-  printf("etapa3");
+ // printf("etapa3");
   stat = data;
-  printf("etapa4 %d",stat);
+//  printf("etapa4 %d",stat);
   stat = stat | (BIT(0));
-  printf("etapa5 %d",stat);
+ // printf("etapa5 %d",stat);
   commando = 0x60;  
-  printf("etapa5");
+//  printf("etapa5");
   buffer_writter(KBC_ST_REG, &commando);
-  printf("etapa6 \n");
+ // printf("etapa6 \n");
   buffer_writter(KBC_OUT_BFR, &stat);
-  printf("sussy files %d", stat);
+ // printf("sussy files %d", stat);
   
 
   return 0;
