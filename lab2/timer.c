@@ -70,7 +70,7 @@ void (timer_int_handler)() {
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  
+  if( timer < 0 || timer > 2) return EXIT_FAILURE;
   uint8_t read_back_command = TIMER_RB_CMD | TIMER_RB_SEL(timer) | TIMER_RB_COUNT_; 
   sys_outb(TIMER_CTRL,read_back_command);
   util_sys_inb(TIMER_0 + timer,st); 
@@ -85,45 +85,69 @@ int (timer_display_conf)(uint8_t timer, uint8_t st,
 
   switch (field)
   {
+
+  printf("field %s", field);
   case tsf_all:
     val.byte = st;
     break;
 
   case tsf_initial:
 
+  printf("st %d \n",st);
   st <<= 2;
+  printf("st %d \n",st);
    st >>= 6;
+   printf("st %d \n",st);
 
     switch (st){
     
-    case 1:
+    case 0x01:
+    printf("mode 1 \n");
     val.in_mode = LSB_only;
       break;
 
-    case 2:
+    case 0x02:
+    
+    printf("mode 2 \n");
     val.in_mode = MSB_only;
     break;
 
-    case 3:
+    case 0x03:
+    
+    printf("mode 3 \n");
     val.in_mode = MSB_after_LSB;
-    break;
+    break;  
     
     default:
+    
+    printf("mode 4");
     val.in_mode = INVAL_val;
       break;
 
     }
+    break;
 
   case tsf_mode:
+  printf("sss  ST %d \n",st);
+  
+  st =(st & (BIT(3) | BIT(2) | BIT(1)));
+  st >>= 1;
+  printf("ST, %d \n",st);
 
-  val.count_mode =(st & (BIT(3) | BIT(2) | BIT(1)));
+  if(st == 0x06) st = 0x02;
+  if(st == 0x07) st = 0x03;
+ printf("ST, %d \n",st);
+  val.count_mode = st;
+  break;
 
   case tsf_base:
+  printf("s");
 
   val.bcd = st & BIT(0);
   break;
 
   default:
+  printf("fdafs");  
   break;
   }
 
