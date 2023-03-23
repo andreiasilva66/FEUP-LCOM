@@ -63,19 +63,18 @@ int(timer_test_int)(uint8_t time) {
       continue;
 
     if(is_ipc_notify(ipc_st)){
-      switch(_ENDPOINT_P(msg.m_source)){
-        case HARDWARE:
-          if(msg.m_notify.interrupts & irq_set){
-              timer_int_handler();
-              if(count%60==0){
-                time--;
-                timer_print_elapsed_time();}
-            }
-          break;
-        default:
-          break;
+      
+      if(msg.m_source == HARDWARE){
+
+        if(msg.m_notify.interrupts & irq_set){
+          timer_int_handler();
+          if(count%60==0){
+            time--;
+            timer_print_elapsed_time();}
         }
+      }
     }
   }
+  
   return timer_unsubscribe_int();
 }

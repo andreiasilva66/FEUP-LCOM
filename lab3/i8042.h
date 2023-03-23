@@ -1,0 +1,18 @@
+
+#ifndef LAB3_I8042_H
+#define LAB3_I8042_H
+
+
+#define ESC_KEY_BREAKCODE 0x81
+#define OUT_BUF 0x60
+#define KB_STATUS 0x64
+#define OUTBUFFER_FULL BIT(0)
+#define TWO_BYTE_CODE 0xE0
+#define KBC_BREAKCODE 0x80
+#define KBC_PARITY_ERROR BIT(7)
+#define KBC_TIMEOUT_ERROR BIT(6)
+#define DELAY_US 20000
+#define READ_COMMAND_BYTE 0x20
+#define WRITE_COMMAND_BYTE 0x60
+
+#endif // LAB3_I8042_H
