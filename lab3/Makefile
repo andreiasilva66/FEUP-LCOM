@@ -1,13 +1,13 @@
 # name of the program (Minix service)
-PROG=lab3 
+PROG = lab3 
 
 # source code files to be compiled
-SRCS = lab3.c timer.c utils.c
+SRCS = keyboard.c utils.c timer.c lab3.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
-CFLAGS += -pedantic 
-CFLAGS += -D LAB3
+CFLAGS += -pedantic
+CPPFLAGS += -D LAB3
 
 # list of library dependencies (for Lab 2, only LCF library)
 DPADD += ${LIBLCF}

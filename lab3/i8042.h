@@ -1,31 +1,32 @@
 #ifndef _LCOM_I8042_H_
 #define _LCOM_I8042_H_
 
-/* I/O Port Adresses */
-#define KBC_IN_BUD 0x64
-#define KBC_OUT_BUF 0x60
-#define KBC_STATUS_REGISTER 0x64      // reading the KBC state
-#define KBC_NOT_NAME 0x64             // writing KBC commands
+#include <lcom/lcf.h>
 
-/* KBC KEYCODES */
-#define MAKECODE_ESC 0x01
-#define BREAKCODE_ESC 0x81
+#define DELAY_US 20000
+#define KBD_ESC 0x81
+#define KBD_CMD_REG 0x64
 
-/* Status Byte Parsing */
-#define KBC_NONE 0                    // Usefull when only need to know output buffer
-#define KBC_OUT_BUFFER_FULL BIT(0)
-#define KBC_IN_BUFFER_FULL BIT(1)
-#define KBC_INHIBIT_FLAG BIT(4)       // 0 if keyboard is inhibited
-#define KBC_AUX BIT(5)
-#define KBC_TIMEOUT_ERR BIT(6)
-#define KBC_PARITY_ERR BIT(7)
 
-/* KBC COMMANDS */
-#define KBC_WRITE_CMD 0x60
-#define KBC_READ_CMD 0x20
+#define KBD_IRQ 1
 
-/* KBC INTERRUPTS */
-#define KBC_IRQ 1;
+#define KBD_ST_IBF BIT(1)
+#define KBD_OUT_BUF 0x60
 
+#define KBD_PAR_ERR BIT(7)
+#define KBD_TO_ERR BIT(6)
+
+
+#define TWO_BYTE 0xE0
+#define MAKE 0x80
+
+#define OUT_BUF 0x60
+#define IN_BUF 0x64
+#define IN_BUF_ARGS 0x60
+#define STAT_REG 0x64
+
+#define READ_CMD_BYTE 0x20
+#define WRITE_CMD_BYTE 0x60
+#define KBD_REENABLE_INT BIT(0)
 
 #endif
