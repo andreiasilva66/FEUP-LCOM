@@ -116,3 +116,50 @@ int(keyboard_loop)() {
     }
     return 0;
 }
+
+int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
+    uint8_t bytes = (info.BitsPerPixel+7) / 8;
+    uint8_t* ptr = (uint8_t*) video_mem + (y * info.XResolution + x) * bytes;
+    for(uint8_t j = 0; j < bytes; j++){
+        *ptr = color >> (j * 8);
+        ptr++;
+    }
+    return 0;
+}
+
+int (vg_draw_xpm) (const char *xpm[], uint16_t x, uint16_t y){
+    if(x > info.XResolution || y > info.YResolution){
+        return 1;
+    }
+    xpm_image_t image;
+    uint8_t map;
+    uint32_t width, height;
+
+    map = xpm_load(xpm, XPM_INDEXED, &image);
+    uint32_t counter = 0;
+    uint32_t extra_x = 0;
+    if(x+image.width <= info.XResolution){
+        width = x + image.width;
+    }
+    else{
+        width = info.XResolution;
+        extra_x = x + image.width - width;
+    }
+    if(y+image.height <= info.YResolution){
+        height = y + image.height;
+    }
+    else{
+        height = info.YResolution;
+    }
+    for(uint16_t h = y; h < height; h++){
+        for(uint16_t w = x; w < width; w++){
+            vg_draw_pixel(w, h, map[counter]);
+            counter++;
+        }
+        counter += extra_x;
+    }
+}
+
+int (vg_update)(){
+    
+}
