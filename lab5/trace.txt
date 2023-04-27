@@ -1,29 +1,29 @@
 @lcflib.a:2019, lcf_start
   video_test_init(mode, delay)
-> video_test_init(0x115, 3)
+> video_test_init(0x110, 2)
   @lab5.c:36, video_test_init
     vg_init(mode)
-  > vg_init(0x115)
+  > vg_init(0x110)
     @video.c:5, vg_init
       vbe_get_mode_info(mode, &info)
-    > vbe_get_mode_info(0x115, addr: 0xeffff4b0)
-    < vbe_get_mode_info(0x115, addr: 0xeffff4b0 [0xe0000000, 800x600, 8:8:8 (24) <1.3733 MiB>]) -> (ret: 0)
+    > vbe_get_mode_info(0x110, addr: 0xeffff4b0)
+    < vbe_get_mode_info(0x110, addr: 0xeffff4b0 [0xe0000000, 640x480, 5:5:5 (15) <700 KiB>]) -> (ret: 0)
     @video.c:12, vg_init
       sys_int86(&r86)
-    > sys_int86(addr: 0xeffff488 [AX: 4f02, BX: 4115, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
-    < sys_int86(addr: 0xeffff488 [AX: 004f, BX: 4115, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
+    > sys_int86(addr: 0xeffff488 [AX: 4f02, BX: 4110, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
+    < sys_int86(addr: 0xeffff488 [AX: 004f, BX: 4110, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
     @video.c:40, vg_init
       sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
-    > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff480 [0xe0000000 - 0xe01c61a0 <1.77384 MiB>])
+    > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff480 [0xe0000000 - 0xe00ce400 <826 KiB>])
     < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
     @video.c:45, vg_init
       vm_map_phys(SELF, (void *)mr.mr_base, vram_size)
-    < vm_map_phys(SELF, addr: 0xe0000000, 1.77384 MiB) -> (ret: 0xef834000)
-  < vg_init(0x115) -> (ret: 0xef834000)
+    < vm_map_phys(SELF, addr: 0xe0000000, 826 KiB) -> (ret: 0xef92c000)
+  < vg_init(0x110) -> (ret: 0xef92c000)
   @lab5.c:37, video_test_init
     sleep(delay)
-  > sleep(3)
+  > sleep(2)
   @lab5.c:38, video_test_init
     vg_exit()
   < vg_exit() -> (ret: 0)
-< video_test_init(0x115, 3) -> (ret: 0)
+< video_test_init(0x110, 2) -> (ret: 0)
