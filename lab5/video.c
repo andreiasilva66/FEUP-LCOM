@@ -17,7 +17,8 @@ unsigned int vram_size;  /* VRAM's size, but you can use the frame-buffer size, 
 // adicionamos 7 ao BitsPerPixel para garantirmos o n.º de bytes suficientes uma vez que fazermos uma divisão inteira
 //ex: 15 / 8 = 1, porém precisamos de 2 bytes;
 // 15+7 = 22      22/8 = 2   fica resolvido o problema
-vram_size = info.XResolution * info.YResolution * (info.BitsPerPixel + 7) / 8;
+uint8_t bytes_per_pixel = (info.BitsPerPixel + 7) / 8;
+vram_size = info.XResolution * info.YResolution * bytes_per_pixel;
 int r;				    
 
 /* Use VBE function 0x01 to initialize vram_base and vram_size */
