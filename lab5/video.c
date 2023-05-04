@@ -128,8 +128,8 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     return 0;
 }
 
-int (vg_draw_xpm) (const char *xpm[], uint16_t x, uint16_t y){
-    if(x > vg_info.XResolution || y > vg_info.YResolution){
+int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
+    if(x > info.XResolution || y > info.YResolution){
         return 1;
     }
     xpm_image_t image;
@@ -141,17 +141,17 @@ int (vg_draw_xpm) (const char *xpm[], uint16_t x, uint16_t y){
     uint32_t extra_x = 0;
 
     uint32_t width, height;
-    if(x+image.width <= vg_info.XResolution){
+    if(x+image.width <= info.XResolution){
         width = x+image.width;
     } else {
-        width = vg_info.XResolution;
+        width = info.XResolution;
         extra_x = x+image.width - width;
     }
 
-    if(y + image.height <= vg_info.YResolution){
+    if(y + image.height <= info.YResolution){
         height = y+image.height;
     } else {
-        height = vg_info.YResolution;
+        height = info.YResolution;
     }
 
     for(uint16_t i = y; i < height; i++){
@@ -165,7 +165,7 @@ int (vg_draw_xpm) (const char *xpm[], uint16_t x, uint16_t y){
     return 0;
 }
 
-int (vg_update)(){
+int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, uint16_t new_y){
     xpm_image_t image;
     uint8_t* map;
 
