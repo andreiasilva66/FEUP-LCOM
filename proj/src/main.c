@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 /* DEVICES */
-#include "devices/KBC/keyboard.h"
-#include "devices/video_card/video.h"
-#include "devices/KBC/mouse.h"
+#include "devices/keyboard.h"
+#include "devices/video.h"
 
 /* MODELS */
 #include "models/object.h"
