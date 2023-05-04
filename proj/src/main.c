@@ -9,7 +9,7 @@
 #include "models/object.h"
 
 /* VIEWS */
-#include "views/canvas.h"
+#include "view/canvas.h"
 
 #define WAIT 5
 

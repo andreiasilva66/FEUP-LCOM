@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "lcf.h": "c"
+        "lcf.h": "c",
+        "video.h": "c"
     }
 }
