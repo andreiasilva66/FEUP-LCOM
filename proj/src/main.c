@@ -12,14 +12,14 @@
 
 #define WAIT 5
 
-int kbd_hook_id, mouse_hook_id;
+int kbc_hook_id, mouse_hook_id;
 int mouse_x = 640;
 int mouse_y = 512;
 uint8_t mouse_packet;
 struct packet pp;
-bool kbd_ih_error;
+bool kbc_ih_error;
 bool mouse_ih_error;
-kbd_data data;
+extern uint8_t data;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -52,16 +52,16 @@ int disable_video(int flag){
 
 int proj_int_loop(Object* player){
     // global variables
-    kbd_hook_id = 0;
+    kbc_hook_id = 0;
     mouse_hook_id = 12;
 
     // local variables
     int ipc_status;
     message msg;
 
-    //kbd
-    uint8_t kbd_bit_no = 0;
-    int flag = kbd_subscribe_int(&kbd_bit_no);
+    //kbc
+    uint8_t kbc_bit_no = 0;
+    int flag = kbc_subscribe_int(&kbc_bit_no);
     if (flag) return flag;
 
     //mouse
@@ -70,12 +70,12 @@ int proj_int_loop(Object* player){
     if(mouse_subscribe_int(&mouse_bit_no)) return 1;
 
     uint32_t mouse_mask = BIT(mouse_bit_no);
-    uint32_t kbd_mask = BIT(kbd_bit_no);
+    uint32_t kbc_mask = BIT(kbc_bit_no);
 
     uint16_t old_x = player->x;
     uint16_t old_y = player->y;
     
-    while (data.scancode[data.two_byte] != KBD_ESC_BREAKCODE){
+    while (data != KBC_ESC){
         flag = driver_receive(ANY, &msg, &ipc_status);
         if (flag){
             printf("driver_receive failed with: %d", flag);
@@ -86,14 +86,13 @@ int proj_int_loop(Object* player){
 
         switch(_ENDPOINT_P(msg.m_source)){
             case HARDWARE : {
-                bool kbd_int = msg.m_notify.interrupts & kbd_mask;
+                bool kbc_int = msg.m_notify.interrupts & kbc_mask;
                 bool mouse_int = msg.m_notify.interrupts & mouse_mask;
-                if (kbd_int){
+                if (kbc_int){
 
-                    kbd_get_scancode(&data, WAIT);
+                    kbc_get_scancode(&data, WAIT);
 
-                    if (kbd_ih_error) return kbd_ih_error;
-                    if (!data.valid) break;
+                    if (kbc_ih_error) return kbc_ih_error;
 
                     process_scancode(player, &data);
 
@@ -135,7 +134,7 @@ int proj_int_loop(Object* player){
 
     printf("%d, %d", mouse_x, mouse_y);
 
-    return kbd_unsubscribe_int();
+    return kbc_unsubscribe_int();
 }
 
 int (proj_main_loop)(){

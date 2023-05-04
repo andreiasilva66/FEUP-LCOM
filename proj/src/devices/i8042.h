@@ -4,17 +4,17 @@
 #include <lcom/lcf.h>
 
 #define DELAY_US 20000
-#define KBD_ESC 0x81
-#define KBD_CMD_REG 0x64
+#define KBC_ESC 0x81
+#define KBC_CMD_REG 0x64
 
 
-#define KBD_IRQ 1
+#define KBC_IRQ 1
 
-#define KBD_ST_IBF BIT(1)
-#define KBD_OUT_BUF 0x60
+#define KBC_ST_IBF BIT(1)
+#define KBC_OUT_BUF 0x60
 
-#define KBD_PAR_ERR BIT(7)
-#define KBD_TO_ERR BIT(6)
+#define KBC_PAR_ERR BIT(7)
+#define KBC_TO_ERR BIT(6)
 
 
 #define TWO_BYTE 0xE0
@@ -27,6 +27,6 @@
 
 #define READ_CMD_BYTE 0x20
 #define WRITE_CMD_BYTE 0x60
-#define KBD_REENABLE_INT BIT(0)
+#define KBC_REENABLE_INT BIT(0)
 
 #endif
