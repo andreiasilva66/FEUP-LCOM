@@ -129,38 +129,54 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
 }
 
 int (vg_draw_xpm) (const char *xpm[], uint16_t x, uint16_t y){
-    if(x > info.XResolution || y > info.YResolution){
+    if(x > vg_info.XResolution || y > vg_info.YResolution){
         return 1;
     }
     xpm_image_t image;
-    uint8_t map;
-    uint32_t width, height;
+    uint8_t* map;
 
     map = xpm_load(xpm, XPM_INDEXED, &image);
+
     uint32_t counter = 0;
     uint32_t extra_x = 0;
-    if(x+image.width <= info.XResolution){
-        width = x + image.width;
+
+    uint32_t width, height;
+    if(x+image.width <= vg_info.XResolution){
+        width = x+image.width;
+    } else {
+        width = vg_info.XResolution;
+        extra_x = x+image.width - width;
     }
-    else{
-        width = info.XResolution;
-        extra_x = x + image.width - width;
+
+    if(y + image.height <= vg_info.YResolution){
+        height = y+image.height;
+    } else {
+        height = vg_info.YResolution;
     }
-    if(y+image.height <= info.YResolution){
-        height = y + image.height;
-    }
-    else{
-        height = info.YResolution;
-    }
-    for(uint16_t h = y; h < height; h++){
-        for(uint16_t w = x; w < width; w++){
-            vg_draw_pixel(w, h, map[counter]);
+
+    for(uint16_t i = y; i < height; i++){
+        for(uint16_t j = x; j < width; j++){
+            vg_draw_pixel(j,i,map[counter]);
             counter++;
         }
         counter += extra_x;
     }
+
+    return 0;
 }
 
 int (vg_update)(){
-    
+    xpm_image_t image;
+    uint8_t* map;
+
+    map = xpm_load(xpm, XPM_INDEXED, &image);
+
+    if(vg_draw_rectangle(old_x, old_y, image.width, image.height,0)){
+        return 1;
+    }
+
+    if(vg_draw_xpm(xpm, new_x, new_y)){
+        return 1;
+    }
+    return 0;
 }
