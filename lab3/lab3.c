@@ -63,7 +63,7 @@ while(data != KBC_ESC){
     case HARDWARE:
       if(msg.m_notify.interrupts & irq_set){
 
-        kbc_ih();
+        kbc_ih(); 
           printf( "codigo atual %d / t", data);
 
         if (data == TWO_SCAN_CODE) {
@@ -168,7 +168,7 @@ int(kbd_test_timed_scan)(uint8_t n) {
         check = true;
           //printf( "codigo atual %d / t", data);
         if (data == TWO_SCAN_CODE) {
-
+          
               code[0] = data;
               db = true;
               continue;
@@ -203,6 +203,7 @@ int(kbd_test_timed_scan)(uint8_t n) {
   
   timer_unsubscribe_int();
   KBC_unsubscribe_int();
+  
   return 0;
 }
 
