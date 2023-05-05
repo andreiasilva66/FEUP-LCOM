@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "canvas.h": "c",
+        "object.h": "c",
+        "video.h": "c"
+    }
+}

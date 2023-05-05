@@ -1,0 +1,173 @@
+#include <lcom/lcf.h>
+#include "keyboard.h"
+#include "i8042.h"
+
+int kbd_hook_id = 1;
+int mouse_hook_id = 2; 
+uint8_t scan_codes[2];
+int print = 0;
+int num = 1;
+extern uint8_t mouse_packet;
+uint8_t scancode;
+
+int(kbc_subscribe_int)(uint8_t *bit_no){
+    *bit_no = kbd_hook_id;
+    return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &kbd_hook_id);
+}
+
+int(kbc_unsubscribe_int)(){
+    return sys_irqrmpolicy(&kbd_hook_id);
+}
+
+int(mouse_subscribe_int)(uint8_t *bit_no){
+    *bit_no = mouse_hook_id;
+    return sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
+}
+
+int(mouse_unsubscribe_int)(){
+    return sys_irqrmpolicy(&mouse_hook_id);
+}
+
+int(kbc_get_status)(uint8_t *st){
+    return util_sys_inb(KBC_CMD_REG, st);
+}
+
+int(kbc_read_out_buffer)(uint8_t *data){ // read outputbuffer
+    uint8_t st = 0;
+    int err = 5;
+    while(err != 0){
+        if(kbc_get_status(&st)){
+            return 1;
+        }
+        if((st & BIT(0)) && check_status(st) == 0){
+            return util_sys_inb(KBC_OUT_BUF, data);
+            
+        }
+        err--;
+        if(tickdelay(micros_to_ticks(DELAY_US))) return 1;
+    }
+    return 1;
+}
+
+int(kbc_get_scancode)(uint8_t* data){ // substituir pelo kbc_ih ou vice-versa
+    
+
+    if(kbc_read_out_buffer(&scancode) != 0) return 1;
+
+    bool twobytes = false;
+
+    if(scancode == TWO_BYTE){
+        twobytes = true;
+        data[0] = scancode; 
+        return 0;
+        }
+
+    if(twobytes){
+        data[1] = scancode;
+        twobytes = false;
+    }
+
+    else{
+
+        data[0] = scancode;
+    }
+ 
+    return 0;
+}
+
+
+
+int(check_status)(uint8_t st){
+    return (st & (KBD_PAR_ERR | KBD_TO_ERR | BIT(5)));
+}
+
+int(kbc_print_codes)(){
+    if(print){
+        if(scancode < MAKE){
+            return kbd_print_scancode(true, num, scan_codes);
+        }
+        return kbd_print_scancode(false, num, scan_codes);
+    }
+    return 0;
+}
+             
+
+int(kbc_send_cmd)(uint8_t port, uint8_t cmd){
+    int i = 5;
+    uint8_t st = 0;
+    while(i != 0){
+        if(kbc_get_status(&st)){
+            return 1;
+        }
+        if(st & KBD_ST_IBF){
+            i--;
+            if(tickdelay(micros_to_ticks(DELAY_US))) return 1;
+            continue;
+        }
+        break;
+        
+    }
+    if(i == 0) return 1; //Timeout
+
+    return sys_outb(port, cmd);
+}
+
+int(kbc_reenable_int)(){
+    if(kbc_send_cmd(IN_BUF, READ_CMD_BYTE)) return 1;
+
+    uint8_t c;
+    if(kbc_read_out_buffer(&c)) return 1;
+
+    c |= KBD_REENABLE_INT;
+
+    if(kbc_send_cmd(IN_BUF, WRITE_CMD_BYTE)) return 1;
+
+    return (kbc_send_cmd(IN_BUF_ARGS,c));
+
+}
+
+
+// Mouse --
+
+int(mouse_write_cmd)(uint8_t cmd) {
+  uint8_t ack_flag;
+  do {
+    kbc_send_cmd(0x64, 0xD4);
+    kbc_send_cmd(0x60, cmd);
+    util_sys_inb(IN_BUF_ARGS, &ack_flag);
+  } while (ack_flag != KBC_ACK);
+  return 0;
+}
+
+int (mouse_get_data)(struct packet* pp){
+    uint8_t st;
+    uint8_t packet_byte;
+    bool first_byte = false;
+    if(kbc_get_status(&st) != 0) return 1;
+
+    if(kbc_read_out_buffer(&packet_byte) != 0) return 1;
+
+    if(packet_byte & BIT(3)){
+        first_byte = true; 
+    }
+
+    if(first_byte){
+        pp->bytes[mouse_packet] = packet_byte;
+        mouse_packet++;
+    }
+
+    return 0;    
+}
+
+int (mouse_parse_packet)(struct packet *pp){
+  pp->lb = pp->bytes[0] & PACKET_LEFT_BOTTON;
+  pp->mb = pp->bytes[0] & PACKET_MIDDLE_BOTTON;
+  pp->rb = pp->bytes[0] & PACKET_RIGHT_BOTTON;
+  pp->delta_x = (pp->bytes[0] & PACKET_X_NEGATIVE) ? (pp->bytes[1] | 0xFF00) : pp->bytes[1];
+  pp->delta_y = (pp->bytes[0] & PACKET_Y_NEGATIVE) ? (pp->bytes[2] | 0xFF00) : pp->bytes[2];
+  pp->x_ov = pp->bytes[0] & PACKET_X_OVERFLOW;
+  pp->y_ov = pp->bytes[0] & PACKET_Y_OVERFLOW;
+  return 0;
+}
+
+

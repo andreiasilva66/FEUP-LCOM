@@ -4,9 +4,13 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+<<<<<<< HEAD
 extern uint32_t cnt;
 
 
+=======
+extern uint32_t timerCount;
+>>>>>>> c35a06cedcec12ab30a0b352a92eb14825bd1a0e
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -33,6 +37,7 @@ int main(int argc, char *argv[]) {
 }
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
+<<<<<<< HEAD
     uint8_t st;
    
      timer_get_conf(timer,&st);
@@ -44,10 +49,22 @@ int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
 int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
   return timer_set_frequency(timer,freq);
   
+=======
+  uint8_t rb;
+  if(timer_get_conf(timer, &rb) || timer_display_conf(timer, rb, field)){ // Verificar se alguma das calls falha
+    return 1;
+  }
+  return 0; // Success
+}
+
+int(timer_test_time_base)(uint8_t timer, uint32_t freq) {
+  return timer_set_frequency(timer, freq);
+>>>>>>> c35a06cedcec12ab30a0b352a92eb14825bd1a0e
 }
 
 
 int(timer_test_int)(uint8_t time) {
+<<<<<<< HEAD
   
 uint8_t hook = 4;  // 0 e 31  000000000001000   8 != 0  000100000    
 timer_subscribe_int(&hook);
@@ -84,6 +101,43 @@ while(time != 0){
     break;
   }
   }
+=======
+
+  uint8_t hook = 1;
+  timer_subscribe_int(&hook);
+  uint32_t irq_set = BIT(hook);
+
+  int ipc_status;
+  int r;
+  message msg;
+
+  while(timerCount < time * 60){
+
+    if((r = driver_receive(ANY, &msg, &ipc_status)) != 0){ 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+
+    if (is_ipc_notify(ipc_status)){
+      switch (_ENDPOINT_P(msg.m_source)){
+        case HARDWARE:{
+          if(msg.m_notify.interrupts & irq_set){
+            timer_int_handler();
+            if(timerCount % 60 == 0){
+              timer_print_elapsed_time();
+            }
+          }
+          break;
+        }
+        default:{
+          break;
+        }
+      }
+    } 
+  }
+  timer_unsubscribe_int();
+  return 0;
+>>>>>>> c35a06cedcec12ab30a0b352a92eb14825bd1a0e
 }
   timer_unsubscribe_int();
   return 0;

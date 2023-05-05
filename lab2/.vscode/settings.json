@@ -8,7 +8,11 @@
   "editor.wordWrapColumn": 100,
   "files.associations": {
     "lcf.h": "c",
+<<<<<<< HEAD
     "syslib.h": "c",
     "lab2.h": "c"
+=======
+    "stdint.h": "c"
+>>>>>>> c35a06cedcec12ab30a0b352a92eb14825bd1a0e
   },
 }
