@@ -1,7 +1,7 @@
 #include <lcom/lcf.h>
 #include "keyboard.h"
 #include "i8042.h"
-
+                                //possivel refactor (meter)
 int kbd_hook_id = 1;
 int mouse_hook_id = 2; 
 uint8_t scan_codes[2];
@@ -9,6 +9,7 @@ int print = 0;
 int num = 1;
 extern uint8_t mouse_packet;
 uint8_t scancode;
+bool first_byte = false;
 
 int(kbc_subscribe_int)(uint8_t *bit_no){
     *bit_no = kbd_hook_id;
@@ -32,14 +33,14 @@ int(kbc_get_status)(uint8_t *st){
     return util_sys_inb(KBC_CMD_REG, st);
 }
 
-int(kbc_read_out_buffer)(uint8_t *data){ // read outputbuffer
-    uint8_t st = 0;
+int(kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
+    
     int err = 5;
     while(err != 0){
-        if(kbc_get_status(&st)){
+        if(kbc_get_status(st)){
             return 1;
         }
-        if((st & BIT(0)) && check_status(st) == 0){
+        if((*st & OUT_BFF_FULL) && check_status(*st) == 0){
             return util_sys_inb(KBC_OUT_BUF, data);
             
         }
@@ -50,9 +51,9 @@ int(kbc_read_out_buffer)(uint8_t *data){ // read outputbuffer
 }
 
 int(kbc_get_scancode)(uint8_t* data){ // substituir pelo kbc_ih ou vice-versa
-    
+    uint8_t st;
 
-    if(kbc_read_out_buffer(&scancode) != 0) return 1;
+    if(kbc_read_out_buffer(&scancode,&st) != 0) return 1;
 
     bool twobytes = false;
 
@@ -78,8 +79,8 @@ int(kbc_get_scancode)(uint8_t* data){ // substituir pelo kbc_ih ou vice-versa
 
 
 int(check_status)(uint8_t st){
-    return (st & (KBD_PAR_ERR | KBD_TO_ERR | BIT(5)));
-}
+    return (st & (KBD_PAR_ERR | KBD_TO_ERR));
+}   
 
 int(kbc_print_codes)(){
     if(print){
@@ -116,7 +117,8 @@ int(kbc_reenable_int)(){
     if(kbc_send_cmd(IN_BUF, READ_CMD_BYTE)) return 1;
 
     uint8_t c;
-    if(kbc_read_out_buffer(&c)) return 1;
+    uint8_t st;
+    if(kbc_read_out_buffer(&c,&st)) return 1;
 
     c |= KBD_REENABLE_INT;
 
@@ -142,10 +144,16 @@ int(mouse_write_cmd)(uint8_t cmd) {
 int (mouse_get_data)(struct packet* pp){
     uint8_t st;
     uint8_t packet_byte;
-    bool first_byte = false;
+    
     if(kbc_get_status(&st) != 0) return 1;
 
-    if(kbc_read_out_buffer(&packet_byte) != 0) return 1;
+    if(kbc_read_out_buffer(&packet_byte,&st) != 0) return 1;
+    
+
+    if(!(st & BIT(5))){
+        printf("Not reading mouse");
+        return 1;
+    }
 
     if(packet_byte & BIT(3)){
         first_byte = true; 
@@ -155,6 +163,12 @@ int (mouse_get_data)(struct packet* pp){
         pp->bytes[mouse_packet] = packet_byte;
         mouse_packet++;
     }
+
+    if(mouse_packet == 3){
+        
+        first_byte = false;
+    }
+  
 
     return 0;    
 }

@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 
+#include "lcom/utils.h"
+
 int count = 0;
 
 int(util_get_LSB)(uint16_t val, uint8_t *lsb) {

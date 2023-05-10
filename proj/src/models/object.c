@@ -1,8 +1,35 @@
 #include <lcom/lcf.h>
 
 #include "object.h"
+#include "devices/i8042.h"
+#include "bullet.h"
+
+extern bool jumping;
+bool jump_down = false;
+int y_ini;
+extern u_int32_t n_bullets;
+
+void jump(Object* obj, uint16_t speed){
+
+    if(jump_down){
+        if(obj->y == y_ini){
+            jumping = false;
+            jump_down = false;
+            return;
+        }
+        moveDown(obj,2);
+    }
+    else{
+        if(obj->y == y_ini - 30){
+            jump_down= true;
+            return;
+        }
+        moveUp(obj,2);
+    }
+}
 
 void moveUp(Object* obj, uint16_t speed){
+
     if(obj->y - speed <= 50){
         obj->y -= (obj->y - 50);
     } else {
@@ -19,6 +46,7 @@ void moveDown(Object* obj, uint16_t speed){
 }
 
 void moveLeft(Object* obj, uint16_t speed){
+    
     if(obj->x - speed <= 50){
         obj->x -= (obj->x - 50);
     }else{
@@ -27,6 +55,7 @@ void moveLeft(Object* obj, uint16_t speed){
 }
 
 void moveRight(Object* obj, uint16_t speed){
+    
     if(obj->x + 50 + speed >= 1230){
         obj->x += (1230 - obj->x - 50);
     } else {
@@ -36,9 +65,12 @@ void moveRight(Object* obj, uint16_t speed){
 
 void process_scancode(Object* obj, uint8_t* scancodes){
     
+    obj->frame++;
 
     if (MOVE_UP(scancodes)){
-        moveUp(obj, 10);
+        jumping=true;
+        y_ini=obj->y;
+        //moveUp(obj, 10);
     }
     else if (MOVE_DOWN(scancodes)){
         moveDown(obj, 10);
@@ -51,3 +83,37 @@ void process_scancode(Object* obj, uint8_t* scancodes){
     }
 
 }
+
+bool firstbullet= false;
+
+void draw_mouse(Mouse *mouse){
+    uint32_t arena_color = 0xFFF0;
+    if(mouse->x == mouse->old_x && mouse->y == mouse->old_y) return;
+
+    if (mouse->old_x!=0 || mouse->old_y!=0){
+        vg_draw_rectangle(mouse->old_x, mouse->old_y, 20, 20, arena_color);
+    }
+    
+    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
+}
+
+void  process_packet(Object* obj, struct packet *pp, Mouse *mouse){
+    printf("processar");
+    if(pp->lb && !firstbullet){
+        printf("entou");
+        firstbullet=true;
+        create_bullet(obj,pp);
+    }
+    draw_mouse(mouse);
+    
+}
+
+void update_pos(Object* obj){
+    obj->old_x=obj->x;
+    obj->old_y=obj->y;
+}
+
+
+
+
+

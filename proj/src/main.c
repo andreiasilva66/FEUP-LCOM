@@ -3,6 +3,7 @@
 #include "devices/i8042.h"
 
 /* DEVICES */
+#include <lcom/timer.h>
 #include "devices/keyboard.h"
 #include "devices/video.h"
 
@@ -12,17 +13,20 @@
 /* VIEWS */
 #include "view/canvas.h"
 
+#include "models/bullet.h"
+
 #define WAIT 5
 
-int kbc_hook_id, mouse_hook_id;
-int mouse_x = 640;
-int mouse_y = 512;
-uint8_t mouse_packet;
+int kbc_hook_id, mouse_hook_id, timer_hook_id;
+Mouse mouse = {640, 512, 0, 0};
+uint8_t mouse_packet = 0;
 struct packet pp;
 bool kbc_ih_error;
 bool mouse_ih_error;
- uint8_t data[2];
+bool jumping = false;
+uint8_t data[2];
 extern uint8_t scancode;
+extern uint32_t n_bullets;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -57,10 +61,15 @@ int proj_int_loop(Object* player){
     // global variables
     kbc_hook_id = 0;
     mouse_hook_id = 12;
+    timer_hook_id = 3;
 
     // local variables
     int ipc_status;
     message msg;
+
+    //timer
+    uint8_t timer_bit_no;
+    if(timer_subscribe_int(&timer_bit_no)) return 1;
 
     //kbc
     uint8_t kbc_bit_no = 0;
@@ -72,11 +81,9 @@ int proj_int_loop(Object* player){
     if(mouse_write_cmd(MOUSE_EN_DATA_REP) != 0)return 1;
     if(mouse_subscribe_int(&mouse_bit_no)) return 1;
 
+    uint32_t timer_mask = BIT(timer_bit_no); 
     uint32_t mouse_mask = BIT(mouse_bit_no);
     uint32_t kbc_mask = BIT(kbc_bit_no);
-
-    uint16_t old_x = player->x;
-    uint16_t old_y = player->y;
     
     while (scancode != KBC_ESC){
         flag = driver_receive(ANY, &msg, &ipc_status);
@@ -89,8 +96,26 @@ int proj_int_loop(Object* player){
 
         switch(_ENDPOINT_P(msg.m_source)){
             case HARDWARE : {
+                bool timer_int = msg.m_notify.interrupts & timer_mask;
                 bool kbc_int = msg.m_notify.interrupts & kbc_mask;
                 bool mouse_int = msg.m_notify.interrupts & mouse_mask;
+                if (timer_int){
+                    if(jumping){
+                        jump(player,10);
+
+                        flag = canvas_refresh(player);
+
+                        if (flag) return flag;
+
+                        player->old_x = player->x; player->old_y = player->y;
+                    }
+
+                    if(n_bullets){
+                        update_bullets();
+                    }
+
+
+                }
                 if (kbc_int){
                     
                     kbc_get_scancode(data);
@@ -101,33 +126,38 @@ int proj_int_loop(Object* player){
 
                     process_scancode(player, data);
 
-                    flag = canvas_refresh(player, old_x, old_y);
+                    flag = canvas_refresh(player);
 
-                     if (flag) return flag;
+                    if (flag) return flag;
 
-                    old_x = player->x; old_y = player->y;
+                    update_pos(player);
+
                 }
 
                 if(mouse_int){
-
-                    mouse_get_data(&pp);
-
-                    if(mouse_ih_error) return mouse_ih_error;
-                    if (mouse_packet < 3) break;
+                    
+                    if(mouse_get_data(&pp)) return 1;
+                    if (mouse_packet != 3) break;
 
                     mouse_parse_packet(&pp);
 
-                    mouse_x += pp.delta_x;
-                    
-                    if(mouse_x < 0) mouse_x = 0;
-                    if(mouse_x > 1280) mouse_x = 1280;
+                    mouse.old_x=mouse.x;
+                    mouse.old_y=mouse.y;
 
-                    mouse_y -= pp.delta_y;
+                    mouse.x += pp.delta_x;
                     
-                    if(mouse_y < 0) mouse_y = 0;
-                    if(mouse_y > 1024) mouse_y = 1024;
+                    if(mouse.x < 0) mouse.x = 0;
+                    if(mouse.x > 1280) mouse.x = 1280;
+
+                    mouse.y -= pp.delta_y;
+                    
+                    if(mouse.y < 0) mouse.y = 0;
+                    if(mouse.y > 1024) mouse.y = 1024;
+
+                    process_packet(player, &pp, &mouse);
 
                     mouse_packet = 0;
+
                 }
             }
             default : break;
@@ -138,13 +168,13 @@ int proj_int_loop(Object* player){
 
     if(mouse_unsubscribe_int()) return 1;
 
-    printf("%d, %d", mouse_x, mouse_y);
+    if(timer_unsubscribe_int()) return 1;
 
     return kbc_unsubscribe_int();
 } 
 
 int (proj_main_loop)(){
-    Object player = {100, 100};
+    Object player = {100, 100, 100, 100, 0};
 
    
     int flag = set_frame_buffer(0x11A);

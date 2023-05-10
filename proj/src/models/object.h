@@ -13,13 +13,19 @@
 typedef struct {
     uint16_t x;
     uint16_t y;
+    uint16_t old_x;
+    uint16_t old_y;
+    uint8_t frame;
 } Object;
 
 void moveUp(Object* obj, uint16_t speed);
 void moveDown(Object* obj, uint16_t speed);
 void moveLeft(Object* obj, uint16_t speed);
 void moveRight(Object* obj, uint16_t speed);
+void jump(Object* obj, uint16_t speed);
 
 void process_scancode(Object* obj, uint8_t* data);
+void process_packet(Object* obj, struct packet *pp, Mouse *mouse);
+void update_pos(Object* obj);
 
 #endif // _LCOM_OBJECT_H_

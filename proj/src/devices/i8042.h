@@ -10,6 +10,8 @@
 #define KBD_PAR_ERR BIT(7)
 #define KBD_TO_ERR BIT(6)
 #define KBD_ST_IBF BIT(1)
+#define OUT_BFF_FULL BIT(0)
+#define KBC_AUX_MOUSE BIT(5)
 
 #define KBD_ESC 0x81
 

@@ -5,6 +5,14 @@
 #include <stdint.h>
 #include "i8042.h"
 
+typedef struct{
+  uint16_t x;
+  uint16_t y;
+  uint16_t old_x;
+  uint16_t old_y;
+} Mouse;
+
+
 void(kbc_ih)();
 
 int(kbc_subscribe_int)(uint8_t *bit_no);
@@ -13,7 +21,7 @@ int(kbc_unsubscribe_int)();
 
 int(kbc_get_status)(uint8_t *st);
 
-int(kbc_read_out_buffer)(uint8_t *data);
+int(kbc_read_out_buffer)(uint8_t *data, uint8_t * st);
 
 int(kbc_print_codes)();
 
@@ -34,6 +42,8 @@ int (mouse_get_data)(struct packet *pp);
 int(kbc_get_scancode)(uint8_t* data);
 
 int check_status(uint8_t st);
+
+
 
 #endif
 
