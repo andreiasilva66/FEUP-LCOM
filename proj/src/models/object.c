@@ -102,7 +102,7 @@ void  process_packet(Object* obj, struct packet *pp, Mouse *mouse){
     if(pp->lb && !firstbullet){
         printf("entou");
         firstbullet=true;
-        create_bullet(obj,pp);
+        create_bullet(obj,pp, mouse);
     }
     draw_mouse(mouse);
     
