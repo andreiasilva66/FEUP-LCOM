@@ -1,29 +1,48 @@
 #include <lcom/lcf.h>
 
 #include "helicopter.h"
-#include "Bullet.h"
-#include "player.h"
+#include "bullet.h"
+
 #include "devices/i8042.h"
 
+bool isRight = true;
+bool isGoingUp = true;
 
-typedef struct {
-  uint16_t x;
-  uint16_t y;
-  uint16_t old_x;
-  uint16_t old_y;
-  uint8_t hp;
-} Helicopter;
-
-
-
-void movement(Helicopter * heli, Player* player){
-  if(player->x > heli->x){
-    heli->old_x=heli->x;
-    heli->x++;
+void movement(Helicopter* heli) {
+  if (isGoingUp) {
+    heli->old_y = heli->y;
+    heli->y++;
+  } else {
+    heli->old_y = heli->y;
+    heli->y--;
   }
-  else{
-    heli->old_x=heli->x;
+
+  if (heli->y >= 120) {
+    isGoingUp = false;
+  } else if (heli->y <= 100) {
+    isGoingUp = true;
+  }
+
+  if (heli->x < 100 && !isRight) {
+    heli->old_x = heli->x;
+    heli->x++;
+  } else if (heli->x > 900 && isRight) {
+    heli->old_x = heli->x;
     heli->x--;
+  } else {
+    if (isRight) {
+      heli->old_x = heli->x;
+      heli->x++;
+    } else {
+      heli->old_x = heli->x;
+      heli->x--;
+    }
+  }
+
+  if (heli->x >= 900) {
+    isRight = false;
+  } else if (heli->x <= 100) {
+    isRight = true;
   }
 }
 

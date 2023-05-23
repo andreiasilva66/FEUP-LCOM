@@ -17,6 +17,7 @@
     "ih.h": "c",
     "player.h": "c",
     "canvas.h": "c",
-    "CANVAS.H": "cpp"
+    "CANVAS.H": "cpp",
+    "helicopter.h": "c"
   },
 }

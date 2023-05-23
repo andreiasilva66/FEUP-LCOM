@@ -13,6 +13,7 @@
 // Include models 
 #include "models/player.h"
 #include "models/bullet.h"
+#include "models/helicopter.h"
 
 // Include views
 #include "view/canvas.h"

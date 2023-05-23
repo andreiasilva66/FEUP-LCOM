@@ -18,6 +18,7 @@ extern uint32_t n_player_bullets;
 extern uint32_t n_heli_bullets;
 uint32_t reloadtime = 60*3;
 Player player = {100, 1004-80, 100, 1004-80, 100, 0};
+Helicopter heli = {200, 100, 200, 100, 100};
 bool finished = false; 
 
 int init_game(){
@@ -32,6 +33,9 @@ int init_game(){
     if (flag) return vg_exit();
 
     flag = vg_draw_rectangle(player.x, player.y, 50, 50, 0x000F);
+    if (flag) return vg_exit();
+
+    flag = vg_draw_rectangle(heli.x, heli.y, 100, 50, 0x000F);
     if (flag) return vg_exit();
 
     uint8_t timer_bit_no=0;
@@ -103,6 +107,9 @@ int close_game(){
 }
 
 void timer_int_h(){
+
+    movement(&heli);
+
   if(n_player_bullets==10){
     if(reloadtime==0){
       reloadtime = 60*3;
@@ -114,7 +121,7 @@ void timer_int_h(){
   if(jumping){
       jump(&player,10);
 
-      int flag = canvas_refresh(&player);
+      int flag = canvas_refresh(&player, &heli);
 
       if (flag) finished = true;
 
@@ -124,6 +131,7 @@ void timer_int_h(){
   if(n_player_bullets){
       player_update_bullets();
   }
+  
 }
 
 void kbc_int_h(){
@@ -137,7 +145,7 @@ void kbc_int_h(){
 
     process_scancode(&player, data);
 
-    int flag = canvas_refresh(&player);
+    int flag = canvas_refresh(&player, &heli);
 
     if (flag) finished=true;
 
