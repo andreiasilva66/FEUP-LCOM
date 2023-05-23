@@ -1,9 +1,10 @@
 #ifndef _LCOM_OBJECT_H_
 #define _LCOM_OBJECT_H_
-
+#include <lcom/lcf.h>
 #include <stdint.h>
 
 #include "../devices/keyboard.h"
+
 
 #define MOVE_UP(scancodes) (scancodes[0] == 0x11 || (scancodes[0] == 0xE0 && scancodes[1] == 0x48))
 #define MOVE_DOWN(scancodes) (scancodes[0] == 0x1f || (scancodes[0] == 0xE0 && scancodes[1] == 0x50))
@@ -15,6 +16,7 @@ typedef struct {
     uint16_t y;
     uint16_t old_x;
     uint16_t old_y;
+    uint8_t hp; // between 0 and 100 
     uint8_t frame;
 } Object;
 

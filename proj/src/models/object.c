@@ -17,14 +17,14 @@ void jump(Object* obj, uint16_t speed){
             jump_down = false;
             return;
         }
-        moveDown(obj,2);
+        moveDown(obj,4);
     }
     else{
-        if(obj->y == y_ini - 30){
+        if(obj->y == y_ini - 80){
             jump_down= true;
             return;
         }
-        moveUp(obj,2);
+        moveUp(obj,4);
     }
 }
 
@@ -56,7 +56,7 @@ void moveLeft(Object* obj, uint16_t speed){
 
 void moveRight(Object* obj, uint16_t speed){
     
-    if(obj->x + 50 + speed >= 1230){
+    if(obj->x + 50 + speed >= 1230-50){
         obj->x += (1230 - obj->x - 50);
     } else {
         obj->x += speed;
@@ -68,6 +68,8 @@ void process_scancode(Object* obj, uint8_t* scancodes){
     obj->frame++;
 
     if (MOVE_UP(scancodes)){
+        if(jumping)
+            return;
         jumping=true;
         y_ini=obj->y;
         //moveUp(obj, 10);
@@ -84,8 +86,6 @@ void process_scancode(Object* obj, uint8_t* scancodes){
 
 }
 
-bool firstbullet= false;
-
 void draw_mouse(Mouse *mouse){
     uint32_t arena_color = 0xFFF0;
     if(mouse->x == mouse->old_x && mouse->y == mouse->old_y) return;
@@ -97,12 +97,9 @@ void draw_mouse(Mouse *mouse){
     vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
 }
 
-void  process_packet(Object* obj, struct packet *pp, Mouse *mouse){
-    printf("processar");
-    if(pp->lb && !firstbullet){
-        printf("entou");
-        firstbullet=true;
-        create_bullet(obj,pp, mouse);
+void process_packet(Object* obj, struct packet *pp, Mouse *mouse){
+    if(pp->lb){
+        player_create_bullet(obj,pp, mouse);
     }
     draw_mouse(mouse);
     

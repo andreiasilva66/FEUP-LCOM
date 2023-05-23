@@ -1,55 +1,91 @@
+
 #include <lcom/lcf.h>
 #include <math.h>
 
 #include "bullet.h"
+#include "object.h"
 
-uint32_t n_bullets=0;
-Bullet bullets [10];
+uint32_t n_player_bullets=0;
+uint32_t n_heli_bullets=0;
 
-int (draw_bullets)(Bullet *bullet){
-    printf("desenha \n");
+
+Bullet player_bullets[10];
+Bullet heli_bullets[10];
+
+
+void (initialize_bullets)(){
+    Bullet bullet = {0,0,0,0,0,0,false};
+    for(int i = 0 ; i<10 ; i++){
+        player_bullets[i]=bullet;
+        heli_bullets[i]=bullet;
+    }
+}
+
+int (draw_bullet)(Bullet *bullet){
+    
     uint32_t arena_color = 0xFFF0;
-
-    // if (bullet->x == bullet->old_x && bullet->y == bullet->old_y) return 0;
 
     if (bullet->old_x!=0 || bullet->old_y!=0){
         int flag = vg_draw_rectangle(bullet->old_x, bullet->old_y, 20, 20, arena_color);
         if (flag) return flag;
     }
 
-    return vg_draw_rectangle(bullet->x, bullet->y, 20, 20, 0xFFFF);
+    return vg_draw_rectangle(bullet->x, bullet->y, 20, 20, 0xFFF);
     
 }
 
-void update_bullets(){
-    printf("update \n");
-    bullets[0].old_x=bullets[0].x;
-    bullets[0].old_y=bullets[0].y;
-    bullets[0].x += bullets[0].vx;
-    bullets[0].y += bullets[0].vy;
-    if(bullets[0].y<=50 || bullets[0].y >= 974 || bullets[0].x < 50 || bullets[0].x >= 1230){
-        n_bullets--;
-        vg_draw_rectangle(bullets[0].old_x, bullets[0].old_y, 20, 20, 0xFFF0);
-        return;
+void player_update_bullets(){
+    
+    for(unsigned i = 0;i<10;i++){
+        if(!player_bullets[i].in_game)
+            continue;
+        player_bullets[i].old_x=player_bullets[i].x;
+        player_bullets[i].old_y=player_bullets[i].y;
+        player_bullets[i].x += player_bullets[i].vx;
+        player_bullets[i].y += player_bullets[i].vy;
+        if(player_bullets[i].y<=50 || player_bullets[i].y >= 1004-50 || player_bullets[i].x <= 50 || player_bullets[i].x >= 1230-20){
+            vg_draw_rectangle(player_bullets[i].old_x, player_bullets[i].old_y, 20, 20, 0xFFF0);
+            player_bullets[i].in_game=false;
+            return;
     }
-    draw_bullets(&bullets[0]);
-    printf("%d \n",bullets[0].y);
-    printf("%d \n",bullets[0].old_y);
+    draw_bullet(&player_bullets[i]);
+    }
 }
 
-void create_bullet(Object* obj,struct packet *pp, Mouse *mouse){
+void player_create_bullet( Object* obj,struct packet *pp, Mouse *mouse){
 
-    if(n_bullets == 10)
+    if(n_player_bullets == 10)
         return;
 
-    printf("cria");
-    uint16_t dir_x = mouse->x - obj->x;
-    uint16_t dir_y = mouse->y - obj->y;
-    uint16_t length = sqrt(dir_x^2 + dir_y^2);
-    Bullet bullet = {obj->x, obj->y, 0, 0, dir_x/length, dir_y/length};
+    int delta_x = mouse->x - obj->x;
+    int delta_y = mouse->y - obj->y;
+    double alpha = atan2((double)delta_y, (double)delta_x);
+    player_bullets[n_player_bullets].x = obj->x;
+    player_bullets[n_player_bullets].y = obj->y;
+    player_bullets[n_player_bullets].old_x = 0;
+    player_bullets[n_player_bullets].old_y = 0;
+    player_bullets[n_player_bullets].in_game = true;
+    player_bullets[n_player_bullets].vx = (int16_t)round(cos(alpha) * 5.0);
+    player_bullets[n_player_bullets].vy = (int16_t)round(sin(alpha) * 5.0);  
 
-    bullets[n_bullets]=bullet;
-    n_bullets++;
-
-    draw_bullets(&bullet);
+    n_player_bullets++;
 }
+
+void heli_update_bullets(){
+    for(unsigned i = 0;i<10;i++){
+        if(!heli_bullets[i].in_game)
+            continue;
+        heli_bullets[i].old_x=heli_bullets[i].x;
+        heli_bullets[i].old_y=heli_bullets[i].y;
+        heli_bullets[i].x += heli_bullets[i].vx;
+        heli_bullets[i].y += heli_bullets[i].vy;
+        if(heli_bullets[i].y<=50 || heli_bullets[i].y >= 1004-50 || heli_bullets[i].x <= 50 || heli_bullets[i].x >= 1230-20){
+            vg_draw_rectangle(heli_bullets[i].old_x, heli_bullets[i].old_y, 20, 20, 0xFFF0);
+            heli_bullets[i].in_game=false;
+            return;
+    }
+    draw_bullet(&heli_bullets[i]);
+    }
+}
+
+

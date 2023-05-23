@@ -3,14 +3,13 @@
 
 #include "../devices/video.h"
 
-typedef struct Sprite
-{
+typedef struct {
     uint16_t height;
     uint16_t width;
     uint32_t color;
     uint32_t *colors;
     uint8_t pressed; 
-};
+} Sprite;
 
 Sprite create_sprite (xpm_map_t sprite);
 void destroy_sprite (Sprite *sprite);
