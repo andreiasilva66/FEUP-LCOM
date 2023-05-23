@@ -1,6 +1,6 @@
 #include <lcom/lcf.h>
 
-#include "object.h"
+#include "player.h"
 #include "devices/i8042.h"
 #include "bullet.h"
 
@@ -9,7 +9,7 @@ bool jump_down = false;
 int y_ini;
 extern u_int32_t n_bullets;
 
-void jump(Object* obj, uint16_t speed){
+void jump(Player* obj, uint16_t speed){
 
     if(jump_down){
         if(obj->y == y_ini){
@@ -28,7 +28,7 @@ void jump(Object* obj, uint16_t speed){
     }
 }
 
-void moveUp(Object* obj, uint16_t speed){
+void moveUp(Player* obj, uint16_t speed){
 
     if(obj->y - speed <= 50){
         obj->y -= (obj->y - 50);
@@ -37,7 +37,7 @@ void moveUp(Object* obj, uint16_t speed){
     }
 }
 
-void moveDown(Object* obj, uint16_t speed){
+void moveDown(Player* obj, uint16_t speed){
     if(obj->y + 50 + speed >= 974){
         obj->y += (974 - obj->y - 50);
     } else {
@@ -45,7 +45,7 @@ void moveDown(Object* obj, uint16_t speed){
     }
 }
 
-void moveLeft(Object* obj, uint16_t speed){
+void moveLeft(Player* obj, uint16_t speed){
     
     if(obj->x - speed <= 50){
         obj->x -= (obj->x - 50);
@@ -54,7 +54,7 @@ void moveLeft(Object* obj, uint16_t speed){
     }
 }
 
-void moveRight(Object* obj, uint16_t speed){
+void moveRight(Player* obj, uint16_t speed){
     
     if(obj->x + 50 + speed >= 1230-50){
         obj->x += (1230 - obj->x - 50);
@@ -63,7 +63,7 @@ void moveRight(Object* obj, uint16_t speed){
     }
 }
 
-void process_scancode(Object* obj, uint8_t* scancodes){
+void process_scancode(Player* obj, uint8_t* scancodes){
     
     obj->frame++;
 
@@ -97,17 +97,17 @@ void draw_mouse(Mouse *mouse){
     vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
 }
 
-void process_packet(Object* obj, struct packet *pp, Mouse *mouse){
+void process_packet(Player* player, struct packet *pp, Mouse *mouse){
     if(pp->lb){
-        player_create_bullet(obj,pp, mouse);
+        player_create_bullet(player,pp, mouse);
     }
     draw_mouse(mouse);
     
 }
 
-void update_pos(Object* obj){
-    obj->old_x=obj->x;
-    obj->old_y=obj->y;
+void update_pos(Player* player){
+    player->old_x=player->x;
+    player->old_y=player->y;
 }
 
 

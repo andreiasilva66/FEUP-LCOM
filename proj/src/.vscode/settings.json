@@ -14,6 +14,9 @@
     "lcf.h": "c",
     "object.h": "c",
     "bullet.h": "c",
-    "ih.h": "c"
+    "ih.h": "c",
+    "player.h": "c",
+    "canvas.h": "c",
+    "CANVAS.H": "cpp"
   },
 }

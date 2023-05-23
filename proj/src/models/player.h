@@ -1,5 +1,5 @@
-#ifndef _LCOM_OBJECT_H_
-#define _LCOM_OBJECT_H_
+#ifndef _LCOM_PLAYER_H_
+#define _LCOM_PLAYER_H_
 #include <lcom/lcf.h>
 #include <stdint.h>
 
@@ -18,16 +18,16 @@ typedef struct {
     uint16_t old_y;
     uint8_t hp; // between 0 and 100 
     uint8_t frame;
-} Object;
+} Player;
 
-void moveUp(Object* obj, uint16_t speed);
-void moveDown(Object* obj, uint16_t speed);
-void moveLeft(Object* obj, uint16_t speed);
-void moveRight(Object* obj, uint16_t speed);
-void jump(Object* obj, uint16_t speed);
+void moveUp(Player* obj, uint16_t speed);
+void moveDown(Player* obj, uint16_t speed);
+void moveLeft(Player* obj, uint16_t speed);
+void moveRight(Player* obj, uint16_t speed);
+void jump(Player* obj, uint16_t speed);
 
-void process_scancode(Object* obj, uint8_t* data);
-void process_packet(Object* obj, struct packet *pp, Mouse *mouse);
-void update_pos(Object* obj);
+void process_scancode(Player* obj, uint8_t* data);
+void process_packet(Player* obj, struct packet *pp, Mouse *mouse);
+void update_pos(Player* obj);
 
-#endif // _LCOM_OBJECT_H_
+#endif // _LCOM_PLAYER_H_

@@ -3,7 +3,7 @@
 #include <math.h>
 
 #include "bullet.h"
-#include "object.h"
+#include "player.h"
 
 uint32_t n_player_bullets=0;
 uint32_t n_heli_bullets=0;
@@ -52,7 +52,7 @@ void player_update_bullets(){
     }
 }
 
-void player_create_bullet( Object* obj,struct packet *pp, Mouse *mouse){
+void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
 
     if(n_player_bullets == 10)
         return;

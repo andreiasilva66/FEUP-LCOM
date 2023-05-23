@@ -2,9 +2,9 @@
 #define _LCOM_CANVAS_H_
 
 #include "../devices/video.h"
-#include "../models/object.h"
+#include "../models/player.h"
 
 int (canvas_draw_arena)(uint32_t new_arena_color, uint32_t new_walls_color);
-int (canvas_refresh)(Object* obj);
+int (canvas_refresh)(Player* obj);
 
 #endif // _LCOM_CANVAS_H_

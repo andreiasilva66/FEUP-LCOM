@@ -11,7 +11,7 @@
 #include "video.h"
 
 // Include models 
-#include "models/object.h"
+#include "models/player.h"
 #include "models/bullet.h"
 
 // Include views

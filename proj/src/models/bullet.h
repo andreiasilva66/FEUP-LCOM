@@ -2,7 +2,7 @@
 #define _LCOM_BULLET_H_
 #include <lcom/lcf.h>
 #include <stdint.h>
-#include "object.h"
+#include "player.h"
 #include "devices/keyboard.h"
 
 typedef struct {
@@ -20,6 +20,6 @@ int (draw_bullet)(Bullet* bullet);
 void (initialize_bullets)();
 void heli_update_bullets();
 void player_update_bullets();
-void player_create_bullet(Object *obj,struct packet *pp, Mouse *mouse);
+void player_create_bullet(Player *obj,struct packet *pp, Mouse *mouse);
 
 #endif // _LCOM_BULLET_H_

@@ -17,7 +17,7 @@ extern uint8_t scancode;
 extern uint32_t n_player_bullets;
 extern uint32_t n_heli_bullets;
 uint32_t reloadtime = 60*3;
-Object player = {100, 1004-80, 100, 1004-80, 100, 0};
+Player player = {100, 1004-80, 100, 1004-80, 100, 0};
 bool finished = false; 
 
 int init_game(){

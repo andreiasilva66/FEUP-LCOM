@@ -2,7 +2,7 @@
 
 #include "helicopter.h"
 #include "Bullet.h"
-#include "object.h"
+#include "player.h"
 #include "devices/i8042.h"
 
 
@@ -16,9 +16,15 @@ typedef struct {
 
 
 
-void movement(Object* obj){
-
-
+void movement(Helicopter * heli, Player* player){
+  if(player->x > heli->x){
+    heli->old_x=heli->x;
+    heli->x++;
+  }
+  else{
+    heli->old_x=heli->x;
+    heli->x--;
+  }
 }
 
-void shooting(Object* obj, Bullet)
+void shooting(Helicopter* heli ,Player* player);
