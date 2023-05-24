@@ -2,17 +2,19 @@
 #include "keyboard.h"
 #include "i8042.h"
                                 //possivel refactor (meter)
-int kbd_hook_id = 1;
-int mouse_hook_id = 2; 
+int kbd_hook_id;
+int mouse_hook_id; 
 uint8_t scan_codes[2];
 int print = 0;
 int num = 1;
 extern uint8_t mouse_packet;
 uint8_t scancode;
 bool first_byte = false;
+bool rightKey = false;
+bool leftKey = false;
 
 int(kbc_subscribe_int)(uint8_t *bit_no){
-    *bit_no = kbd_hook_id;
+    kbd_hook_id = *bit_no;
     return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &kbd_hook_id);
 }
 
@@ -21,7 +23,7 @@ int(kbc_unsubscribe_int)(){
 }
 
 int(mouse_subscribe_int)(uint8_t *bit_no){
-    *bit_no = mouse_hook_id;
+    mouse_hook_id = *bit_no;
     return sys_irqsetpolicy(MOUSE_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &mouse_hook_id);
 }
 
@@ -77,22 +79,11 @@ int(kbc_get_scancode)(uint8_t* data){ // substituir pelo kbc_ih ou vice-versa
 }
 
 
-
 int(check_status)(uint8_t st){
     return (st & (KBD_PAR_ERR | KBD_TO_ERR));
 }   
 
-int(kbc_print_codes)(){
-    if(print){
-        if(scancode < MAKE){
-            return kbd_print_scancode(true, num, scan_codes);
-        }
-        return kbd_print_scancode(false, num, scan_codes);
-    }
-    return 0;
-}
              
-
 int(kbc_send_cmd)(uint8_t port, uint8_t cmd){
     int i = 5;
     uint8_t st = 0;
@@ -184,4 +175,19 @@ int (mouse_parse_packet)(struct packet *pp){
   return 0;
 }
 
+bool leftKeyPressed(){
+    return leftKey;
+}
+
+bool rightKeyPressed(){
+    return rightKey;
+}
+
+void pressLeftKey(bool is_pressed){
+    leftKey = is_pressed;
+}
+
+void pressRightKey(bool is_pressed){
+    rightKey = is_pressed;
+}
 

@@ -4,9 +4,10 @@
 #include "devices/i8042.h"
 #include "bullet.h"
 
-extern bool jumping;
+bool jumping = false;
 bool jump_down = false;
 int y_ini;
+
 extern u_int32_t n_bullets;
 
 void jump(Player* obj, uint16_t speed){
@@ -64,38 +65,46 @@ void moveRight(Player* obj, uint16_t speed){
 }
 
 void process_scancode(Player* obj, uint8_t* scancodes){
-    
-    obj->frame++;
 
-    if (MOVE_UP(scancodes)){
+    switch (*scancodes)
+    {
+    case MOVE_RIGHT_MAKE:
+        pressRightKey(true);
+        break;
+
+    case MOVE_LEFT_MAKE:
+        pressLeftKey(true);
+        break;
+
+    case MOVE_UP_MAKE:
         if(jumping)
-            return;
+            break;
         jumping=true;
         y_ini=obj->y;
-        //moveUp(obj, 10);
-    }
-    else if (MOVE_DOWN(scancodes)){
-        moveDown(obj, 10);
-    }
-    else if (MOVE_LEFT(scancodes)){
-        moveLeft(obj, 10);
-    }
-    else if (MOVE_RIGHT(scancodes)){
-        moveRight(obj, 10);
-    }
+        break;
 
+    case MOVE_RIGHT_BREAK:
+        pressRightKey(false);
+        break;
+
+    case MOVE_LEFT_BREAK:
+        pressLeftKey(false);
+        break;
+    
+    default:
+        break;
+    }
 }
 
 void draw_mouse(Mouse *mouse){
     
-    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
+    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0xFF0000);
 }
 
 void process_packet(Player* player, struct packet *pp, Mouse *mouse){
     if(pp->lb){
         player_create_bullet(player,pp, mouse);
     }
-    draw_mouse(mouse);
     
 }
 
@@ -132,8 +141,16 @@ void draw_player(Player * player){
 }
 
 
-
-
-
+void player_update_mov(Player *player){
+    if(jumping){
+        jump(player,5);
+    }
+    if(leftKeyPressed()){
+        moveLeft(player, 5);
+    }
+    else if(rightKeyPressed()){
+        moveRight(player, 5);
+    }
+}
 
 

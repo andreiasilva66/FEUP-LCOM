@@ -21,8 +21,6 @@ int(kbc_get_status)(uint8_t *st);
 
 int(kbc_read_out_buffer)(uint8_t *data, uint8_t * st);
 
-int(kbc_print_codes)();
-
 int(kbc_send_cmd)(uint8_t port, uint8_t cmd);
 
 int(kbc_reenable_int)();
@@ -41,7 +39,13 @@ int(kbc_get_scancode)(uint8_t* data);
 
 int check_status(uint8_t st);
 
+bool leftKeyPressed();
 
+bool rightKeyPressed();
+
+void pressLeftKey(bool is_pressed);
+
+void pressRightKey(bool is_pressed);
 
 #endif
 
