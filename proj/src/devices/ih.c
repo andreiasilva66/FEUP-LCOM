@@ -7,6 +7,7 @@ uint32_t timer_mask;
 uint32_t mouse_mask;
 uint32_t kbc_mask;
 
+extern Rtc rtc;
 Mouse mouse = {640, 512};
 uint8_t mouse_packet = 0;
 struct packet pp;
@@ -25,6 +26,11 @@ bool finished = false;
 GameState game_state = MAINMENU; 
 
 int init_game(){
+
+    /*
+    memccpy(&rtc, 0, sizeof(rtc));
+    rtc_update();
+    */
 
     initialize_bullets();
    
