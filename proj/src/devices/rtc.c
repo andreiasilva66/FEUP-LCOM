@@ -2,7 +2,8 @@
 
 // Global Variables
 Rtc rtc;
-int kbd_hook_id = 4;
+int rtc_hook_id = 4;
+int rtc_interrupts = 0;
 
 
 // Methods
@@ -41,7 +42,7 @@ int(rtc_update)(){
     if(rtc_available() != 0){
         return 1;
     }
-    if(rtc_binary_mode == 1){
+    if(rtc_binary_mode() == 1){
         return 1;
     }
 
