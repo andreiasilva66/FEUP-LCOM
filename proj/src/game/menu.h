@@ -18,6 +18,7 @@ void menu_mouse(Mouse *mouse, struct packet *pp);
 void main_menu_mouse(Mouse *mouse, struct packet *pp);
 void instructions_mouse(Mouse *mouse, struct packet *pp);
 void mode_mouse(Mouse *mouse, struct packet *pp);
-void game_over_mouse(Mouse *mouse, struct packet *pp);
+void (game_over_mouse)(Mouse *mouse, struct packet *pp);
+void restore_game_def();
 
 #endif // _LCOM_MENU_H_

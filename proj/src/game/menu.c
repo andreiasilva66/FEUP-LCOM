@@ -22,6 +22,8 @@ void restore_game_def(){
   heli.x = HELI_INI_X;
   heli.y = HELI_INI_Y;
   heli.hp = HELI_HP;
+  heli.vx = 1;
+  heli.vy = 1;
 
   for(int i = 0; i< BULLETS; i++){
     heli_bullets[i].in_game=false;
@@ -72,7 +74,7 @@ void instructions_mouse(Mouse *mouse, struct packet *pp){
   }
 }
 
-void game_over_mouse(Mouse *mouse, struct packet *pp){
+void (game_over_mouse)(Mouse *mouse, struct packet *pp){
   if(pp->lb){
     if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
           game_state =  MAINMENU; 

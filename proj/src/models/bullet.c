@@ -77,8 +77,8 @@ void heli_create_bullet( Helicopter* heli, Player* target){
     heli_bullets[n_heli_bullets].x = heli->x;
     heli_bullets[n_heli_bullets].y = heli->y;
     heli_bullets[n_heli_bullets].in_game = true;
-    heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0);
-    heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0);  
+    heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 * heli->vx);
+    heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0 * heli->vy);  
 
     n_heli_bullets++;
 }

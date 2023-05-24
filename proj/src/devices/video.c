@@ -193,3 +193,8 @@ int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, u
     }
     return 0;
 }
+
+
+void free_buffer(){
+    free(video_mem_sec);
+}

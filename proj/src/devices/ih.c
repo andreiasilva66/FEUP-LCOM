@@ -19,9 +19,10 @@ extern uint32_t n_heli_bullets;
 extern uint32_t timer_cnt;
 uint32_t reloadtime = 60*3;
 Player player = {PLAYER_INI_X, PLAYER_INI_Y, PLAYER_HP, 0};
-Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_HP, true};
+Helicopter heli = {HELI_INI_X, HELI_INI_Y, 1, 1, HELI_HP, true};
 bool finished = false;
 GameState game_state = MAINMENU; 
+extern uint32_t heli_shoot_time;
 
 int init_game(){
 
@@ -111,6 +112,8 @@ int close_game(){
     if(mouse_write_cmd(MOUSE_DIS_DATA_REP))
         return vg_exit();
 
+    free_buffer();
+
     return vg_exit();
 }
 
@@ -141,13 +144,19 @@ void timer_int_h(){
                 reloadtime--;
             }
 
-            if(timer_cnt%(60*2)==0){
+            if(timer_cnt % (heli_shoot_time) == 0){
                 helicopter_shoot(&heli,&player);
             }
 
+            // add difficulty
+            if(timer_cnt % (60*30) == 0){
+                helicopter_add_difficulty(&heli);                
+            }
+
+
             // Update objects
-            if(n_player_bullets) player_update_bullets(&heli);
-            if(n_heli_bullets) heli_update_bullets(&player);
+            player_update_bullets(&heli);
+            heli_update_bullets(&player);
             update_heli_move(&heli);
             player_update_mov(&player);
 

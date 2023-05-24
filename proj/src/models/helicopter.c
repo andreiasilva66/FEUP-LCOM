@@ -6,6 +6,7 @@
 #include "devices/i8042.h"
 bool isRight = true;
 bool isGoingUp = true;
+uint32_t heli_shoot_time = 60 * 2;
 
 void update_heli_move(Helicopter* heli) {
   if(!heli->alive){
@@ -64,6 +65,14 @@ void destroy_helicopter(Helicopter * heli){
   }
   else{
     init_helicopter(heli);
+  }
+}
+
+void helicopter_add_difficulty(Helicopter * heli){
+  heli->vx++;
+  heli->vy++;
+  if(heli_shoot_time > 30){
+    heli_shoot_time -= 20;
   }
 }
 
