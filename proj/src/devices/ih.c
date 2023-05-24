@@ -1,6 +1,7 @@
 
 #include <lcom/lcf.h>
 #include "ih.h"
+#include "game/menu.h"
 
 uint32_t timer_mask; 
 uint32_t mouse_mask;
@@ -16,10 +17,12 @@ uint8_t data[2];
 extern uint8_t scancode;
 extern uint32_t n_player_bullets;
 extern uint32_t n_heli_bullets;
+extern uint32_t timer_cnt;
 uint32_t reloadtime = 60*3;
-Player player = {100, 1004-80, 100, 1004-80, 100, 0};
-Helicopter heli = {200, 100, 200, 100, 100};
-bool finished = false; 
+Player player = {PLAYER_INI_X, PLAYER_INI_Y, PLAYER_INI_X, PLAYER_INI_Y, PLAYER_HP, 0};
+Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_INI_X, HELI_INI_Y, HELI_HP};
+bool finished = false;
+GameState game_state = MAINMENU; 
 
 int init_game(){
 
@@ -28,15 +31,18 @@ int init_game(){
     int flag = set_frame_buffer(0x11A);
     if (flag) return vg_exit();
 
+    //draw menu
+    canvas_draw_menu();
+
      //draw arena
-    flag = canvas_draw_arena(0xFFF0, 0xF09F);
-    if (flag) return vg_exit();
+    //flag = canvas_draw_arena(0xFFF0, 0xF09F);
+    // if (flag) return vg_exit();
 
-    flag = vg_draw_rectangle(player.x, player.y, 50, 50, 0x000F);
-    if (flag) return vg_exit();
+    // flag = vg_draw_rectangle(player.x, player.y, 50, 50, 0x000F);
+    // if (flag) return vg_exit();
 
-    flag = vg_draw_rectangle(heli.x, heli.y, 100, 50, 0x000F);
-    if (flag) return vg_exit();
+    // flag = vg_draw_rectangle(heli.x, heli.y, 100, 50, 0x000F);
+    // if (flag) return vg_exit();
 
     uint8_t timer_bit_no=0;
     if(timer_subscribe_int(&timer_bit_no)) return 1;
@@ -107,31 +113,50 @@ int close_game(){
 }
 
 void timer_int_h(){
+    timer_int_handler();
+    change_buffer();
+    switch(game_state){
+        case MAINMENU:
+            break;
+        case GAME: 
+            if(n_player_bullets==10){
+                if(reloadtime==0){
+                reloadtime = 60*3;
+                n_player_bullets=0;
+                }
+                reloadtime--;
+            }
 
-    movement(&heli);
+            if(jumping){
+                jump(&player,10);
 
-  if(n_player_bullets==10){
-    if(reloadtime==0){
-      reloadtime = 60*3;
-      n_player_bullets=0;
-      }
-    reloadtime--;
-  }
+                int flag = canvas_refresh(&player, &heli);
 
-  if(jumping){
-      jump(&player,10);
+                if (flag) finished = true;
 
-      int flag = canvas_refresh(&player, &heli);
+                player.old_x = player.x; player.old_y = player.y;
+            }
 
-      if (flag) finished = true;
+            if(n_player_bullets) player_update_bullets(&heli);
+            if(n_heli_bullets) heli_update_bullets(&player);
+            
+            if(timer_cnt%(60*2)==0){
+                shooting(&heli,&player);
+            }
+            /* 
+            if(player.hp == 0)  destroy player and print game over image and return to menu button 
+            if(heli.hp == 0)  destroy heli, stop the movement and the bullets(players loses control?) , destruction animation, game won image and return to menu button  */
+            movement(&heli);
+            break;
+        case GAMEOVER:
+            vg_draw_rectangle(MENU_POS_X,MENU_DIST + MENU_POS_Y,MENU_WIDTH,MENU_HEIGHT,0);
+            break;
+        default:
+            break;
+    }
+    
 
-      player.old_x = player.x; player.old_y = player.y;
-  }
-
-  if(n_player_bullets){
-      player_update_bullets();
-  }
-  
+    
 }
 
 void kbc_int_h(){
@@ -173,7 +198,13 @@ void mouse_int_h(){
     if(mouse.y <= 50) mouse.y = 50;
     if(mouse.y >= 1004-50) mouse.y = 1004-50;
 
-    process_packet(&player, &pp, &mouse);
+    if(game_state == MAINMENU || game_state == INSTRUCTIONS || game_state == MODE || game_state == GAMEOVER){
+        menu_mouse(&mouse, &pp);
+        draw_mouse(&mouse);
+        }
+    else if(game_state == GAME){
+        process_packet(&player, &pp, &mouse);
+    }
 
     mouse_packet = 0;
 }

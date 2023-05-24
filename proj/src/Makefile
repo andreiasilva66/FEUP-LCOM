@@ -4,9 +4,10 @@ PROG = proj
 .PATH: ${.CURDIR}/devices
 .PATH: ${.CURDIR}/models
 .PATH: ${.CURDIR}/view
+.PATH: ${.CURDIR}/game
 
 # source code files to be compiled
-SRCS = main.c keyboard.c video.c player.c canvas.c utils.c timer.c bullet.c helicopter.c ih.c
+SRCS = main.c menu.c keyboard.c video.c player.c canvas.c utils.c timer.c bullet.c helicopter.c ih.c 
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set

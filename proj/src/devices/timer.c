@@ -62,9 +62,7 @@ int (timer_unsubscribe_int)() {
 }
 
 void (timer_int_handler)() {
-  
   timer_cnt++;
-  
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {

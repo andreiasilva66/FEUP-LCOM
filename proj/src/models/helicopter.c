@@ -4,7 +4,6 @@
 #include "bullet.h"
 
 #include "devices/i8042.h"
-
 bool isRight = true;
 bool isGoingUp = true;
 
@@ -46,4 +45,9 @@ void movement(Helicopter* heli) {
   }
 }
 
-void shooting(Helicopter* heli ,Player* player);
+void shooting(Helicopter* heli ,Player* player){
+
+  heli_create_bullet(heli,player);
+
+  
+}

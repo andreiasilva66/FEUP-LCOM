@@ -29,5 +29,6 @@ void jump(Player* obj, uint16_t speed);
 void process_scancode(Player* obj, uint8_t* data);
 void process_packet(Player* obj, struct packet *pp, Mouse *mouse);
 void update_pos(Player* obj);
-
+void draw_mouse(Mouse *mouse);
+void draw_hp_bar(uint8_t hp);
 #endif // _LCOM_PLAYER_H_

@@ -5,6 +5,13 @@
 extern uint8_t data;
 vbe_mode_info_t info;
 void *video_mem;
+void *video_mem_sec;
+unsigned int vram_size;  
+
+
+void (change_buffer)(){
+    memcpy(video_mem, video_mem_sec, vram_size);
+}
 
 int(set_frame_buffer)(uint16_t mode){
     vbe_get_mode_info(mode, &info);
@@ -12,7 +19,7 @@ int(set_frame_buffer)(uint16_t mode){
 struct minix_mem_range mr;
 unsigned int vram_base;  /* VRAM's physical addresss */
 vram_base = info.PhysBasePtr;
-unsigned int vram_size;  /* VRAM's size, but you can use the frame-buffer size, instead */
+
 
 // adicionamos 7 ao BitsPerPixel para garantirmos o n.º de bytes suficientes uma vez que fazermos uma divisão inteira
 //ex: 15 / 8 = 1, porém precisamos de 2 bytes;
@@ -41,7 +48,7 @@ if(video_mem == MAP_FAILED){
    panic("couldn't map video memory");
    return 1;
 }
-    memset(video_mem, 0, vram_size);
+    //memset(video_mem, 0, vram_size);
     reg86_t r86;
     memset(&r86, 0, sizeof(r86));
     r86.ax = 0x4F02; // VBE call, function 02 -- set VBE mode
@@ -52,12 +59,13 @@ if(video_mem == MAP_FAILED){
         printf("set_vbe_mode: sys_int86() failed \n");
         return 1;
     }
+    video_mem_sec = malloc(vram_size);
     return 0;
 }
 
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     uint8_t bytes = (info.BitsPerPixel+7) / 8;
-    uint8_t* ptr = (uint8_t*) video_mem + (y * info.XResolution + x) * bytes;
+    uint8_t* ptr = (uint8_t*) video_mem_sec + (y * info.XResolution + x) * bytes;
     for(uint16_t i = 0; i < len ; i++){
         for(uint8_t j = 0; j < bytes; j++){
             *ptr = color >> (j * 8);
@@ -122,7 +130,7 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     uint8_t bytes = (info.BitsPerPixel+7) / 8;
-    uint8_t* ptr = (uint8_t*) video_mem + (y * info.XResolution + x) * bytes;
+    uint8_t* ptr = (uint8_t*) video_mem_sec + (y * info.XResolution + x) * bytes;
     for(uint8_t j = 0; j < bytes; j++){
         *ptr = color >> (j * 8);
         ptr++;

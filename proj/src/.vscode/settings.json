@@ -18,6 +18,8 @@
     "player.h": "c",
     "canvas.h": "c",
     "CANVAS.H": "cpp",
-    "helicopter.h": "c"
+    "helicopter.h": "c",
+    "menu.h": "c",
+    "values.h": "c"
   },
 }

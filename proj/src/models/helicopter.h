@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#include "../devices/keyboard.h"
+#include "devices/keyboard.h"
 #include "player.h"
 
 typedef struct {

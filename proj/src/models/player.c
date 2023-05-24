@@ -110,6 +110,15 @@ void update_pos(Player* player){
     player->old_y=player->y;
 }
 
+void draw_hp_bar(uint8_t hp){
+
+    vg_draw_rectangle(40,Y_RESOLUTION - 20, 100, 50,0xFFF0);
+    vg_draw_rectangle(40, Y_RESOLUTION - 20, hp, 50,0x00FF00);
+
+}
+
+
+
 
 
 

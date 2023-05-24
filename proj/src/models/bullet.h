@@ -3,6 +3,8 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include "player.h"
+#include "helicopter.h"
+#include "devices/values.h"
 #include "devices/keyboard.h"
 
 typedef struct {
@@ -18,8 +20,11 @@ typedef struct {
 
 int (draw_bullet)(Bullet* bullet);
 void (initialize_bullets)();
-void heli_update_bullets();
-void player_update_bullets();
-void player_create_bullet(Player *obj,struct packet *pp, Mouse *mouse);
+void heli_update_bullets(Player * player);
+void player_update_bullets(Helicopter * heli);
+void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse);
+void heli_create_bullet( Helicopter* obj,Player* target);
+void verify_player_collision (Player * player, Bullet* bullet);
+void verify_heli_collision (Helicopter * heli, Bullet* bullet);
 
 #endif // _LCOM_BULLET_H_

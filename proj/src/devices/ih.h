@@ -4,8 +4,11 @@
 
 #include <stdio.h>
 
+// Include menu
+#include "game/menu.h"
+
 // Include devices
-#include <lcom/timer.h>
+#include "timer.h"
 #include "keyboard.h"
 #include "i8042.h"
 #include "video.h"
@@ -17,6 +20,7 @@
 
 // Include views
 #include "view/canvas.h"
+
 
 int init_game();
 
