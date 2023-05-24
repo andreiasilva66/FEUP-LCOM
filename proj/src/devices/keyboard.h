@@ -41,7 +41,13 @@ int(kbc_get_scancode)(uint8_t* data);
 
 int check_status(uint8_t st);
 
+bool leftKeyPressed();
 
+bool rightKeyPressed();
+
+void pressLeftKey(bool is_pressed);
+
+void pressRightKey(bool is_pressed);
 
 #endif
 

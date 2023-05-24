@@ -10,6 +10,8 @@ int num = 1;
 extern uint8_t mouse_packet;
 uint8_t scancode;
 bool first_byte = false;
+bool rightKey = false;
+bool leftKey = false;
 
 int(kbc_subscribe_int)(uint8_t *bit_no){
     *bit_no = kbd_hook_id;
@@ -184,4 +186,19 @@ int (mouse_parse_packet)(struct packet *pp){
   return 0;
 }
 
+bool leftKeyPressed(){
+    return leftKey;
+}
+
+bool rightKeyPressed(){
+    return rightKey;
+}
+
+void pressLeftKey(bool is_pressed){
+    leftKey = is_pressed;
+}
+
+void pressRightKey(bool is_pressed){
+    rightKey = is_pressed;
+}
 

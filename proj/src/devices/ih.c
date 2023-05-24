@@ -12,7 +12,6 @@ uint8_t mouse_packet = 0;
 struct packet pp;
 bool kbc_ih_error;
 bool mouse_ih_error;
-bool jumping = false;
 uint8_t data[2];
 extern uint8_t scancode;
 extern uint32_t n_player_bullets;
@@ -125,20 +124,14 @@ void timer_int_h(){
         case MAINMENU:
             break;
         case GAME: 
+            player_update_mov(&player);
+
             if(n_player_bullets==10){
                 if(reloadtime==0){
                 reloadtime = 60*3;
                 n_player_bullets=0;
                 }
                 reloadtime--;
-            }
-
-            if(jumping){
-                jump(&player,10);
-
-                int flag = canvas_refresh(&player, &heli);
-
-                if (flag) finished = true;
             }
 
             if(n_player_bullets) player_update_bullets(&heli);
@@ -173,10 +166,6 @@ void kbc_int_h(){
     if (kbc_ih_error) finished=true;
 
     process_scancode(&player, data);
-
-    int flag = canvas_refresh(&player, &heli);
-
-    if (flag) finished=true;
   
 }
 

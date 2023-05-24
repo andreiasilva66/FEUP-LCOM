@@ -9,6 +9,7 @@
 #define PLAYER_HP 100
 #define PLAYER_INI_Y 924
 #define PLAYER_INI_X 100 
+#define PLAYER_SPEED 10
 
 
 //helicopter

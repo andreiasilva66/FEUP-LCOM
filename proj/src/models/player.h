@@ -6,10 +6,14 @@
 #include "../devices/keyboard.h"
 
 
-#define MOVE_UP(scancodes) (scancodes[0] == 0x11 || (scancodes[0] == 0xE0 && scancodes[1] == 0x48))
-#define MOVE_DOWN(scancodes) (scancodes[0] == 0x1f || (scancodes[0] == 0xE0 && scancodes[1] == 0x50))
-#define MOVE_LEFT(scancodes) (scancodes[0] == 0x1e || (scancodes[0] == 0xE0 && scancodes[1] == 0x4b))
-#define MOVE_RIGHT(scancodes) (scancodes[0] == 0x20 || (scancodes[0] == 0xE0 && scancodes[1] == 0x4d))
+#define MOVE_UP_MAKE 0x11
+#define MOVE_DOWN_MAKE 0x1f 
+#define MOVE_LEFT_MAKE 0x1e 
+#define MOVE_RIGHT_MAKE 0x20
+#define MOVE_UP_BREAK 0x91
+#define MOVE_DOWN_BREAK 0x9f 
+#define MOVE_LEFT_BREAK 0x9e 
+#define MOVE_RIGHT_BREAK 0xa0 
 
 typedef struct {
     uint16_t x;
@@ -29,4 +33,6 @@ void process_packet(Player* obj, struct packet *pp, Mouse *mouse);
 void draw_mouse(Mouse *mouse);
 void draw_hp_bar(uint8_t hp);
 void draw_player(Player * player);
+void player_update_mov(Player *player);
+
 #endif // _LCOM_PLAYER_H_

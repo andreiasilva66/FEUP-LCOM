@@ -4,9 +4,10 @@
 #include "devices/i8042.h"
 #include "bullet.h"
 
-extern bool jumping;
+bool jumping = false;
 bool jump_down = false;
 int y_ini;
+
 extern u_int32_t n_bullets;
 
 void jump(Player* obj, uint16_t speed){
@@ -64,26 +65,37 @@ void moveRight(Player* obj, uint16_t speed){
 }
 
 void process_scancode(Player* obj, uint8_t* scancodes){
-    
-    obj->frame++;
 
-    if (MOVE_UP(scancodes)){
+    switch (*scancodes)
+    {
+    case MOVE_RIGHT_MAKE:
+        printf("clicou direita\n");
+        rightKeyPressed(true);
+        break;
+
+    case MOVE_LEFT_MAKE:
+        printf("clicou esqerda\n");
+        leftKeyPressed(true);
+        break;
+
+    case MOVE_UP_MAKE:
         if(jumping)
-            return;
+            break;
         jumping=true;
         y_ini=obj->y;
-        //moveUp(obj, 10);
-    }
-    else if (MOVE_DOWN(scancodes)){
-        moveDown(obj, 10);
-    }
-    else if (MOVE_LEFT(scancodes)){
-        moveLeft(obj, 10);
-    }
-    else if (MOVE_RIGHT(scancodes)){
-        moveRight(obj, 10);
-    }
+        break;
 
+    case MOVE_RIGHT_BREAK:
+        rightKeyPressed(false);
+        break;
+
+    case MOVE_LEFT_BREAK:
+        leftKeyPressed(false);
+        break;
+    
+    default:
+        break;
+    }
 }
 
 void draw_mouse(Mouse *mouse){
@@ -132,8 +144,18 @@ void draw_player(Player * player){
 }
 
 
-
-
-
+void player_update_mov(Player *player){
+    if(jumping){
+        jump(player,PLAYER_SPEED);
+    }
+    if(leftKeyPressed()){
+        printf("esqeuerda\n");
+        moveLeft(player, 10);
+    }
+    else if(rightKeyPressed()){
+        printf("direita\n");
+        moveRight(player, PLAYER_SPEED);
+    }
+}
 
 
