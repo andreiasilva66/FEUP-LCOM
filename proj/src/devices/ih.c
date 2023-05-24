@@ -92,7 +92,7 @@ int proj_int(){
                 draw_c_bullets();
                 }
                 else if(game_state == MAINMENU){
-                    vg_draw_xpm(ger_xpm,0,0);
+                    vg_draw_xpm(soldat_xpm,0,0);
                 }
             }
             if (kbc_int){
