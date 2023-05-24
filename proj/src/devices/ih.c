@@ -19,7 +19,7 @@ extern uint32_t n_heli_bullets;
 extern uint32_t timer_cnt;
 uint32_t reloadtime = 60*3;
 Player player = {PLAYER_INI_X, PLAYER_INI_Y, PLAYER_HP, 0};
-Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_HP};
+Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_HP, true};
 bool finished = false;
 GameState game_state = MAINMENU; 
 
@@ -31,7 +31,7 @@ int init_game(){
     if (flag) return vg_exit();
 
     //draw menu
-    canvas_draw_menu();
+    
 
      //draw arena
     //flag = canvas_draw_arena(0xFFF0, 0xF09F);
@@ -84,12 +84,6 @@ int proj_int(){
             bool mouse_int = msg.m_notify.interrupts & mouse_mask;
             if (timer_int){
                 timer_int_h();
-                if(game_state == GAME){ 
-                canvas_draw_arena(0xFFF0, 0xF09F);
-                draw_helicopter(&heli);
-                draw_player(&player);
-                draw_c_bullets();
-                }
             }
             if (kbc_int){
                 kbc_int_h();
@@ -114,18 +108,27 @@ int close_game(){
 
     if(kbc_unsubscribe_int()) return vg_exit();
 
+    if(mouse_write_cmd(MOUSE_DIS_DATA_REP))
+        return vg_exit();
+
     return vg_exit();
 }
 
 void timer_int_h(){
+
     timer_int_handler();
-    change_buffer();
+    
     switch(game_state){
         case MAINMENU:
+            canvas_draw_menu();
+            draw_mouse(&mouse);
+            change_buffer();
             break;
-        case GAME: 
-            player_update_mov(&player);
 
+        
+
+        case GAME: 
+            
             if(n_player_bullets==10){
                 if(reloadtime==0){
                 reloadtime = 60*3;
@@ -134,25 +137,40 @@ void timer_int_h(){
                 reloadtime--;
             }
 
+            if(timer_cnt%(60*2)==0){
+                helicopter_shoot(&heli,&player);
+            }
+
+            // Update objects
             if(n_player_bullets) player_update_bullets(&heli);
             if(n_heli_bullets) heli_update_bullets(&player);
-            
-            if(timer_cnt%(60*2)==0){
-                shooting(&heli,&player);
+            update_heli_move(&heli);
+            player_update_mov(&player);
+
+            // update frames
+            if(timer_cnt%(30)==0){
+                player.frame++;
             }
-            /* 
-            if(player.hp == 0)  destroy player and print game over image and return to menu button 
-            if(heli.hp == 0)  destroy heli, stop the movement and the bullets(players loses control?) , destruction animation, game won image and return to menu button  */
-            movement(&heli);
+
+            // draw images            
+            canvas_draw_arena(0xFFF0, 0xF09F);
+            draw_helicopter(&heli);
+            draw_player(&player);
+            draw_c_bullets();
+            draw_mouse(&mouse);
+
+            // swap buffer
+            change_buffer();
+
             break;
+
         case GAMEOVER:
             vg_draw_rectangle(MENU_POS_X,MENU_DIST + MENU_POS_Y,MENU_WIDTH,MENU_HEIGHT,0);
             break;
+
         default:
             break;
     }
-    
-
     
 }
 

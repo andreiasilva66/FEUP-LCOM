@@ -129,6 +129,9 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 // }
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
+    if(x >= info.XResolution || y >= info.YResolution){
+        return 0;
+    }
     uint8_t bytes = (info.BitsPerPixel+7) / 8;
     uint8_t* ptr = (uint8_t*) video_mem_sec + (y * info.XResolution + x) * bytes;
     for(uint8_t j = 0; j < bytes; j++){
