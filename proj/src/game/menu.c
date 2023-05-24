@@ -17,14 +17,10 @@ void restore_game_def(){
   player.x = PLAYER_INI_X; //subs pelos valores reais
   player.y = PLAYER_INI_Y;
   player.frame = 0;
-  player.old_x = PLAYER_INI_X;
-  player.old_y = PLAYER_INI_Y;
   player.hp = PLAYER_HP;
 
   heli.x = HELI_INI_X;
   heli.y = HELI_INI_Y;
-  heli.old_x = HELI_INI_X;
-  heli.old_y = HELI_INI_Y;
   heli.hp = HELI_HP;
 
   for(int i = 0; i< BULLETS; i++){

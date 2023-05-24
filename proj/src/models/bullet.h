@@ -10,8 +10,6 @@
 typedef struct {
     uint16_t x;
     uint16_t y;
-    uint16_t old_x;
-    uint16_t old_y;
     int16_t vx;
     int16_t vy;
     bool in_game;
@@ -26,5 +24,6 @@ void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse);
 void heli_create_bullet( Helicopter* obj,Player* target);
 void verify_player_collision (Player * player, Bullet* bullet);
 void verify_heli_collision (Helicopter * heli, Bullet* bullet);
+void draw_c_bullets();
 
 #endif // _LCOM_BULLET_H_

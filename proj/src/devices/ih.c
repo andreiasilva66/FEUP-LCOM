@@ -7,7 +7,7 @@ uint32_t timer_mask;
 uint32_t mouse_mask;
 uint32_t kbc_mask;
 
-Mouse mouse = {640, 512, 0, 0};
+Mouse mouse = {640, 512};
 uint8_t mouse_packet = 0;
 struct packet pp;
 bool kbc_ih_error;
@@ -19,8 +19,8 @@ extern uint32_t n_player_bullets;
 extern uint32_t n_heli_bullets;
 extern uint32_t timer_cnt;
 uint32_t reloadtime = 60*3;
-Player player = {PLAYER_INI_X, PLAYER_INI_Y, PLAYER_INI_X, PLAYER_INI_Y, PLAYER_HP, 0};
-Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_INI_X, HELI_INI_Y, HELI_HP};
+Player player = {PLAYER_INI_X, PLAYER_INI_Y, PLAYER_HP, 0};
+Helicopter heli = {HELI_INI_X, HELI_INI_Y, HELI_HP};
 bool finished = false;
 GameState game_state = MAINMENU; 
 
@@ -85,6 +85,12 @@ int proj_int(){
             bool mouse_int = msg.m_notify.interrupts & mouse_mask;
             if (timer_int){
                 timer_int_h();
+                if(game_state == GAME){ 
+                canvas_draw_arena(0xFFF0, 0xF09F);
+                draw_helicopter(&heli);
+                draw_player(&player);
+                draw_c_bullets();
+                }
             }
             if (kbc_int){
                 kbc_int_h();
@@ -133,8 +139,6 @@ void timer_int_h(){
                 int flag = canvas_refresh(&player, &heli);
 
                 if (flag) finished = true;
-
-                player.old_x = player.x; player.old_y = player.y;
             }
 
             if(n_player_bullets) player_update_bullets(&heli);
@@ -173,8 +177,6 @@ void kbc_int_h(){
     int flag = canvas_refresh(&player, &heli);
 
     if (flag) finished=true;
-
-    update_pos(&player);
   
 }
 
@@ -184,9 +186,6 @@ void mouse_int_h(){
     if (mouse_packet != 3) return;
 
     mouse_parse_packet(&pp);
-
-    mouse.old_x=mouse.x;
-    mouse.old_y=mouse.y;
 
     mouse.x += pp.delta_x;
     

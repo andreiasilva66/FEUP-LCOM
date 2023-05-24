@@ -9,10 +9,8 @@ bool isGoingUp = true;
 
 void movement(Helicopter* heli) {
   if (isGoingUp) {
-    heli->old_y = heli->y;
     heli->y++;
   } else {
-    heli->old_y = heli->y;
     heli->y--;
   }
 
@@ -23,17 +21,13 @@ void movement(Helicopter* heli) {
   }
 
   if (heli->x < 100 && !isRight) {
-    heli->old_x = heli->x;
     heli->x++;
   } else if (heli->x > 900 && isRight) {
-    heli->old_x = heli->x;
     heli->x--;
   } else {
     if (isRight) {
-      heli->old_x = heli->x;
       heli->x++;
     } else {
-      heli->old_x = heli->x;
       heli->x--;
     }
   }
@@ -46,8 +40,9 @@ void movement(Helicopter* heli) {
 }
 
 void shooting(Helicopter* heli ,Player* player){
-
   heli_create_bullet(heli,player);
+}
 
-  
+void draw_helicopter(Helicopter* heli){
+  vg_draw_rectangle(heli->x, heli->y, 100, 50, 0x000F);
 }

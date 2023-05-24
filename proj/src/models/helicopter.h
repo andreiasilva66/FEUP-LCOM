@@ -9,14 +9,14 @@
 typedef struct {
   uint16_t x;
   uint16_t y;
-  uint16_t old_x;
-  uint16_t old_y;
   uint8_t hp;
 } Helicopter;
 
 void movement(Helicopter * heli);
 
 void shooting(Helicopter* heli ,Player* player);
+
+void draw_helicopter(Helicopter* heli);
 
 
 #endif // _LCOM_HELICOPTER_H_

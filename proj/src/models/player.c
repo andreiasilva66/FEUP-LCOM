@@ -87,12 +87,6 @@ void process_scancode(Player* obj, uint8_t* scancodes){
 }
 
 void draw_mouse(Mouse *mouse){
-    uint32_t arena_color = 0xFFF0;
-    if(mouse->x == mouse->old_x && mouse->y == mouse->old_y) return;
-
-    if (mouse->old_x!=0 || mouse->old_y!=0){
-        vg_draw_rectangle(mouse->old_x, mouse->old_y, 20, 20, arena_color);
-    }
     
     vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
 }
@@ -105,15 +99,35 @@ void process_packet(Player* player, struct packet *pp, Mouse *mouse){
     
 }
 
-void update_pos(Player* player){
-    player->old_x=player->x;
-    player->old_y=player->y;
-}
-
 void draw_hp_bar(uint8_t hp){
 
     vg_draw_rectangle(40,Y_RESOLUTION - 20, 100, 50,0xFFF0);
     vg_draw_rectangle(40, Y_RESOLUTION - 20, hp, 50,0x00FF00);
+
+}
+
+void draw_player(Player * player){
+
+    switch (player->frame%3)
+    {
+    case 0:
+        vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        break;
+    
+    case 1:
+        vg_draw_rectangle(player->x, player->y, 50, 50, 0x0F00);
+        break;
+
+    case 2:
+        vg_draw_rectangle(player->x, player->y, 50, 50, 0xF000);
+        break;
+
+    default:
+        vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        break;
+    }    
+
+
 
 }
 
