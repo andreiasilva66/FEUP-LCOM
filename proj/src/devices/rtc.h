@@ -10,7 +10,7 @@
 #define RTC_OUTPUT_PORT     0x71
 
 #define RTC_AVAILABLE               10
-#define RTC_COUNTING_STATUS         11
+#define RTC_COUNTING_MODE           11
 
 #define SECONDS    0
 #define MINUTES    2
@@ -28,11 +28,14 @@ typedef struct {
     uint8_t hours;
     uint8_t minutes;
     uint8_t seconds;
-} rtc_info;
+} Rtc;
 
 // Methods
 
 int rtc_output(uint8_t command, uint8_t output);
 int rtc_available();
+int rtc_binary();
+int rtc_convert_to_binary(uint8_t bcd);
+int rtc_update();
 
 #endif
