@@ -40,10 +40,6 @@ void menu_mouse(Mouse *mouse, struct packet *pp){
     instructions_mouse(mouse, pp);
     break;
 
-  case MODE:
-    mode_mouse(mouse, pp);
-    break;
-
   case GAMEOVER:
     game_over_mouse(mouse, pp);
     break;
@@ -63,11 +59,6 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
       }
       else if(mouse->x >= MENU_POS_X && mouse->x <=  MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
         game_state =  INSTRUCTIONS; 
-        canvas_draw_instructions();
-      }
-      else if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
-        game_state =  MODE; 
-        canvas_draw_mode();
       }
 
     }
@@ -75,18 +66,8 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
 
 void instructions_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
+    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 3*MENU_POS_Y && mouse->y <= 3*MENU_POS_Y + MENU_HEIGHT){
           game_state =  MAINMENU; 
-          canvas_draw_menu();
-        }
-  }
-}
-
-void mode_mouse(Mouse *mouse, struct packet *pp){
-  if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
-          game_state =  MAINMENU; 
-          canvas_draw_menu();
         }
   }
 }

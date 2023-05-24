@@ -121,11 +121,15 @@ void timer_int_h(){
     switch(game_state){
         case MAINMENU:
             canvas_draw_menu();
-            draw_mouse(&mouse);
-            change_buffer();
             break;
 
-        
+        case INTRO: 
+            
+            break;
+
+        case INSTRUCTIONS:
+            canvas_draw_instructions();
+            break;
 
         case GAME: 
             
@@ -157,10 +161,6 @@ void timer_int_h(){
             draw_helicopter(&heli);
             draw_player(&player);
             draw_c_bullets();
-            draw_mouse(&mouse);
-
-            // swap buffer
-            change_buffer();
 
             break;
 
@@ -171,7 +171,10 @@ void timer_int_h(){
         default:
             break;
     }
+
+    draw_mouse(&mouse);
     
+    change_buffer();
 }
 
 void kbc_int_h(){
@@ -204,9 +207,8 @@ void mouse_int_h(){
     if(mouse.y <= 50) mouse.y = 50;
     if(mouse.y >= 1004-50) mouse.y = 1004-50;
 
-    if(game_state == MAINMENU || game_state == INSTRUCTIONS || game_state == MODE || game_state == GAMEOVER){
+    if(game_state == MAINMENU || game_state == INSTRUCTIONS || game_state == GAMEOVER){
         menu_mouse(&mouse, &pp);
-        draw_mouse(&mouse);
         }
     else if(game_state == GAME){
         process_packet(&player, &pp, &mouse);

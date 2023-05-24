@@ -18,5 +18,4 @@ Sprite create_sprite (xpm_map_t sprite){
 
   return sp;
 
-
 }

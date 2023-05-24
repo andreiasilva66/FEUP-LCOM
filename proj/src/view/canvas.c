@@ -51,17 +51,14 @@ int (canvas_draw_menu)(){
     walls_color = 0xF09F;
 
     return vg_draw_rectangle(MENU_POS_X, MENU_POS_Y, MENU_WIDTH, MENU_HEIGHT, walls_color) ||
-    vg_draw_rectangle(MENU_POS_X, MENU_POS_Y + MENU_DIST, MENU_WIDTH, MENU_HEIGHT, walls_color) ||
-    vg_draw_rectangle(MENU_POS_X, MENU_POS_Y + 2*MENU_DIST, MENU_WIDTH, MENU_HEIGHT, walls_color);
+    vg_draw_rectangle(MENU_POS_X, MENU_POS_Y + MENU_DIST, MENU_WIDTH, MENU_HEIGHT, walls_color);
 }
 
 int (canvas_draw_instructions)(){
     return vg_draw_rectangle(MENU_POS_X, MENU_POS_Y*3, MENU_WIDTH, MENU_HEIGHT, walls_color);
 }
 
-int canvas_draw_mode(){
-    return vg_draw_rectangle(MENU_POS_X, MENU_POS_Y*3, MENU_WIDTH, MENU_HEIGHT, walls_color);
-}
+
 
 int (canvas_draw_game_over)(){
     return vg_draw_rectangle(0, 500, X_RESOLUTION, 100, walls_color);
