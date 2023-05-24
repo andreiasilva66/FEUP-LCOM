@@ -167,8 +167,9 @@ int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
 
     for(uint16_t i = y; i < height; i++){
         for(uint16_t j = x; j < width; j++){
-            //if(map[counter] != 0x000000) ignora o preto
-            vg_draw_pixel(j,i,map[counter]);
+            if(map[counter] != 0xFFFF){
+                vg_draw_pixel(j,i,map[counter]);
+            }
             counter++;
         }
         counter += extra_x;
