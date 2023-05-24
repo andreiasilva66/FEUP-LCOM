@@ -1,9 +1,8 @@
 #include "rtc.h"
 
-// Global Variables
 Rtc rtc;
-int rtc_hook_id = 4;
-int rtc_interrupts = 0;
+int rtc_hook_id;
+extern int rtc_counter = 0;
 
 
 // Methods
@@ -34,8 +33,24 @@ int (rtc_binary_mode)(){
     return mode & BIT(2);
 }
 
-uint8_t rtc_convert_to_binary(uint8_t bcd){
+uint8_t (rtc_convert_to_binary)(uint8_t bcd){
     return ((bcd >> 4) * 10) + (bcd & 0xF);
+}
+
+int (rtc_int_handler)(){
+    rtc_counter++;
+}
+
+int (rtc_subscribe_int)(uint8_t *bit_no) {
+    rtc_hook_id = *bit_no;
+    if(rtc_hook_id == NULL){
+        return 1;
+    }
+    return sys_irqrmpolicy(RTC_INTERRUPT_RQ, IRQ_REENABLE , &time_hook_id);
+}
+
+int (rtc_unsubscribe_int)() {
+  return sys_irqrmpolicy(&rtc_hook_id);
 }
 
 int(rtc_update)(){

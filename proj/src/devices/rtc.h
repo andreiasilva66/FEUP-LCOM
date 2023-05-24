@@ -40,4 +40,8 @@ int (rtc_binary_mode)();
 int (rtc_convert_to_binary)(uint8_t bcd);
 int (rtc_update)();
 
+int (rtc_int_handler)();
+int (rtc_subscribe_int)(uint8_t *bit_no);
+int (rtc_unsubscribe_int)();
+
 #endif
