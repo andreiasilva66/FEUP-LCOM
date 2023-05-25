@@ -129,6 +129,9 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 // }
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
+    if(x >= info.XResolution || y >= info.YResolution){
+        return 0;
+    }
     uint8_t bytes = (info.BitsPerPixel+7) / 8;
     uint8_t* ptr = (uint8_t*) video_mem_sec + (y * info.XResolution + x) * bytes;
     for(uint8_t j = 0; j < bytes; j++){
@@ -190,4 +193,9 @@ int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, u
         return 1;
     }
     return 0;
+}
+
+
+void free_buffer(){
+    free(video_mem_sec);
 }

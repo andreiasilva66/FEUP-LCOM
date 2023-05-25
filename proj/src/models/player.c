@@ -69,13 +69,11 @@ void process_scancode(Player* obj, uint8_t* scancodes){
     switch (*scancodes)
     {
     case MOVE_RIGHT_MAKE:
-        printf("clicou direita\n");
-        rightKeyPressed(true);
+        pressRightKey(true);
         break;
 
     case MOVE_LEFT_MAKE:
-        printf("clicou esqerda\n");
-        leftKeyPressed(true);
+        pressLeftKey(true);
         break;
 
     case MOVE_UP_MAKE:
@@ -86,11 +84,11 @@ void process_scancode(Player* obj, uint8_t* scancodes){
         break;
 
     case MOVE_RIGHT_BREAK:
-        rightKeyPressed(false);
+        pressRightKey(false);
         break;
 
     case MOVE_LEFT_BREAK:
-        leftKeyPressed(false);
+        pressLeftKey(false);
         break;
     
     default:
@@ -100,14 +98,13 @@ void process_scancode(Player* obj, uint8_t* scancodes){
 
 void draw_mouse(Mouse *mouse){
     
-    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0x000);
+    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0xFF0000);
 }
 
 void process_packet(Player* player, struct packet *pp, Mouse *mouse){
     if(pp->lb){
         player_create_bullet(player,pp, mouse);
     }
-    draw_mouse(mouse);
     
 }
 
@@ -146,15 +143,13 @@ void draw_player(Player * player){
 
 void player_update_mov(Player *player){
     if(jumping){
-        jump(player,PLAYER_SPEED);
+        jump(player,5);
     }
     if(leftKeyPressed()){
-        printf("esqeuerda\n");
-        moveLeft(player, 10);
+        moveLeft(player, 5);
     }
     else if(rightKeyPressed()){
-        printf("direita\n");
-        moveRight(player, PLAYER_SPEED);
+        moveRight(player, 5);
     }
 }
 

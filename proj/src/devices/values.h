@@ -9,14 +9,14 @@
 #define PLAYER_HP 100
 #define PLAYER_INI_Y 924
 #define PLAYER_INI_X 100 
-#define PLAYER_SPEED 10
+#define PLAYER_SPEED 8
 
 
 //helicopter
 #define HELI_WIDTH 100
 #define HELI_HEIGHT 50
 #define HELI_HP 200
-#define HELI_INI_X 200
+#define HELI_INI_X 1330 
 #define HELI_INI_Y 100
 
 //bullets

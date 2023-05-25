@@ -15,15 +15,26 @@ typedef struct {
     bool in_game;
 } Bullet;
 
+void (initialize_bullets)();
+
+// draw
 
 int (draw_bullet)(Bullet* bullet);
-void (initialize_bullets)();
+void draw_c_bullets();
+
+
+// helicopter
+
 void heli_update_bullets(Player * player);
+void heli_create_bullet( Helicopter* obj,Player* target);
+void verify_heli_collision (Helicopter * heli, Bullet* bullet);
+
+
+// player
+
 void player_update_bullets(Helicopter * heli);
 void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse);
-void heli_create_bullet( Helicopter* obj,Player* target);
 void verify_player_collision (Player * player, Bullet* bullet);
-void verify_heli_collision (Helicopter * heli, Bullet* bullet);
-void draw_c_bullets();
+
 
 #endif // _LCOM_BULLET_H_

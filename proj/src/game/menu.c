@@ -22,6 +22,8 @@ void restore_game_def(){
   heli.x = HELI_INI_X;
   heli.y = HELI_INI_Y;
   heli.hp = HELI_HP;
+  heli.vx = 1;
+  heli.vy = 1;
 
   for(int i = 0; i< BULLETS; i++){
     heli_bullets[i].in_game=false;
@@ -38,10 +40,6 @@ void menu_mouse(Mouse *mouse, struct packet *pp){
 
   case INSTRUCTIONS:
     instructions_mouse(mouse, pp);
-    break;
-
-  case MODE:
-    mode_mouse(mouse, pp);
     break;
 
   case GAMEOVER:
@@ -63,11 +61,6 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
       }
       else if(mouse->x >= MENU_POS_X && mouse->x <=  MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
         game_state =  INSTRUCTIONS; 
-        canvas_draw_instructions();
-      }
-      else if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
-        game_state =  MODE; 
-        canvas_draw_mode();
       }
 
     }
@@ -75,23 +68,13 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
 
 void instructions_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
+    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 3*MENU_POS_Y && mouse->y <= 3*MENU_POS_Y + MENU_HEIGHT){
           game_state =  MAINMENU; 
-          canvas_draw_menu();
         }
   }
 }
 
-void mode_mouse(Mouse *mouse, struct packet *pp){
-  if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 2*MENU_DIST + MENU_POS_Y && mouse->y <= 2*MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
-          game_state =  MAINMENU; 
-          canvas_draw_menu();
-        }
-  }
-}
-
-void game_over_mouse(Mouse *mouse, struct packet *pp){
+void (game_over_mouse)(Mouse *mouse, struct packet *pp){
   if(pp->lb){
     if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
           game_state =  MAINMENU; 
