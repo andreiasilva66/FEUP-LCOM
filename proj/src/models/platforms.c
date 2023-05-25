@@ -4,11 +4,11 @@
 
 void initialize_platforms(){
   Platform platform = {0,0,0,0};
-  for(int i = 0; i < 4 ; i++){
+  for(int i = 0; i < 3 ; i++){
     platforms[i] = platform;
 
   }
-    platforms_location(50,50,100,20,1);
+    platforms_location(850,900,100,20,1);
     /*platforms_location(,50,100,20,2);
     platforms_location(50,50,100,20,3);
     platforms_location(50,50,100,20,4);*/
@@ -32,7 +32,7 @@ platforms[i].x -= scroll_speed;
 
 void draw_platforms(){
 
-  for(int i = 0 ; i < 4; i++){ 
+  for(int i = 0 ; i < 3; i++){ 
 
   vg_draw_rectangle(platforms[i].x,platforms[i].y,platforms[i].width,platforms[i].height,0xff);
   }
