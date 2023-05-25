@@ -90,6 +90,9 @@ int proj_int(){
                 draw_player(&player);
                 draw_c_bullets();
                 }
+                else if(game_state == MAINMENU){
+                    vg_draw_xpm(soldat_xpm,0,0);
+                }
             }
             if (kbc_int){
                 kbc_int_h();

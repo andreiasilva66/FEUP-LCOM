@@ -143,14 +143,15 @@ int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
         return 1;
     }
     xpm_image_t image;
-    uint8_t* map;
+    uint16_t* map;
 
-    map = xpm_load(xpm, XPM_INDEXED, &image);
+    map = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
 
     uint32_t counter = 0;
     uint32_t extra_x = 0;
 
     uint32_t width, height;
+    
     if(x+image.width <= info.XResolution){
         width = x+image.width;
     } else {
@@ -166,12 +167,12 @@ int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
 
     for(uint16_t i = y; i < height; i++){
         for(uint16_t j = x; j < width; j++){
+            //if(map[counter] != 0x000000) ignora o preto
             vg_draw_pixel(j,i,map[counter]);
             counter++;
         }
         counter += extra_x;
     }
-
     return 0;
 }
 
