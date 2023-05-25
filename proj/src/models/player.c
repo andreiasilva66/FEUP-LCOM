@@ -3,6 +3,8 @@
 #include "player.h"
 #include "devices/i8042.h"
 #include "bullet.h"
+#include "devices/video.h"
+#include "xpm/xpm2.h"
 
 bool jumping = false;
 bool jump_down = false;
@@ -120,7 +122,8 @@ void draw_player(Player * player){
     switch (player->frame%3)
     {
     case 0:
-        vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        vg_draw_xpm(bigsoldat,player->x, player->y);
+        //vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
         break;
     
     case 1:
