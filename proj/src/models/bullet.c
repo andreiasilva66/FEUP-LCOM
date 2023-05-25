@@ -4,6 +4,8 @@
 #include "bullet.h"
 #include "game/menu.h"
 #include "view/canvas.h"
+#include "devices/video.h"
+#include "xpm/xpm2.h"
 
 extern GameState game_state;
 
@@ -23,9 +25,16 @@ void (initialize_bullets)(){
     }
 }
 
-int (draw_bullet)(Bullet *bullet){
+int (draw_bullet_player)(Bullet *bullet){
     if(bullet->in_game){
-         return vg_draw_rectangle(bullet->x, bullet->y, BLTS_WIDTH, BLTS_HEIGHT, 0xFF00);
+        return vg_draw_xpm(bala_soldado, 0, bullet->x, bullet->y);
+    }
+    return 0;
+}
+
+int (draw_bullet_heli)(Bullet *bullet){
+    if(bullet->in_game){
+        return vg_draw_xpm(bala_heli, 0, bullet->x, bullet->y);
     }
     return 0;
 }
@@ -41,7 +50,7 @@ void player_update_bullets(Helicopter * heli){
             player_bullets[i].in_game=false;
             return;
     }
-    draw_bullet(&player_bullets[i]);
+    draw_bullet_player(&player_bullets[i]);
     verify_heli_collision(heli, &player_bullets[i]);
     }
 }
@@ -94,7 +103,7 @@ void heli_update_bullets(Player * player){
             heli_bullets[i].in_game=false;
             return;
         }
-        draw_bullet(&heli_bullets[i]);
+        draw_bullet_heli(&heli_bullets[i]);
         verify_player_collision(player, &heli_bullets[i]);
     }
 }
@@ -128,8 +137,9 @@ void draw_c_bullets(){
     
     for(int i = 0; i < BULLETS; i++){
 
-        draw_bullet(&player_bullets[i]);
-        draw_bullet(&heli_bullets[i]);
+        
+        draw_bullet_player(&player_bullets[i]);
+        draw_bullet_heli(&heli_bullets[i]);
 
     }
 
