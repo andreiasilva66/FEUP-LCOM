@@ -175,8 +175,7 @@ int check_collision_player(Player *player, Platform platform[], bool jump_down) 
     int platform_top = platform->y;
     int platform_bottom = platform->y + platform->height;
 
-    if (player_left < platform_right && player_right > platform_left &&
-        player_top < platform_bottom && player_bottom > platform_top) {
+    if ((player_left < platform_right && player_right > platform_left && player_bottom > platform_top) && !(player_top > platform_top - PLAYER_HEIGHT + 4 && player_bottom < platform_bottom  + PLAYER_HEIGHT && player_left < platform_right && player_right > platform_left) ) {
       // Player collided with the current platform
       return 1;
     }
