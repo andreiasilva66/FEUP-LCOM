@@ -159,6 +159,7 @@ void timer_int_h(){
             heli_update_bullets(&player);
             update_heli_move(&heli);
             player_update_mov(&player);
+            
 
             // update frames
             if(timer_cnt%(30)==0){

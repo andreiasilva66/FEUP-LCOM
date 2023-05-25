@@ -19,7 +19,8 @@ void (initialize_bullets)();
 
 // draw
 
-int (draw_bullet)(Bullet* bullet);
+int (draw_bullet_player)(Bullet* bullet);
+int (draw_bullet_heli)(Bullet* bullet);
 void draw_c_bullets();
 
 

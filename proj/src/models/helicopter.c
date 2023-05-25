@@ -2,6 +2,8 @@
 
 #include "helicopter.h"
 #include "bullet.h"
+#include "devices/video.h"
+#include "xpm/xpm2.h"
 
 #include "devices/i8042.h"
 bool isRight = true;
@@ -49,7 +51,8 @@ void helicopter_shoot(Helicopter* heli ,Player* player){
 }
 
 void draw_helicopter(Helicopter* heli){
-  vg_draw_rectangle(heli->x, heli->y, 100, 50, 0x000F);
+  vg_draw_xpm(heli_xpm, 1, heli->x, heli->y);
+  //vg_draw_rectangle(heli->x, heli->y, 100, 50, 0x000F);
 }
 
 void init_helicopter(Helicopter * heli){
