@@ -21,6 +21,9 @@
 // Include views
 #include "view/canvas.h"
 
+// Include xpm
+#include "../xpm/xpm2.h"
+
 
 int init_game();
 
