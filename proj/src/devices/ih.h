@@ -17,6 +17,7 @@
 #include "models/player.h"
 #include "models/bullet.h"
 #include "models/helicopter.h"
+#include "models/platforms.h"
 
 // Include views
 #include "view/canvas.h"

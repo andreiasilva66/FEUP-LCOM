@@ -27,6 +27,9 @@ extern uint32_t heli_shoot_time;
 int init_game(){
 
     initialize_bullets();
+    initialize_platforms();
+    
+    
    
     int flag = set_frame_buffer(0x11A);
     if (flag) return vg_exit();
@@ -168,6 +171,7 @@ void timer_int_h(){
             heli_update_bullets(&player);
             update_heli_move(&heli);
             player_update_mov(&player);
+            draw_platforms();
 
             // update frames
             if(timer_cnt%(30)==0){
@@ -176,6 +180,7 @@ void timer_int_h(){
 
             // draw images            
             canvas_draw_arena(0xFFF0, 0xF09F);
+            draw_platforms();
             draw_helicopter(&heli);
             draw_player(&player);
             draw_c_bullets();
