@@ -7,13 +7,15 @@
 bool jumping = false;
 bool jump_down = false;
 int y_ini;
+//extern Platform platforms[4];
+
 
 extern u_int32_t n_bullets;
 
 void jump(Player* obj, uint16_t speed){
 
     if(jump_down){
-        if(obj->y == y_ini){
+        if(obj->y == y_ini || check_collision_player(obj,&platforms[4])){
             jumping = false;
             jump_down = false;
             return;
@@ -152,5 +154,30 @@ void player_update_mov(Player *player){
         moveRight(player, 5);
     }
 }
+
+int check_collision_player(Player* player, Platform platform[]) {
+    for (int i = 0; i < 4; i++) {
+        Platform* platform = &platforms[i];
+        int player_left = player->x;
+        int player_right = player->x + PLAYER_WIDTH;
+        int player_top = player->y;
+        int player_bottom = player->y + PLAYER_HEIGHT;
+
+        int platform_left = platform->x;
+        int platform_right = platform->x + platform->width;
+        int platform_top = platform->y;
+        int platform_bottom = platform->y + platform->height;
+
+        if (player_left < platform_right && player_right > platform_left &&
+            player_top < platform_bottom && player_bottom > platform_top) {
+            // Player collided with the current platform
+            return 1;
+        }
+    }
+    // Player did not collide with any platform
+    return 0;
+}
+
+
 
 
