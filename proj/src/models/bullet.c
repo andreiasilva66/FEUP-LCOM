@@ -83,8 +83,8 @@ void heli_create_bullet( Helicopter* heli, Player* target){
     int delta_x = target->x - heli->x;
     int delta_y = target->y - heli->y;
     double alpha = atan2((double)delta_y, (double)delta_x);
-    heli_bullets[n_heli_bullets].x = heli->x;
-    heli_bullets[n_heli_bullets].y = heli->y;
+    heli_bullets[n_heli_bullets].x = heli->x + HELI_WIDTH/2- 10;
+    heli_bullets[n_heli_bullets].y = heli->y + HELI_HEIGHT;
     heli_bullets[n_heli_bullets].in_game = true;
     heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 + heli->vx);
     heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0 + heli->vy);  
@@ -146,7 +146,7 @@ void draw_remaining_bullets(uint8_t bullets){
 
     uint16_t space = BLTS_WIDTH + 10;
     uint16_t x_value = 800;
-    uint16_t y_value = 980;
+    uint16_t y_value = 950;
 
 
         for(int i = 0; i < bullets; i++){

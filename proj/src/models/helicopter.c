@@ -57,7 +57,7 @@ void draw_helicopter(Helicopter* heli){
   else{
     vg_draw_xpm(1, heli->x, heli->y);
   }
-  //vg_draw_rectangle(heli->x, heli->y, 100, 50, 0x000F);
+
 }
 
 void init_helicopter(Helicopter * heli){
