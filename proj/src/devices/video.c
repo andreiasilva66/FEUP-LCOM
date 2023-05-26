@@ -6,8 +6,9 @@ extern uint8_t data;
 vbe_mode_info_t info;
 void *video_mem;
 void *video_mem_sec;
-unsigned int vram_size;  
-
+unsigned int vram_size;
+ uint16_t* map_heli = NULL;
+xpm_image_t image_heli;
 
 void (change_buffer)(){
     memcpy(video_mem, video_mem_sec, vram_size);
@@ -141,14 +142,31 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     return 0;
 }
 
-int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
+int (vg_draw_xpm) (xpm_map_t xpm, uint8_t id, uint16_t x, uint16_t y){
     if(x > info.XResolution || y > info.YResolution){
         return 1;
     }
     xpm_image_t image;
     uint16_t* map;
 
-    map = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
+    if(id == 1){
+     //   printf("before if");
+        if(map_heli == NULL){
+        //    printf("inside if");
+          map_heli = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image_heli);
+            printf(" %x ",map_heli[100]);
+
+
+        }
+                    
+                    
+        map = map_heli;
+        image = image_heli;
+        printf(" ->%x ",map[100]);
+    }
+    else{
+        map = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
+    }
 
     uint32_t counter = 0;
     uint32_t extra_x = 0;
@@ -190,7 +208,7 @@ int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, u
         return 1;
     }
 
-    if(vg_draw_xpm(xpm, new_x, new_y)){
+    if(vg_draw_xpm(xpm, 0, new_x, new_y)){
         return 1;
     }
     return 0;
