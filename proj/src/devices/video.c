@@ -1,13 +1,39 @@
 #include <lcom/lcf.h>
 #include "video.h"
 #include "keyboard.h"
+#include "xpm/xpm2.h"
 
 extern uint8_t data;
 vbe_mode_info_t info;
 void *video_mem;
 void *video_mem_sec;
 unsigned int vram_size;
-uint16_t* map_heli = NULL;
+
+ uint16_t* map_heli = NULL;
+ uint16_t* map_soldier1 = NULL;
+ uint16_t* map_soldier2 = NULL;
+ uint16_t* map_soldier3 = NULL;
+ uint16_t* map_platforms = NULL;
+ uint16_t* map_background_day = NULL;
+ uint16_t* map_background_night = NULL;
+ uint16_t* map_s_bullet = NULL; 
+ uint16_t* map_h_bullet = NULL;
+ uint16_t* map_soldier_dead = NULL;
+ uint16_t* map_heli_dead = NULL;
+uint16_t* map_target = NULL;
+
+xpm_image_t image_soldier_dead;
+xpm_image_t image_heli;
+xpm_image_t image_soldier1;
+xpm_image_t image_soldier2;
+xpm_image_t image_soldier3;
+xpm_image_t image_platforms;
+xpm_image_t image_background_day;
+xpm_image_t image_background_night;
+xpm_image_t image_s_bullet;
+xpm_image_t image_h_bullet;
+xpm_image_t image_heli_dead;
+xpm_image_t image_target;
 
 
 void (change_buffer)(){
@@ -21,10 +47,6 @@ struct minix_mem_range mr;
 unsigned int vram_base;  /* VRAM's physical addresss */
 vram_base = info.PhysBasePtr;
 
-
-// adicionamos 7 ao BitsPerPixel para garantirmos o n.º de bytes suficientes uma vez que fazermos uma divisão inteira
-//ex: 15 / 8 = 1, porém precisamos de 2 bytes;
-// 15+7 = 22      22/8 = 2   fica resolvido o problema
 uint8_t bytes_per_pixel = (info.BitsPerPixel + 7) / 8;
 vram_size = info.XResolution * info.YResolution * bytes_per_pixel;
 int r;				    
@@ -92,42 +114,6 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
     return 0;
 }
 
-// keyboard loop
-// int(keyboard_loop)() {
-//     int r = 0;
-//     uint8_t bit = 0;
-//     if(kbc_subscribe_int(&bit)) return 1;
-//     uint32_t kanna = BIT(bit);
-    
-//     int ipc_status;
-//     message msg;
- 
-//     while(data != KBD_ESC) {
-//         /* Get a request message. */
-//         if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-//             printf("driver_receive failed with: %d", r);
-//             continue;
-//         }
-//         if (is_ipc_notify(ipc_status)) { /* received notification */
-//             switch (_ENDPOINT_P(msg.m_source)) {
-//                 case HARDWARE: /* hardware interrupt notification */				
-//                     if (msg.m_notify.interrupts & kanna) { /* subscribed interrupt */
-//                         if(kbc_read_out_buffer(&data,)) return 1;
-//                         kbc_ih();
-//                     }
-//                     break;
-//                 default:
-//                     break; /* no other notifications expected: do nothing */	
-//             }
-//         } else { /* received a standard message, not a notification */
-//             /* no standard messages expected: do nothing */
-//         }
-//     }
-//     if(kbc_unsubscribe_int()){
-//         return 1;
-//     }
-//     return 0;
-// }
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     if(x >= info.XResolution || y >= info.YResolution){
@@ -142,26 +128,82 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     return 0;
 }
 
-int (vg_draw_xpm) (xpm_map_t xpm, uint8_t id, uint16_t x, uint16_t y){
+int (vg_load_xpm)(){
+    //xpm_image_t image;
+
+          map_heli = (uint16_t*) xpm_load(heli_xpm, XPM_5_6_5, &image_heli);
+          map_soldier1 = (uint16_t*) xpm_load(soldado1,XPM_5_6_5,&image_soldier1);
+          map_soldier2 = (uint16_t*) xpm_load(soldado2,XPM_5_6_5,&image_soldier2);
+          map_soldier3 = (uint16_t*) xpm_load(soldado3,XPM_5_6_5,&image_soldier3);
+          map_soldier_dead = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&image_soldier_dead);
+         // map_platforms = _mortouint16_t*) xpm_load(xpm,XPM_5_6_5,&image_platforms);
+          //map_background_night = (uint16_t*) xpm_load(xpm,XPM_5_6_5,&image_background_night);
+          map_background_day = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&image_background_day);
+          map_h_bullet = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&image_h_bullet);
+          map_s_bullet = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&image_s_bullet); 
+          map_heli_dead = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&image_heli_dead);
+          map_target = (uint16_t*) xpm_load(target,XPM_5_6_5,&image_target);
+          return 0;
+    }
+
+
+int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
     if(x > info.XResolution || y > info.YResolution){
         return 1;
     }
     xpm_image_t image;
     uint16_t* map;
-
-    if(id == 1){
-        printf("before if");
-        if(map_heli == NULL){
-            printf("inside if");
-            map_heli = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
-        }
-                    printf("after if");
-        map = map_heli;
+    switch (id) {
+        case 1:
+            image = image_heli;
+            map = map_heli;
+            break;
+        case 2:
+            image = image_soldier1;
+            map = map_soldier1;
+            break;
+        case 3:
+            image = image_soldier2;
+            map = map_soldier2;
+            break;
+        case 4:
+            image = image_soldier3;
+            map = map_soldier3;
+            break;
+        case 5:
+            image = image_platforms;
+            map = map_platforms;
+            break;
+        case 6:
+            image = image_background_day;
+            map = map_background_day;
+            break;
+        case 7:
+            image = image_background_night;
+            map = map_background_night;
+            break;
+        case 8:
+            image = image_s_bullet;
+            map = map_s_bullet;
+            break;
+        case 9:
+            image = image_h_bullet;
+            map = map_h_bullet;
+            break;
+        case 10:
+            image = image_soldier_dead;
+            map = map_soldier_dead;
+            break;
+        case 11:
+            image = image_heli_dead;
+            map = map_heli_dead;
+            break;
+        case 12:
+            image = image_target;
+            map = map_target;
+        default:
+            break;
     }
-    else{
-        map = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
-    }
-
     uint32_t counter = 0;
     uint32_t extra_x = 0;
 
@@ -192,21 +234,21 @@ int (vg_draw_xpm) (xpm_map_t xpm, uint8_t id, uint16_t x, uint16_t y){
     return 0;
 }
 
-int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, uint16_t new_y){
-    xpm_image_t image;
-    uint8_t* map;
+// int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, uint16_t new_y){
+//     xpm_image_t image;
+//     uint8_t* map;
 
-    map = xpm_load(xpm, XPM_INDEXED, &image);
+//     map = xpm_load(xpm, XPM_INDEXED, &image);
 
-    if(vg_draw_rectangle(old_x, old_y, image.width, image.height,0)){
-        return 1;
-    }
+//     if(vg_draw_rectangle(old_x, old_y, image.width, image.height,0)){
+//         return 1;
+//     }
 
-    if(vg_draw_xpm(xpm, 0, new_x, new_y)){
-        return 1;
-    }
-    return 0;
-}
+//     if(vg_draw_xpm(xpm, 0, new_x, new_y)){
+//         return 1;
+//     }
+//     return 0;
+// }
 
 
 void free_buffer(){

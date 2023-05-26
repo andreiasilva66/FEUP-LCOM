@@ -63,3 +63,7 @@ int (canvas_draw_instructions)(){
 int (canvas_draw_game_over)(){
     return vg_draw_rectangle(0, 500, X_RESOLUTION, 100, walls_color);
 }
+
+void (draw_background)(){
+    vg_draw_xpm(6,0,0);
+}

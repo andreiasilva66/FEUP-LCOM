@@ -13,8 +13,8 @@
 
 
 //helicopter
-#define HELI_WIDTH 100
-#define HELI_HEIGHT 50
+#define HELI_WIDTH 200
+#define HELI_HEIGHT 60
 #define HELI_HP 200
 #define HELI_INI_X 1330 
 #define HELI_INI_Y 100

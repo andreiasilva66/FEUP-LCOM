@@ -13,5 +13,6 @@ int (canvas_draw_menu)();
 int (canvas_draw_instructions)();
 int (canvas_draw_mode)();
 int (canvas_draw_game_over)();
+void (draw_background)();
 
 #endif // _LCOM_CANVAS_H_
