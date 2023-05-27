@@ -158,17 +158,19 @@ void timer_int_h(){
 
             // draw
             draw_background();   
+            draw_platforms();
             draw_remaining_bullets(BULLETS - n_player_bullets); 
             draw_hp_bar(player.hp);           
             draw_player(&player);
             draw_helicopter(&heli);
             draw_c_bullets();
-            draw_platforms();
+            
 
             break;
 
         case GAMEOVER:
             draw_background();   
+            draw_platforms();
             draw_remaining_bullets(BULLETS - n_player_bullets); 
             draw_hp_bar(player.hp);           
             draw_player(&player);
