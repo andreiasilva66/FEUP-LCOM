@@ -9,10 +9,9 @@
 
 int (canvas_draw_arena)(uint32_t new_arena_color, uint32_t new_walls_color);
 int (canvas_refresh)(Player* obj, Helicopter* heli);
-int (canvas_draw_menu)();
-int (canvas_draw_instructions)();
-int (canvas_draw_mode)();
-int (canvas_draw_game_over)();
+int (canvas_draw_menu)(Mouse *mouse);
+int (canvas_draw_instructions)(Mouse *mouse);
+int (canvas_draw_game_over)(Mouse *mouse);
 void (draw_background)();
 
 #endif // _LCOM_CANVAS_H_

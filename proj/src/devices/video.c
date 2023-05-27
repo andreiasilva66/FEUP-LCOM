@@ -21,6 +21,20 @@ unsigned int vram_size;
  uint16_t* map_soldier_dead = NULL;
  uint16_t* map_heli_dead = NULL;
 uint16_t* map_target = NULL;
+uint16_t* map_title = NULL;
+uint16_t* map_back_no = NULL;
+uint16_t* map_back_yes = NULL;
+uint16_t* map_instructions_no = NULL;
+uint16_t* map_instructions_yes = NULL;
+uint16_t* map_textinstructions = NULL;
+uint16_t* map_start_yes = NULL;
+uint16_t* map_start_no = NULL;
+uint16_t* map_playagain_no = NULL;
+uint16_t* map_playagain_yes = NULL;
+uint16_t* map_gameover = NULL;
+uint16_t* map_explosion1 = NULL;
+uint16_t* map_explosion2 = NULL;
+uint16_t* map_explosion3 = NULL;
 
 xpm_image_t image_soldier_dead;
 xpm_image_t image_heli;
@@ -34,6 +48,22 @@ xpm_image_t image_s_bullet;
 xpm_image_t image_h_bullet;
 xpm_image_t image_heli_dead;
 xpm_image_t image_target;
+xpm_image_t image_title;
+xpm_image_t image_back_no;
+xpm_image_t image_back_yes;
+xpm_image_t image_instructions_no;
+xpm_image_t image_instructions_yes;
+xpm_image_t image_textinstructions;
+xpm_image_t image_start_yes;
+xpm_image_t image_start_no;
+xpm_image_t image_playagain_no;
+xpm_image_t image_playagain_yes;
+xpm_image_t image_gameover;
+xpm_image_t image_explosion1;
+xpm_image_t image_explosion2;
+xpm_image_t image_explosion3;
+
+
 
 
 void (change_buffer)(){
@@ -138,11 +168,25 @@ int (vg_load_xpm)(){
           map_soldier_dead = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&image_soldier_dead);
          // map_platforms = _mortouint16_t*) xpm_load(xpm,XPM_5_6_5,&image_platforms);
           //map_background_night = (uint16_t*) xpm_load(xpm,XPM_5_6_5,&image_background_night);
-          map_background_day = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&image_background_day);
+          map_background_day = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&image_background_day);
           map_h_bullet = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&image_h_bullet);
           map_s_bullet = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&image_s_bullet); 
           map_heli_dead = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&image_heli_dead);
           map_target = (uint16_t*) xpm_load(target,XPM_5_6_5,&image_target);
+          map_gameover = (uint16_t*) xpm_load(gameover,XPM_5_6_5,&image_gameover);
+          map_playagain_no = (uint16_t*) xpm_load(playagain_no,XPM_5_6_5,&image_playagain_no);
+          map_playagain_yes = (uint16_t*) xpm_load(playagain_yes,XPM_5_6_5,&image_playagain_yes);
+          map_title = (uint16_t*) xpm_load(title,XPM_5_6_5,&image_title);
+          map_back_no = (uint16_t*) xpm_load(back_no,XPM_5_6_5,&image_back_no);
+          map_back_yes = (uint16_t*) xpm_load(back_yes,XPM_5_6_5,&image_back_yes);
+          map_instructions_no = (uint16_t*) xpm_load(instructions_no,XPM_5_6_5,&image_instructions_no);
+          map_instructions_yes = (uint16_t*) xpm_load(instructions_yes,XPM_5_6_5,&image_instructions_yes);
+          map_start_no = (uint16_t*) xpm_load(start_no,XPM_5_6_5,&image_start_no);
+          map_start_yes = (uint16_t*) xpm_load(start_yes,XPM_5_6_5,&image_start_yes);
+          map_textinstructions = (uint16_t*) xpm_load(textinstructions,XPM_5_6_5,&image_textinstructions);
+          map_explosion1 = (uint16_t*) xpm_load(explosion1,XPM_5_6_5,&image_explosion1);
+          map_explosion2 = (uint16_t*) xpm_load(explosion2,XPM_5_6_5,&image_explosion2);
+          map_explosion3 = (uint16_t*) xpm_load(explosion3,XPM_5_6_5,&image_explosion3);
           return 0;
     }
 
@@ -201,6 +245,63 @@ int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
         case 12:
             image = image_target;
             map = map_target;
+            break;
+        case 13:
+            image = image_explosion1;
+            map = map_explosion1;
+            break;
+        case 14:
+            image = image_explosion2;
+            map = map_explosion2;
+            break;
+        case 15:
+            image = image_explosion3;
+            map = map_explosion3;
+            break;
+        case 16:
+            image = image_back_no;
+            map = map_back_no;
+            break;
+        case 17:
+            image = image_back_yes;
+            map = map_back_yes;
+            break;
+        case 18:
+            image = image_gameover;
+            map = map_gameover;
+            break;
+        case 19:
+            image = image_instructions_no;
+            map = map_instructions_no;
+            break;
+        case 20:
+            image = image_instructions_yes;
+            map = map_instructions_yes;
+            break;
+        case 21:
+            image = image_playagain_no;
+            map = map_playagain_no;
+            break;
+        case 22:
+            image = image_playagain_yes;
+            map = map_playagain_yes;
+            break;
+        case 23:
+            image = image_start_no;
+            map = map_start_no;
+            break;
+        case 24:
+            image = image_start_yes;
+            map = map_start_yes;
+            break;
+        case 25:
+            image = image_textinstructions;
+            map = map_textinstructions;
+            break;
+        case 26:
+            image = image_title;
+            map = map_title;
+            break;
         default:
             break;
     }

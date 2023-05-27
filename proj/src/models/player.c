@@ -59,7 +59,7 @@ void moveLeft(Player* obj, uint16_t speed){
 
 void moveRight(Player* obj, uint16_t speed){
     
-    if(obj->x + 50 + speed >= 1230-50){
+    if(obj->x + 50 + speed > 1230){
         obj->x += (1230 - obj->x - 50);
     } else {
         obj->x += speed;

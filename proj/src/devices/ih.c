@@ -113,7 +113,7 @@ void timer_int_h(){
     
     switch(game_state){
         case MAINMENU:
-            canvas_draw_menu();
+            canvas_draw_menu(&mouse);
             break;
 
         case INTRO: 
@@ -121,7 +121,7 @@ void timer_int_h(){
             break;
 
         case INSTRUCTIONS:
-            canvas_draw_instructions();
+            canvas_draw_instructions(&mouse);
             break;
 
         case GAME: 
@@ -166,7 +166,13 @@ void timer_int_h(){
             break;
 
         case GAMEOVER:
-            vg_draw_rectangle(MENU_POS_X,MENU_DIST + MENU_POS_Y,MENU_WIDTH,MENU_HEIGHT,0);
+            draw_background();   
+            draw_remaining_bullets(BULLETS - n_player_bullets); 
+            draw_hp_bar(player.hp);           
+            draw_player(&player);
+            draw_helicopter(&heli);
+            draw_c_bullets();
+            canvas_draw_game_over(&mouse);
             break;
 
         default:

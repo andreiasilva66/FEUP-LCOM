@@ -59,8 +59,8 @@ void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
       
         return;}
         
-    int delta_x = mouse->x - obj->x;
-    int delta_y = mouse->y - obj->y;
+    int delta_x = mouse->x   - obj->x;
+    int delta_y = mouse->y   - obj->y;
     double alpha = atan2((double)delta_y, (double)delta_x);
     player_bullets[n_player_bullets].x = obj->x;
     player_bullets[n_player_bullets].y = obj->y;
@@ -80,14 +80,14 @@ void heli_create_bullet( Helicopter* heli, Player* target){
     if(n_heli_bullets == BULLETS)
         n_heli_bullets=0;
 
-    int delta_x = target->x - heli->x;
-    int delta_y = target->y - heli->y;
+    int delta_x = target->x - (heli->x + HELI_WIDTH/2- 10);
+    int delta_y = target->y - (heli->y + HELI_HEIGHT);
     double alpha = atan2((double)delta_y, (double)delta_x);
     heli_bullets[n_heli_bullets].x = heli->x + HELI_WIDTH/2- 10;
     heli_bullets[n_heli_bullets].y = heli->y + HELI_HEIGHT;
     heli_bullets[n_heli_bullets].in_game = true;
-    heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 + heli->vx);
-    heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0 + heli->vy);  
+    heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 * heli->vx);
+    heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0 * heli->vy);  
 
     n_heli_bullets++;
 }

@@ -28,8 +28,13 @@
 
 
 //resolution 
-#define Y_RESOLUTION 1004
-#define  X_RESOLUTION 1230
+#define Y_RESOLUTION 1054
+#define  X_RESOLUTION 1280
+
+//mouse
+#define MOUSE_WIDTH 25
+#define MOUSE_HEIGHT 25
+
 
 //menu 
 #define MENU_WIDTH 500  
