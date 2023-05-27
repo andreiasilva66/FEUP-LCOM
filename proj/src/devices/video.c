@@ -9,8 +9,8 @@ vbe_mode_info_t info;
 void *video_mem;
 void *video_mem_sec;
 unsigned int vram_size;
-uint16_t* maps[32];
-xpm_image_t images[32];
+uint16_t* maps[NUM_XPM_FILES];
+xpm_image_t images[NUM_XPM_FILES]; 
 
 
 void (change_buffer)(){
@@ -141,13 +141,30 @@ int (vg_load_xpm)(){
         maps[HP_20] = (uint16_t*) xpm_load(hp20,XPM_5_6_5,&images[HP_20]);
         maps[HP_0] = (uint16_t*) xpm_load(hp0,XPM_5_6_5,&images[HP_0]);
         maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-         maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-          maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
-        
+        maps[NUMBER_0] = (uint16_t*) xpm_load(zero,XPM_5_6_5,&images[NUMBER_0]);
+maps[NUMBER_1] = (uint16_t*) xpm_load(one,XPM_5_6_5,&images[NUMBER_1]);
+maps[NUMBER_2] = (uint16_t*) xpm_load(two,XPM_5_6_5,&images[NUMBER_2]);
+maps[NUMBER_3] = (uint16_t*) xpm_load(three,XPM_5_6_5,&images[NUMBER_3]);
+maps[NUMBER_4] = (uint16_t*) xpm_load(four,XPM_5_6_5,&images[NUMBER_4]);
+maps[NUMBER_5] = (uint16_t*) xpm_load(five,XPM_5_6_5,&images[NUMBER_5]);
+maps[NUMBER_6] = (uint16_t*) xpm_load(six,XPM_5_6_5,&images[NUMBER_6]);
+maps[NUMBER_7] = (uint16_t*) xpm_load(seven,XPM_5_6_5,&images[NUMBER_7]);
+maps[NUMBER_8] = (uint16_t*) xpm_load(eight,XPM_5_6_5,&images[NUMBER_8]);
+maps[NUMBER_9] = (uint16_t*) xpm_load(nine,XPM_5_6_5,&images[NUMBER_9]);
+maps[DOUBLE_DOTS] = (uint16_t*) xpm_load(double_dots,XPM_5_6_5,&images[DOUBLE_DOTS]);
+maps[JANUARY] = (uint16_t*) xpm_load(jan,XPM_5_6_5,&images[JANUARY]);
+maps[FEBRUARY] = (uint16_t*) xpm_load(feb,XPM_5_6_5,&images[FEBRUARY]);
+maps[MARCH] = (uint16_t*) xpm_load(mar,XPM_5_6_5,&images[MARCH]);
+maps[APRIL] = (uint16_t*) xpm_load(apr,XPM_5_6_5,&images[APRIL]);
+maps[MAY] = (uint16_t*) xpm_load(may,XPM_5_6_5,&images[MAY]);
+maps[JUNE] = (uint16_t*) xpm_load(jun,XPM_5_6_5,&images[JUNE]);
+maps[JULY] = (uint16_t*) xpm_load(jul,XPM_5_6_5,&images[JULY]);
+maps[AUGUST] = (uint16_t*) xpm_load(aug,XPM_5_6_5,&images[AUGUST]);
+maps[SEPTEMBER] = (uint16_t*) xpm_load(sep,XPM_5_6_5,&images[SEPTEMBER]);
+maps[OCTOBER] = (uint16_t*) xpm_load(oct,XPM_5_6_5,&images[OCTOBER]);
+maps[NOVEMBER] = (uint16_t*) xpm_load(nov,XPM_5_6_5,&images[NOVEMBER]);
+maps[DECEMBER] = (uint16_t*) xpm_load(dec,XPM_5_6_5,&images[DECEMBER]);
+         
 
         return 0;
     }

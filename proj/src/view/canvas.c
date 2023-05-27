@@ -64,3 +64,37 @@ void (draw_background)(bool day){
 void draw_mouse(Mouse *mouse){
     vg_draw_xpm(TARGET_XPM_ID, mouse->x-18, mouse->y-18);
 }
+
+int draw_numbers(uint8_t number,uint8_t x, uint8_t y){
+    if(number < 0 || number > 31) return 1;
+    uint8_t units = number%10;
+    uint8_t dozens = number/10;
+    uint8_t numbers [10] = {32,33,34,35,36,37,38,39,40,41};
+
+    if(vg_draw_xpm(numbers[dozens],x,y)) return 1;
+    if(vg_draw_xpm(numbers[units],x + 70,y)) return 1;
+
+    return 0;
+}
+
+int draw_month(uint8_t month, uint8_t x, uint8_t y){
+    if( month < 1 || month > 12) return 1;
+    uint8_t months [12] = {43,44,45,46,47,48,49,50,51,52,53,54};
+
+    if(vg_draw_xpm(months[month],x,y)) return 1;
+
+    return 0; 
+}
+
+int draw_double_dots(uint8_t x, uint8_t y){
+    vg_draw_xpm(DOUBLE_DOTS,x,y);
+
+}
+
+
+int draw_date(uint8_t hours, uint8_t minutes, uint8_t day, uint8_t month){
+    draw_numbers(hours,100,900);
+    vg_draw_xpm(DOUBLE_DOTS,250,900);
+    
+}
+

@@ -14,5 +14,11 @@ int (canvas_draw_instructions)(Mouse *mouse);
 int (canvas_draw_game_over)(Mouse *mouse);
 void (draw_background)(bool day);
 void draw_mouse(Mouse *mouse);
+int draw_numbers(uint8_t number,uint8_t x, uint8_t y);
+int draw_month(uint8_t month, uint8_t x, uint8_t y);
+int draw_double_dots(uint8_t x, uint8_t y);
+int draw_date(uint8_t hours, uint8_t minutes, uint8_t day, uint8_t month);
+
+
 
 #endif // _LCOM_CANVAS_H_
