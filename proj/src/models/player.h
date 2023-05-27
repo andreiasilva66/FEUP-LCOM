@@ -4,6 +4,9 @@
 #include <stdint.h>
 
 #include "../devices/keyboard.h"
+#include "../devices/values.h"
+#include "platforms.h"
+
 
 
 #define MOVE_UP_MAKE 0x11
@@ -34,5 +37,6 @@ void draw_mouse(Mouse *mouse);
 void draw_hp_bar(uint8_t hp);
 void draw_player(Player * player);
 void player_update_mov(Player *player);
+int check_collision_player(Player *player, Platform platform[], bool jump_down);
 
 #endif // _LCOM_PLAYER_H_

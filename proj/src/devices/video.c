@@ -168,7 +168,7 @@ int (vg_load_xpm)(){
           map_soldier_dead = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&image_soldier_dead);
          // map_platforms = _mortouint16_t*) xpm_load(xpm,XPM_5_6_5,&image_platforms);
           //map_background_night = (uint16_t*) xpm_load(xpm,XPM_5_6_5,&image_background_night);
-          map_background_day = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&image_background_day);
+          map_background_day = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&image_background_day);
           map_h_bullet = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&image_h_bullet);
           map_s_bullet = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&image_s_bullet); 
           map_heli_dead = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&image_heli_dead);

@@ -50,7 +50,6 @@ int (canvas_refresh)(Player* obj, Helicopter* heli){
 }
 
 int (canvas_draw_menu)(Mouse *mouse){
-    vg_draw_rectangle(0,0,X_RESOLUTION,Y_RESOLUTION,0);
     vg_draw_xpm(26, 310, 200);
 
     if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 500){
@@ -70,7 +69,6 @@ int (canvas_draw_menu)(Mouse *mouse){
 }
 
 int (canvas_draw_instructions)(Mouse *mouse){
-    vg_draw_rectangle(0,0,X_RESOLUTION,Y_RESOLUTION,0);
     vg_draw_xpm(26, 310, 200);
     vg_draw_xpm(25,400,400);
     if(mouse->x >= 450 && mouse->x <=600 && mouse->y >= 900 && mouse->y <= 1000){

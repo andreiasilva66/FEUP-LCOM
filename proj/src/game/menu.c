@@ -57,7 +57,6 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
     
       if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 500){
         game_state = GAME;
-        canvas_draw_arena(0xFFF0, 0xF09F);
       }
       else if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 700){
         game_state =  INSTRUCTIONS; 

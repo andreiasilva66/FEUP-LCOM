@@ -28,6 +28,7 @@ extern uint32_t heli_shoot_time;
 int init_game(){
 
     initialize_bullets();
+    initialize_platforms();
    
     int flag = set_frame_buffer(0x11A);
     if (flag) return vg_exit();
@@ -113,14 +114,14 @@ void timer_int_h(){
     
     switch(game_state){
         case MAINMENU:
+            draw_background();  
+            draw_player(&player);
             canvas_draw_menu(&mouse);
             break;
 
-        case INTRO: 
-            
-            break;
-
         case INSTRUCTIONS:
+            draw_background();  
+            draw_player(&player);
             canvas_draw_instructions(&mouse);
             break;
 
@@ -162,6 +163,7 @@ void timer_int_h(){
             draw_player(&player);
             draw_helicopter(&heli);
             draw_c_bullets();
+            draw_platforms();
 
             break;
 
