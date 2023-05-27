@@ -36,6 +36,7 @@ int (proj_main_loop)(){
     while(!finished){
         flag = proj_int();
         if (flag){
+          
             vg_exit();
             return 1;
         } 

@@ -1,6 +1,7 @@
 #ifndef _LCOM_XPM_ID_H_
 #define _LCOM_XPM_ID_H_
-#define NUM_XPM_FILES 55
+
+#define NUM_XPM_FILES 56
 #define TITLE_XPM_ID 0
 #define HELI_XPM_ID 1
 #define SOLDIER1_XPM_ID 2

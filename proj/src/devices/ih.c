@@ -4,6 +4,7 @@
 #include "devices/rtc.h"
 #include "game/menu.h"
 #include "devices/video.h"
+#include "xpm/xpm_id.h"
 
 uint32_t timer_mask; 
 uint32_t mouse_mask;
@@ -28,11 +29,6 @@ GameState game_state = MAINMENU;
 extern uint32_t heli_shoot_time;
 
 int init_game(){
-
-    /*
-    memccpy(&rtc, 0, sizeof(rtc));
-    rtc_update();
-    */
 
     initialize_bullets();
     initialize_platforms();
@@ -130,9 +126,13 @@ void timer_int_h(){
     
     switch(game_state){
         case MAINMENU:
-            
+            printf("hora: %d \n", rtc.hours);
+            printf("min: %d \n", rtc.minutes);
+            printf("dia: %d \n", rtc.day);
+            printf("mes: %d \n", rtc.month);
             draw_player(&player);
             canvas_draw_menu(&mouse);
+            draw_date(rtc.hours,rtc.minutes,rtc.seconds,rtc.day,rtc.month);
             break;
 
         case INSTRUCTIONS:

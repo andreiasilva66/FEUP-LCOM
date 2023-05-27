@@ -10,7 +10,7 @@ void initialize_platforms(){
 
   }
     platforms_location(850,900,150,40,0);
-    platforms_location(300,900,150,40,1);
+    platforms_location(300,850,150,40,1);
     platforms_location(400,750,150,40,2);
     platforms_location(600,690,150,40,3);
 
