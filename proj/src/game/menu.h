@@ -9,7 +9,6 @@
 typedef enum {
     MAINMENU,
     INSTRUCTIONS,
-    INTRO,
     GAME,
     GAMEOVER
 } GameState;

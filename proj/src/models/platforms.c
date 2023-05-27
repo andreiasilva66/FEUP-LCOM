@@ -1,17 +1,18 @@
 #include <lcom/lcf.h>
 #include "platforms.h"
-
+#include "devices/video.h"
+#include "xpm/xpm_id.h"
 
 void initialize_platforms(){
   Platform platform = {0,0,0,0};
-  for(int i = 0; i < 3 ; i++){
+  for(int i = 0; i < 4 ; i++){
     platforms[i] = platform;
 
   }
-    platforms_location(850,900,100,20,1);
-    /*platforms_location(,50,100,20,2);
-    platforms_location(50,50,100,20,3);
-    platforms_location(50,50,100,20,4);*/
+    platforms_location(850,900,150,40,0);
+    platforms_location(300,900,150,40,1);
+    platforms_location(400,750,150,40,2);
+    platforms_location(600,690,150,40,3);
 
 
 }
@@ -26,18 +27,15 @@ void platforms_location(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 }
 
 void update_platforms_position(uint8_t scroll_speed){
-for(int i = 0; i < 3 ; i++){
-platforms[i].x -= scroll_speed;
-}}
+  for(int i = 0; i < 3 ; i++){
+    platforms[i].x -= scroll_speed; 
+  }
+}
 
 void draw_platforms(){
 
   for(int i = 0 ; i < 4; i++){ 
-
-  vg_draw_rectangle(platforms[i].x,platforms[i].y,platforms[i].width,platforms[i].height,0xff);
+    vg_draw_xpm(PLATFORFORM_XPM_ID,platforms[i].x,platforms[i].y);
   }
 
 }
-
-
-

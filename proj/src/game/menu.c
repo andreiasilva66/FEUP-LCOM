@@ -55,11 +55,10 @@ void menu_mouse(Mouse *mouse, struct packet *pp){
 void main_menu_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
     
-      if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_POS_Y && mouse->y <= MENU_POS_Y + MENU_HEIGHT){
+      if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 500){
         game_state = GAME;
-        canvas_draw_arena(0xFFF0, 0xF09F);
       }
-      else if(mouse->x >= MENU_POS_X && mouse->x <=  MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
+      else if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 680){
         game_state =  INSTRUCTIONS; 
       }
 
@@ -68,7 +67,7 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
 
 void instructions_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= 3*MENU_POS_Y && mouse->y <= 3*MENU_POS_Y + MENU_HEIGHT){
+    if(mouse->x >= 450 && mouse->x <=650 && mouse->y >= 900 && mouse->y <= 1000){
           game_state =  MAINMENU; 
         }
   }
@@ -76,9 +75,8 @@ void instructions_mouse(Mouse *mouse, struct packet *pp){
 
 void (game_over_mouse)(Mouse *mouse, struct packet *pp){
   if(pp->lb){
-    if(mouse->x >= MENU_POS_X && mouse->x <= MENU_POS_X + MENU_WIDTH && mouse->y >= MENU_DIST + MENU_POS_Y && mouse->y <= MENU_DIST + MENU_POS_Y + MENU_HEIGHT){
+    if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 700){
           game_state =  MAINMENU; 
-          canvas_draw_menu();
           restore_game_def(); // bullets, player , helicopter
         }
   }

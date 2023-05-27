@@ -2,6 +2,7 @@
 #include <lcom/lcf.h>
 #include "ih.h"
 #include "game/menu.h"
+#include "devices/video.h"
 
 uint32_t timer_mask; 
 uint32_t mouse_mask;
@@ -28,24 +29,9 @@ int init_game(){
 
     initialize_bullets();
     initialize_platforms();
-    
-    
    
     int flag = set_frame_buffer(0x11A);
     if (flag) return vg_exit();
-
-    //draw menu
-    
-
-     //draw arena
-    //flag = canvas_draw_arena(0xFFF0, 0xF09F);
-    // if (flag) return vg_exit();
-
-    // flag = vg_draw_rectangle(player.x, player.y, 50, 50, 0x000F);
-    // if (flag) return vg_exit();
-
-    // flag = vg_draw_rectangle(heli.x, heli.y, 100, 50, 0x000F);
-    // if (flag) return vg_exit();
 
     uint8_t timer_bit_no=0;
     if(timer_subscribe_int(&timer_bit_no)) return 1;
@@ -63,6 +49,8 @@ int init_game(){
     timer_mask = BIT(timer_bit_no); 
     mouse_mask = BIT(mouse_bit_no);
     kbc_mask = BIT(kbc_bit_no);
+
+    vg_load_xpm();
 
     return 0;
 }
@@ -88,15 +76,6 @@ int proj_int(){
             bool mouse_int = msg.m_notify.interrupts & mouse_mask;
             if (timer_int){
                 timer_int_h();
-                if(game_state == GAME){ 
-                canvas_draw_arena(0xFFF0, 0xF09F);
-                draw_helicopter(&heli);
-                draw_player(&player);
-                draw_c_bullets();
-                }
-                else if(game_state == MAINMENU){
-                    vg_draw_xpm(soldat_xpm,0,0);
-                }
             }
             if (kbc_int){
                 kbc_int_h();
@@ -135,15 +114,15 @@ void timer_int_h(){
     
     switch(game_state){
         case MAINMENU:
-            canvas_draw_menu();
-            break;
-
-        case INTRO: 
-            
+            draw_background();  
+            draw_player(&player);
+            canvas_draw_menu(&mouse);
             break;
 
         case INSTRUCTIONS:
-            canvas_draw_instructions();
+            draw_background();  
+            draw_player(&player);
+            canvas_draw_instructions(&mouse);
             break;
 
         case GAME: 
@@ -178,17 +157,25 @@ void timer_int_h(){
                 player.frame++;
             }
 
-            // draw images            
-            canvas_draw_arena(0xFFF0, 0xF09F);
-            draw_platforms();
-            draw_helicopter(&heli);
+            // draw
+            draw_background();            
             draw_player(&player);
+            draw_helicopter(&heli);
             draw_c_bullets();
+            draw_platforms();
+            draw_hp_bar(player.hp);  
+            draw_remaining_bullets(BULLETS - n_player_bullets); 
 
             break;
 
         case GAMEOVER:
-            vg_draw_rectangle(MENU_POS_X,MENU_DIST + MENU_POS_Y,MENU_WIDTH,MENU_HEIGHT,0);
+            draw_background();   
+            draw_hp_bar(player.hp);           
+            draw_player(&player);
+            draw_helicopter(&heli);
+            draw_c_bullets();
+            canvas_draw_game_over(&mouse);
+            draw_remaining_bullets(BULLETS - n_player_bullets); 
             break;
 
         default:

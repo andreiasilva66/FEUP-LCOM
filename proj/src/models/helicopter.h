@@ -27,6 +27,8 @@ void init_helicopter(Helicopter * heli);
 
 void helicopter_add_difficulty(Helicopter * heli);
 
+int draw_explosions(Helicopter * heli);
+
 
 #endif // _LCOM_HELICOPTER_H_
 

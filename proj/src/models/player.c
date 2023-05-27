@@ -2,13 +2,15 @@
 
 #include "bullet.h"
 #include "devices/i8042.h"
-#include "player.h"
+#include "bullet.h"
+#include "xpm/xpm2.h"
+#include "xpm/xpm_id.h"
+#include "devices/video.h"
 
 bool jumping = false;
 bool jump_down = false;
 int y_ini;
 int y_ground = PLAYER_INI_Y;
-// extern Platform platforms[4];
 
 extern u_int32_t n_bullets;
 
@@ -23,7 +25,7 @@ void jump(Player *obj, uint16_t speed) {
     moveDown(obj, 4);
   }
   else {
-    if (obj->y == y_ini - 80) {
+    if (obj->y == y_ini - 120) {
       jump_down = true;
       return;
     }
@@ -50,6 +52,7 @@ void moveDown(Player *obj, uint16_t speed) {
   }
 }
 
+
 void moveLeft(Player *obj, uint16_t speed) {
 
   if (jumping == false && obj->y != y_ground && !check_collision_player(obj, &platforms[4], jump_down)) {
@@ -72,15 +75,14 @@ void moveRight(Player *obj, uint16_t speed) {
     jump_down = true;
   }
 
-  else if (obj->x + 50 + speed >= 1230 - 50) {
+  else if (obj->x + 50 + speed > 1230) {
     obj->x += (1230 - obj->x - 50);
   }
   else {
     obj->x += speed;
-  }
-}
+  }} 
 
-void process_scancode(Player *obj, uint8_t *scancodes) {
+void process_scancode(Player* obj, uint8_t* scancodes){
 
   switch (*scancodes) {
     case MOVE_RIGHT_MAKE:
@@ -111,10 +113,6 @@ void process_scancode(Player *obj, uint8_t *scancodes) {
   }
 }
 
-void draw_mouse(Mouse *mouse) {
-
-  vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0xFF0000);
-}
 
 void process_packet(Player *player, struct packet *pp, Mouse *mouse) {
   if (pp->lb) {
@@ -123,30 +121,66 @@ void process_packet(Player *player, struct packet *pp, Mouse *mouse) {
 }
 
 void draw_hp_bar(uint8_t hp) {
+    switch (hp)
+    {
+    case 0:
+      vg_draw_xpm(HP_0,40, Y_RESOLUTION-50);
+      
+      break;
+    case 20:
+      vg_draw_xpm(HP_20,40, Y_RESOLUTION-50);
+     
+      break;
+    case 40:
+      vg_draw_xpm(HP_40,40, Y_RESOLUTION-50);
+     
+      break;
+    case 60:
+      vg_draw_xpm(HP_60,40, Y_RESOLUTION-50);
+     
+      break;
+    case 80:
+      vg_draw_xpm(HP_80,40, Y_RESOLUTION-50);
+     
+      break;
+    case 100:
+      vg_draw_xpm(HP_100,40, Y_RESOLUTION-50);
+     
+      break;
+    default:
+      break;
+    }
 
-  vg_draw_rectangle(40, Y_RESOLUTION - 20, 100, 50, 0xFFF0);
-  vg_draw_rectangle(40, Y_RESOLUTION - 20, hp, 50, 0x00FF00);
 }
 
-void draw_player(Player *player) {
-
-  switch (player->frame % 3) {
+void draw_player(Player * player){
+    if(player->hp == 0){
+        vg_draw_xpm(SOLDIER_DEAD_XPM_ID, player->x, player->y);
+        return;
+    }
+    switch (player->frame%3)
+    {
     case 0:
-      vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
-      break;
-
+        vg_draw_xpm(SOLDIER1_XPM_ID,player->x, player->y);
+        //vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        break;
+    
     case 1:
-      vg_draw_rectangle(player->x, player->y, 50, 50, 0x0F00);
-      break;
+        vg_draw_xpm(SOLDIER2_XPM_ID, player->x, player->y);
+        //vg_draw_rectangle(player->x, player->y, 50, 50, 0x0F00);
+        break;
 
     case 2:
-      vg_draw_rectangle(player->x, player->y, 50, 50, 0xF000);
-      break;
+        vg_draw_xpm(SOLDIER3_XPM_ID, player->x, player->y);
+        //vg_draw_rectangle(player->x, player->y, 50, 50, 0xF000);
+        break;
 
     default:
-      vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
-      break;
-  }
+        break;
+    }    
+
+
+
 }
 
 void player_update_mov(Player *player) {
@@ -162,20 +196,19 @@ void player_update_mov(Player *player) {
 }
 
 int check_collision_player(Player *player, Platform platform[], bool jump_down) {
-  printf("ENtrou");
   for (int i = 0; i < 4; i++) {
     Platform *platform = &platforms[i];
-    int player_left = player->x;
-    int player_right = player->x + PLAYER_WIDTH;
-    int player_top = player->y;
-    int player_bottom = player->y + PLAYER_HEIGHT;
+    uint16_t player_left = player->x;
+    uint16_t player_right = player->x + PLAYER_WIDTH;
+    uint16_t player_top = player->y;
+    uint16_t player_bottom = player->y + PLAYER_HEIGHT;
 
-    int platform_left = platform->x;
-    int platform_right = platform->x + platform->width;
-    int platform_top = platform->y;
-    int platform_bottom = platform->y + platform->height;
+    uint16_t platform_left = platform->x;
+    uint16_t platform_right = platform->x + platform->width;
+    uint16_t platform_top = platform->y;
+    // uint16_t platform_bottom = platform->y + platform->height;
 
-    if ((player_left < platform_right && player_right > platform_left && player_bottom > platform_top) && !(player_top > platform_top - PLAYER_HEIGHT + 4 && player_bottom < platform_bottom  + PLAYER_HEIGHT && player_left < platform_right && player_right > platform_left) ) {
+    if ((player_left < platform_right && player_right > platform_left && player_bottom > platform_top) && !(player_top > platform_top - PLAYER_HEIGHT + 4 && player_left < platform_right && player_right > platform_left)) {
       // Player collided with the current platform
       return 1;
     }
@@ -184,3 +217,6 @@ int check_collision_player(Player *player, Platform platform[], bool jump_down) 
   // Player did not collide with any platform
   return 0;
 }
+
+
+

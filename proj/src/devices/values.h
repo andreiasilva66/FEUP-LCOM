@@ -4,32 +4,37 @@
 #include <lcom/lcf.h>
 
 //player
-#define PLAYER_WIDTH 50
-#define PLAYER_HEIGHT 50
+#define PLAYER_WIDTH 22
+#define PLAYER_HEIGHT 47
 #define PLAYER_HP 100
-#define PLAYER_INI_Y 924
+#define PLAYER_INI_Y (924)
 #define PLAYER_INI_X 100 
 #define PLAYER_SPEED 8
 
 
 //helicopter
-#define HELI_WIDTH 100
-#define HELI_HEIGHT 50
+#define HELI_WIDTH 200
+#define HELI_HEIGHT 130
 #define HELI_HP 200
 #define HELI_INI_X 1330 
 #define HELI_INI_Y 100
 
 //bullets
-#define BLTS_WIDTH 20 
-#define BLTS_HEIGHT 20
+#define BLTS_WIDTH 9
+#define BLTS_HEIGHT 9
 #define BULLETS 10
 #define HELI_BLTS_DMG 20
 #define PLAYER_BLTS_DMG 10
 
 
 //resolution 
-#define Y_RESOLUTION 1004
-#define  X_RESOLUTION 1230
+#define Y_RESOLUTION 1024
+#define  X_RESOLUTION 1280
+
+//mouse
+#define MOUSE_WIDTH 36
+#define MOUSE_HEIGHT 36
+
 
 //menu 
 #define MENU_WIDTH 500  

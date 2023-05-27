@@ -19,7 +19,8 @@ void (initialize_bullets)();
 
 // draw
 
-int (draw_bullet)(Bullet* bullet);
+int (draw_bullet_player)(Bullet* bullet);
+int (draw_bullet_heli)(Bullet* bullet);
 void draw_c_bullets();
 
 
@@ -35,6 +36,7 @@ void verify_heli_collision (Helicopter * heli, Bullet* bullet);
 void player_update_bullets(Helicopter * heli);
 void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse);
 void verify_player_collision (Player * player, Bullet* bullet);
+void draw_remaining_bullets(uint8_t bullets);
 
 
 #endif // _LCOM_BULLET_H_

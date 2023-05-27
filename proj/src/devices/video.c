@@ -1,12 +1,16 @@
 #include <lcom/lcf.h>
 #include "video.h"
 #include "keyboard.h"
+#include "xpm/xpm2.h"
+#include "xpm/xpm_id.h"
 
 extern uint8_t data;
 vbe_mode_info_t info;
 void *video_mem;
 void *video_mem_sec;
-unsigned int vram_size;  
+unsigned int vram_size;
+uint16_t* maps[32];
+xpm_image_t images[32];
 
 
 void (change_buffer)(){
@@ -20,10 +24,6 @@ struct minix_mem_range mr;
 unsigned int vram_base;  /* VRAM's physical addresss */
 vram_base = info.PhysBasePtr;
 
-
-// adicionamos 7 ao BitsPerPixel para garantirmos o n.º de bytes suficientes uma vez que fazermos uma divisão inteira
-//ex: 15 / 8 = 1, porém precisamos de 2 bytes;
-// 15+7 = 22      22/8 = 2   fica resolvido o problema
 uint8_t bytes_per_pixel = (info.BitsPerPixel + 7) / 8;
 vram_size = info.XResolution * info.YResolution * bytes_per_pixel;
 int r;				    
@@ -91,42 +91,6 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
     return 0;
 }
 
-// keyboard loop
-// int(keyboard_loop)() {
-//     int r = 0;
-//     uint8_t bit = 0;
-//     if(kbc_subscribe_int(&bit)) return 1;
-//     uint32_t kanna = BIT(bit);
-    
-//     int ipc_status;
-//     message msg;
- 
-//     while(data != KBD_ESC) {
-//         /* Get a request message. */
-//         if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-//             printf("driver_receive failed with: %d", r);
-//             continue;
-//         }
-//         if (is_ipc_notify(ipc_status)) { /* received notification */
-//             switch (_ENDPOINT_P(msg.m_source)) {
-//                 case HARDWARE: /* hardware interrupt notification */				
-//                     if (msg.m_notify.interrupts & kanna) { /* subscribed interrupt */
-//                         if(kbc_read_out_buffer(&data,)) return 1;
-//                         kbc_ih();
-//                     }
-//                     break;
-//                 default:
-//                     break; /* no other notifications expected: do nothing */	
-//             }
-//         } else { /* received a standard message, not a notification */
-//             /* no standard messages expected: do nothing */
-//         }
-//     }
-//     if(kbc_unsubscribe_int()){
-//         return 1;
-//     }
-//     return 0;
-// }
 
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     if(x >= info.XResolution || y >= info.YResolution){
@@ -141,14 +105,54 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     return 0;
 }
 
-int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
-    if(x > info.XResolution || y > info.YResolution){
+int (vg_load_xpm)(){
+    //xpm_image_t image;
+        
+        maps[TITLE_XPM_ID] = (uint16_t*) xpm_load(title,XPM_5_6_5,&images[TITLE_XPM_ID]);
+        maps[HELI_XPM_ID] = (uint16_t*) xpm_load(heli_xpm, XPM_5_6_5, &images[HELI_XPM_ID]);
+         maps[HELI_DEAD_XPM_ID] = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&images[HELI_DEAD_XPM_ID]);
+        maps[SOLDIER1_XPM_ID] = (uint16_t*) xpm_load(soldado1,XPM_5_6_5,&images[SOLDIER1_XPM_ID]);
+        maps[SOLDIER2_XPM_ID] = (uint16_t*) xpm_load(soldado2,XPM_5_6_5,&images[SOLDIER2_XPM_ID]);
+        maps[SOLDIER3_XPM_ID] = (uint16_t*) xpm_load(soldado3,XPM_5_6_5,&images[SOLDIER3_XPM_ID]);
+        maps[SOLDIER_DEAD_XPM_ID] = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&images[SOLDIER_DEAD_XPM_ID]);
+        maps[BACKGROUND_DAY_XPM_ID] = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&images[BACKGROUND_DAY_XPM_ID]);
+        maps[HELI_BULLET_XPM_ID] = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&images[HELI_BULLET_XPM_ID]);
+        maps[SOLDIER_BULLET_XPM_ID] = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&images[SOLDIER_BULLET_XPM_ID]); 
+        maps[TARGET_XPM_ID] = (uint16_t*) xpm_load(target,XPM_5_6_5,&images[TARGET_XPM_ID]);
+        maps[GAMEOVER_XPM_ID] = (uint16_t*) xpm_load(gameover,XPM_5_6_5,&images[GAMEOVER_XPM_ID]);
+        maps[PLAYAGAIN_NO_XPM_ID] = (uint16_t*) xpm_load(playagain_no,XPM_5_6_5,&images[PLAYAGAIN_NO_XPM_ID]);
+        maps[PLAYAGAIN_YES_XPM_ID] = (uint16_t*) xpm_load(playagain_yes,XPM_5_6_5,&images[PLAYAGAIN_YES_XPM_ID]);
+        maps[TITLE_XPM_ID] = (uint16_t*) xpm_load(title,XPM_5_6_5,&images[TITLE_XPM_ID]);
+        maps[BACK_NO_XPM_ID] = (uint16_t*) xpm_load(back_no,XPM_5_6_5,&images[BACK_NO_XPM_ID]);
+        maps[BACK_YES_XPM_ID] = (uint16_t*) xpm_load(back_yes,XPM_5_6_5,&images[BACK_YES_XPM_ID]);
+        maps[INSTRUCT_NO_XPM_ID] = (uint16_t*) xpm_load(instructions_no,XPM_5_6_5,&images[INSTRUCT_NO_XPM_ID]);
+        maps[INSTRUCT_YES_XPM_ID] = (uint16_t*) xpm_load(instructions_yes,XPM_5_6_5,&images[INSTRUCT_YES_XPM_ID]);
+        maps[START_NO_XPM_ID] = (uint16_t*) xpm_load(start_no,XPM_5_6_5,&images[START_NO_XPM_ID]);
+        maps[START_YES_XPM_ID] = (uint16_t*) xpm_load(start_yes,XPM_5_6_5,&images[START_YES_XPM_ID]);
+        maps[INSTRUCTEXT_XPM_ID] = (uint16_t*) xpm_load(textinstructions,XPM_5_6_5,&images[INSTRUCTEXT_XPM_ID]);
+        maps[EXPLOSION1_XPM_ID] = (uint16_t*) xpm_load(explosion1,XPM_5_6_5,&images[EXPLOSION1_XPM_ID]);
+        maps[EXPLOSION2_XPM_ID] = (uint16_t*) xpm_load(explosion2,XPM_5_6_5,&images[EXPLOSION2_XPM_ID]);
+        maps[EXPLOSION3_XPM_ID] = (uint16_t*) xpm_load(explosion3,XPM_5_6_5,&images[EXPLOSION3_XPM_ID]);
+        maps[PLATFORFORM_XPM_ID] = (uint16_t*) xpm_load(plataformas,XPM_5_6_5,&images[PLATFORFORM_XPM_ID]);
+        maps[HP_100] = (uint16_t*) xpm_load(hp100,XPM_5_6_5,&images[HP_100]);
+        maps[HP_80] = (uint16_t*) xpm_load(hp80,XPM_5_6_5,&images[HP_80]);
+        maps[HP_60] = (uint16_t*) xpm_load(hp60,XPM_5_6_5,&images[HP_60]);
+        maps[HP_40] = (uint16_t*) xpm_load(hp40,XPM_5_6_5,&images[HP_40]);
+        maps[HP_20] = (uint16_t*) xpm_load(hp20,XPM_5_6_5,&images[HP_20]);
+        maps[HP_0] = (uint16_t*) xpm_load(hp0,XPM_5_6_5,&images[HP_0]);
+    
+        return 0;
+    }
+
+
+int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
+    if(x > info.XResolution || y > info.YResolution || id < 0 || id > 31){
         return 1;
     }
-    xpm_image_t image;
-    uint16_t* map;
-
-    map = (uint16_t*) xpm_load(xpm, XPM_5_6_5, &image);
+    
+    xpm_image_t image = images[id];
+    uint16_t* map = maps[id];
+    
 
     uint32_t counter = 0;
     uint32_t extra_x = 0;
@@ -170,31 +174,15 @@ int (vg_draw_xpm) (xpm_map_t xpm, uint16_t x, uint16_t y){
 
     for(uint16_t i = y; i < height; i++){
         for(uint16_t j = x; j < width; j++){
-            //if(map[counter] != 0x000000) ignora o preto
-            vg_draw_pixel(j,i,map[counter]);
+            if(map[counter] != 0xFFFF){
+                vg_draw_pixel(j,i,map[counter]);
+            }
             counter++;
         }
         counter += extra_x;
     }
     return 0;
 }
-
-int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, uint16_t new_y){
-    xpm_image_t image;
-    uint8_t* map;
-
-    map = xpm_load(xpm, XPM_INDEXED, &image);
-
-    if(vg_draw_rectangle(old_x, old_y, image.width, image.height,0)){
-        return 1;
-    }
-
-    if(vg_draw_xpm(xpm, new_x, new_y)){
-        return 1;
-    }
-    return 0;
-}
-
 
 void free_buffer(){
     free(video_mem_sec);

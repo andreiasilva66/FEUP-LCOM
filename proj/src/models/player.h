@@ -32,11 +32,9 @@ void jump(Player* obj, uint16_t speed);
 
 void process_scancode(Player* obj, uint8_t* data);
 void process_packet(Player* obj, struct packet *pp, Mouse *mouse);
-void draw_mouse(Mouse *mouse);
 void draw_hp_bar(uint8_t hp);
 void draw_player(Player * player);
 void player_update_mov(Player *player);
-int check_collision_player(Player * player, Platform platform[4],bool jump_down);
-
+int check_collision_player(Player *player, Platform platform[], bool jump_down);
 
 #endif // _LCOM_PLAYER_H_
