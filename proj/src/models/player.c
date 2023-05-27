@@ -8,26 +8,27 @@
 bool jumping = false;
 bool jump_down = false;
 int y_ini;
+int y_ground = PLAYER_INI_Y;
 
 extern u_int32_t n_bullets;
 
-void jump(Player* obj, uint16_t speed){
+void jump(Player *obj, uint16_t speed) {
 
-    if(jump_down){
-        if(obj->y == y_ini){
-            jumping = false;
-            jump_down = false;
-            return;
-        }
-        moveDown(obj,4);
+  if (jump_down) {
+    if (obj->y == y_ground || check_collision_player(obj, &platforms[4], jump_down)) {
+      jumping = false;
+      jump_down = false;
+      return;
     }
-    else{
-        if(obj->y == y_ini - 80){
-            jump_down= true;
-            return;
-        }
-        moveUp(obj,4);
+    moveDown(obj, 4);
+  }
+  else {
+    if (obj->y == y_ini - 80) {
+      jump_down = true;
+      return;
     }
+    moveUp(obj, 4);
+  }
 }
 
 void moveUp(Player* obj, uint16_t speed){
@@ -47,24 +48,36 @@ void moveDown(Player* obj, uint16_t speed){
     }
 }
 
-void moveLeft(Player* obj, uint16_t speed){
-    
-    if(obj->x - speed <= 50){
-        obj->x -= (obj->x - 50);
-    }else{
-        obj->x -= speed;
-    }
+
+void moveLeft(Player *obj, uint16_t speed) {
+
+  if (jumping == false && obj->y != y_ground && !check_collision_player(obj, &platforms[4], jump_down)) {
+    jumping = true;
+    jump_down = true;
+  }
+  else if (obj->x - speed <= 50) {
+    obj->x -= (obj->x - 50);
+  }
+
+  else {
+    obj->x -= speed;
+  }
 }
 
-void moveRight(Player* obj, uint16_t speed){
-    
-    if(obj->x + 50 + speed >= 1230-50){
-        obj->x += (1230 - obj->x - 50);
-    } else {
-        obj->x += speed;
-    }
-}
+void moveRight(Player *obj, uint16_t speed) {
 
+     if (jumping ==false && obj->y != y_ground && !check_collision_player(obj, &platforms[4], jump_down)) {
+    jumping = true;
+    jump_down = true;
+  }
+
+  else if (obj->x + 50 + speed >= 1230 - 50) {
+    obj->x += (1230 - obj->x - 50);
+  }
+  else {
+    obj->x += speed;
+  }
+}
 void process_scancode(Player* obj, uint8_t* scancodes){
 
     switch (*scancodes)
@@ -98,8 +111,7 @@ void process_scancode(Player* obj, uint8_t* scancodes){
 }
 
 void draw_mouse(Mouse *mouse){
-    
-    vg_draw_rectangle(mouse->x, mouse->y, 20, 20, 0xFF0000);
+    vg_draw_xpm(12, mouse->x, mouse->y);
 }
 
 void process_packet(Player* player, struct packet *pp, Mouse *mouse){
@@ -111,36 +123,35 @@ void process_packet(Player* player, struct packet *pp, Mouse *mouse){
 
 void draw_hp_bar(uint8_t hp){
 
-    vg_draw_rectangle(40,Y_RESOLUTION - 20, 100, 50,0xFFF0);
+    vg_draw_rectangle(40,Y_RESOLUTION - 20, 100, 50,0xFFFFFF);
     vg_draw_rectangle(40, Y_RESOLUTION - 20, hp, 50,0x00FF00);
 
 }
 
 void draw_player(Player * player){
     if(player->hp == 0){
-        vg_draw_xpm(soldado_morto, 0, player->x, player->y);
+        vg_draw_xpm(10, player->x, player->y);
         return;
     }
-
     switch (player->frame%3)
     {
     case 0:
-        vg_draw_xpm(soldado1, 0,player->x, player->y);
+        vg_draw_xpm(2,player->x, player->y);
         //vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
         break;
     
     case 1:
-        vg_draw_xpm(soldado3, 0, player->x, player->y);
+        vg_draw_xpm(3, player->x, player->y);
         //vg_draw_rectangle(player->x, player->y, 50, 50, 0x0F00);
         break;
 
     case 2:
-        vg_draw_xpm(soldado2, 0, player->x, player->y);
+        vg_draw_xpm(4, player->x, player->y);
         //vg_draw_rectangle(player->x, player->y, 50, 50, 0xF000);
         break;
 
     default:
-        vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        vg_draw_xpm(10, player->x, player->y);
         break;
     }    
 
@@ -160,5 +171,29 @@ void player_update_mov(Player *player){
         moveRight(player, 5);
     }
 }
+
+int check_collision_player(Player *player, Platform platform[], bool jump_down) {
+  for (int i = 0; i < 4; i++) {
+    Platform *platform = &platforms[i];
+    uint16_t player_left = player->x;
+    uint16_t player_right = player->x + PLAYER_WIDTH;
+    uint16_t player_top = player->y;
+    uint16_t player_bottom = player->y + PLAYER_HEIGHT;
+
+    uint16_t platform_left = platform->x;
+    uint16_t platform_right = platform->x + platform->width;
+    uint16_t platform_top = platform->y;
+    uint16_t platform_bottom = platform->y + platform->height;
+
+    if ((player_left < platform_right && player_right > platform_left && player_bottom > platform_top) && !(player_top > platform_top - PLAYER_HEIGHT + 4 && player_bottom < platform_bottom  + PLAYER_HEIGHT && player_left < platform_right && player_right > platform_left) ) {
+      // Player collided with the current platform
+      return 1;
+    }
+  }
+  jump_down = true;
+  // Player did not collide with any platform
+  return 0;
+}
+
 
 

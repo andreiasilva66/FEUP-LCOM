@@ -12,10 +12,8 @@ extern GameState game_state;
 uint32_t n_player_bullets=0;
 uint32_t n_heli_bullets=0;
 
-
 Bullet player_bullets[BULLETS];
 Bullet heli_bullets[BULLETS];
-
 
 void (initialize_bullets)(){
     Bullet bullet = {0,0,0,0,false};
@@ -27,14 +25,14 @@ void (initialize_bullets)(){
 
 int (draw_bullet_player)(Bullet *bullet){
     if(bullet->in_game){
-        return vg_draw_xpm(bala_soldado, 0, bullet->x, bullet->y);
+        return vg_draw_xpm(8, bullet->x, bullet->y);
     }
     return 0;
 }
 
 int (draw_bullet_heli)(Bullet *bullet){
     if(bullet->in_game){
-        return vg_draw_xpm(bala_heli, 0, bullet->x, bullet->y);
+        return vg_draw_xpm(9, bullet->x, bullet->y);
     }
     return 0;
 }
@@ -57,11 +55,12 @@ void player_update_bullets(Helicopter * heli){
 
 void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
 
-    if(n_player_bullets == BULLETS)
-        return;
-
-    int delta_x = mouse->x - obj->x;
-    int delta_y = mouse->y - obj->y;
+    if(n_player_bullets == BULLETS){ 
+      
+        return;}
+        
+    int delta_x = mouse->x   - obj->x;
+    int delta_y = mouse->y   - obj->y;
     double alpha = atan2((double)delta_y, (double)delta_x);
     player_bullets[n_player_bullets].x = obj->x;
     player_bullets[n_player_bullets].y = obj->y;
@@ -69,6 +68,7 @@ void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
     player_bullets[n_player_bullets].vx = (int16_t)round(cos(alpha) * 5.0);
     player_bullets[n_player_bullets].vy = (int16_t)round(sin(alpha) * 5.0);  
 
+    
     n_player_bullets++;
 }
 
@@ -80,11 +80,11 @@ void heli_create_bullet( Helicopter* heli, Player* target){
     if(n_heli_bullets == BULLETS)
         n_heli_bullets=0;
 
-    int delta_x = target->x - heli->x;
-    int delta_y = target->y - heli->y;
+    int delta_x = target->x - (heli->x + HELI_WIDTH/2- 10);
+    int delta_y = target->y - (heli->y + HELI_HEIGHT);
     double alpha = atan2((double)delta_y, (double)delta_x);
-    heli_bullets[n_heli_bullets].x = heli->x;
-    heli_bullets[n_heli_bullets].y = heli->y;
+    heli_bullets[n_heli_bullets].x = heli->x + HELI_WIDTH/2- 10;
+    heli_bullets[n_heli_bullets].y = heli->y + HELI_HEIGHT;
     heli_bullets[n_heli_bullets].in_game = true;
     heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 * heli->vx);
     heli_bullets[n_heli_bullets].vy = (int16_t)round(sin(alpha) * 5.0 * heli->vy);  
@@ -137,11 +137,21 @@ void draw_c_bullets(){
     
     for(int i = 0; i < BULLETS; i++){
 
-        
         draw_bullet_player(&player_bullets[i]);
         draw_bullet_heli(&heli_bullets[i]);
 
-    }
+    }}
+
+void draw_remaining_bullets(uint8_t bullets){
+
+    uint16_t space = BLTS_WIDTH + 10;
+    uint16_t x_value = 800;
+    uint16_t y_value = 950;
+
+
+        for(int i = 0; i < bullets; i++){
+            vg_draw_xpm(8,x_value + i*space,y_value);
+        }
 
 }
 

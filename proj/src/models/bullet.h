@@ -36,6 +36,7 @@ void verify_heli_collision (Helicopter * heli, Bullet* bullet);
 void player_update_bullets(Helicopter * heli);
 void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse);
 void verify_player_collision (Player * player, Bullet* bullet);
+void draw_remaining_bullets(uint8_t bullets);
 
 
 #endif // _LCOM_BULLET_H_

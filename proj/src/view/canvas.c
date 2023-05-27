@@ -1,6 +1,8 @@
 #include <lcom/lcf.h>
 
 #include "canvas.h"
+#include "devices/video.h"
+#include "devices/keyboard.h"
 
 uint32_t walls_color;
 uint32_t arena_color;
@@ -47,19 +49,51 @@ int (canvas_refresh)(Player* obj, Helicopter* heli){
     
 }
 
-int (canvas_draw_menu)(){
-    walls_color = 0xF09F;
+int (canvas_draw_menu)(Mouse *mouse){
+    vg_draw_xpm(26, 310, 200);
 
-    return vg_draw_rectangle(MENU_POS_X, MENU_POS_Y, MENU_WIDTH, MENU_HEIGHT, walls_color) ||
-    vg_draw_rectangle(MENU_POS_X, MENU_POS_Y + MENU_DIST, MENU_WIDTH, MENU_HEIGHT, walls_color);
+    if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 500){
+        vg_draw_xpm(24,500,400);
+        vg_draw_xpm(19,400, 600);
+    }
+    else if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 700){
+        vg_draw_xpm(23,500,400);
+        vg_draw_xpm(20,400, 600);
+    }
+    else{
+        vg_draw_xpm(23,500,400);
+        vg_draw_xpm(19,400, 600);
+    }
+
+    return 0;
 }
 
-int (canvas_draw_instructions)(){
-    return vg_draw_rectangle(MENU_POS_X, MENU_POS_Y*3, MENU_WIDTH, MENU_HEIGHT, walls_color);
+int (canvas_draw_instructions)(Mouse *mouse){
+    vg_draw_xpm(26, 310, 200);
+    vg_draw_xpm(25,400,400);
+    if(mouse->x >= 450 && mouse->x <=600 && mouse->y >= 900 && mouse->y <= 1000){
+        vg_draw_xpm(17,500, 900);
+    }
+    else{
+        vg_draw_xpm(16,500, 900);
+    }
+    return 0;
 }
 
 
 
-int (canvas_draw_game_over)(){
-    return vg_draw_rectangle(0, 500, X_RESOLUTION, 100, walls_color);
+int (canvas_draw_game_over)(Mouse *mouse){
+    vg_draw_xpm(26, 310, 200);
+    vg_draw_xpm(18, 400, 400);
+    if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 700){
+        vg_draw_xpm(22, 400, 600);
+    }
+    else{
+        vg_draw_xpm(21, 400, 600);
+    }
+    return 0;
+}
+
+void (draw_background)(){
+    vg_draw_xpm(6,0,0);
 }

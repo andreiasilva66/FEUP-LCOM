@@ -3,12 +3,14 @@
 #include "helicopter.h"
 #include "bullet.h"
 #include "devices/video.h"
-#include "xpm/xpm2.h"
+
 
 #include "devices/i8042.h"
 bool isRight = true;
 bool isGoingUp = true;
+uint32_t explosion = 1;
 uint32_t heli_shoot_time = 60 * 2;
+
 
 void update_heli_move(Helicopter* heli) {
   if(!heli->alive){
@@ -28,14 +30,14 @@ void update_heli_move(Helicopter* heli) {
   }
 
   if (heli->x < 100 && !isRight) {
-    heli->x++;
+    heli->x+= heli->vx;
   } else if (heli->x > 900 && isRight) {
-    heli->x--;
+    heli->x-=heli->vy;
   } else {
     if (isRight) {
-      heli->x++;
+      heli->x+= heli->vx;
     } else {
-      heli->x--;
+      heli->x-=heli->vy;
     }
   }
 
@@ -51,25 +53,25 @@ void helicopter_shoot(Helicopter* heli ,Player* player){
 }
 
 void draw_helicopter(Helicopter* heli){
-  vg_draw_xpm(heli_xpm, 1, heli->x, heli->y);
-  //vg_draw_rectangle(heli->x, heli->y, 100, 50, 0x000F);
+  
+  if(!heli->alive){
+    if(!draw_explosions(heli)){ 
+    vg_draw_xpm(11, heli->x, heli->y);
+    }
+  }
+  else{
+    vg_draw_xpm(1, heli->x, heli->y);
+  }
+
 }
 
 void init_helicopter(Helicopter * heli){
   heli->x = HELI_INI_X;
   heli->y = HELI_INI_Y;
-  heli->hp = 200;
+  heli->hp = HELI_HP;
   heli->alive = true;
 }
 
-void destroy_helicopter(Helicopter * heli){
-  if(heli->y < Y_RESOLUTION){
-    heli->y+=5;
-  }
-  else{
-    init_helicopter(heli);
-  }
-}
 
 void helicopter_add_difficulty(Helicopter * heli){
   heli->vx++;
@@ -79,3 +81,47 @@ void helicopter_add_difficulty(Helicopter * heli){
   }
 }
 
+int  draw_explosions(Helicopter * heli){
+ 
+     explosion == 0 ? true:explosion++;
+  
+    if(explosion >= 2 && explosion <= 22){
+      vg_draw_xpm(1, heli->x, heli->y);
+      vg_draw_xpm(13,heli->x ,heli->y);
+      return 1;
+
+    }
+    else if(explosion > 22 && explosion <= 44)
+    {
+      vg_draw_xpm(1, heli->x, heli->y);
+      vg_draw_xpm(14,heli->x ,heli->y );
+      return 1; 
+    }
+    else if(explosion < 66 && explosion > 44){
+    vg_draw_xpm(15,heli->x ,heli->y);}
+
+    else explosion = 0;
+
+    
+
+    return 0;
+
+
+  
+
+}
+
+
+void destroy_helicopter(Helicopter * heli){
+
+  if(explosion) return;
+  
+  if(heli->y < Y_RESOLUTION){
+    heli->y+=5;
+  }
+  else{
+    
+    explosion = 1;
+    init_helicopter(heli);
+  }
+}

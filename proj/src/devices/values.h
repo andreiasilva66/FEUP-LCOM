@@ -13,8 +13,8 @@
 
 
 //helicopter
-#define HELI_WIDTH 100
-#define HELI_HEIGHT 50
+#define HELI_WIDTH 200
+#define HELI_HEIGHT 60
 #define HELI_HP 200
 #define HELI_INI_X 1330 
 #define HELI_INI_Y 100
@@ -28,8 +28,13 @@
 
 
 //resolution 
-#define Y_RESOLUTION 1004
-#define  X_RESOLUTION 1230
+#define Y_RESOLUTION 1054
+#define  X_RESOLUTION 1280
+
+//mouse
+#define MOUSE_WIDTH 25
+#define MOUSE_HEIGHT 25
+
 
 //menu 
 #define MENU_WIDTH 500  
