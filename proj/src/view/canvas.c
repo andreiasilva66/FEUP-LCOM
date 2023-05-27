@@ -54,8 +54,11 @@ int (canvas_draw_game_over)(Mouse *mouse){
     return 0;
 }
 
-void (draw_background)(){
-    vg_draw_xpm(BACKGROUND_DAY_XPM_ID,0,0);
+void (draw_background)(bool day){
+    if(day)
+        vg_draw_xpm(BACKGROUND_DAY_XPM_ID,0,0);
+    else
+        vg_draw_xpm(BACKGROUND_NIGHT_XPM_ID,0,0);
 }
 
 void draw_mouse(Mouse *mouse){

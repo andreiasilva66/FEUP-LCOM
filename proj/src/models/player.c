@@ -6,6 +6,7 @@
 #include "xpm/xpm2.h"
 #include "xpm/xpm_id.h"
 #include "devices/video.h"
+#include "xpm/xpm2.h"
 
 bool jumping = false;
 bool jump_down = false;

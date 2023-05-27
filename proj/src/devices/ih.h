@@ -12,6 +12,7 @@
 #include "keyboard.h"
 #include "i8042.h"
 #include "video.h"
+#include "rtc.h"
 
 // Include models 
 #include "models/player.h"

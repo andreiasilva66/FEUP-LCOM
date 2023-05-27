@@ -1,6 +1,7 @@
 
 #include <lcom/lcf.h>
 #include "ih.h"
+#include "devices/rtc.h"
 #include "game/menu.h"
 #include "devices/video.h"
 
@@ -8,6 +9,7 @@ uint32_t timer_mask;
 uint32_t mouse_mask;
 uint32_t kbc_mask;
 
+extern Rtc rtc;
 Mouse mouse = {640, 512};
 uint8_t mouse_packet = 0;
 struct packet pp;
@@ -26,6 +28,11 @@ GameState game_state = MAINMENU;
 extern uint32_t heli_shoot_time;
 
 int init_game(){
+
+    /*
+    memccpy(&rtc, 0, sizeof(rtc));
+    rtc_update();
+    */
 
     initialize_bullets();
     initialize_platforms();
@@ -111,16 +118,24 @@ int close_game(){
 void timer_int_h(){
 
     timer_int_handler();
+
+    if(rtc_update()) return;
+    
+    if(rtc.hours>=18 || rtc.hours<6){
+        draw_background(false);
+    }
+    else{
+        draw_background(true);
+    }
     
     switch(game_state){
         case MAINMENU:
-            draw_background();  
+            
             draw_player(&player);
             canvas_draw_menu(&mouse);
             break;
 
         case INSTRUCTIONS:
-            draw_background();  
             draw_player(&player);
             canvas_draw_instructions(&mouse);
             break;
@@ -157,8 +172,7 @@ void timer_int_h(){
                 player.frame++;
             }
 
-            // draw
-            draw_background();            
+            // draw          
             draw_player(&player);
             draw_helicopter(&heli);
             draw_c_bullets();
@@ -168,8 +182,7 @@ void timer_int_h(){
 
             break;
 
-        case GAMEOVER:
-            draw_background();   
+        case GAMEOVER:  
             draw_hp_bar(player.hp);           
             draw_player(&player);
             draw_helicopter(&heli);

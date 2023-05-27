@@ -140,7 +140,7 @@ int (vg_load_xpm)(){
         maps[HP_40] = (uint16_t*) xpm_load(hp40,XPM_5_6_5,&images[HP_40]);
         maps[HP_20] = (uint16_t*) xpm_load(hp20,XPM_5_6_5,&images[HP_20]);
         maps[HP_0] = (uint16_t*) xpm_load(hp0,XPM_5_6_5,&images[HP_0]);
-    
+        maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
         return 0;
     }
 

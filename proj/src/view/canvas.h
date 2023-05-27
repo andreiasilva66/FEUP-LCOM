@@ -12,7 +12,7 @@ int (canvas_refresh)(Player* obj, Helicopter* heli);
 int (canvas_draw_menu)(Mouse *mouse);
 int (canvas_draw_instructions)(Mouse *mouse);
 int (canvas_draw_game_over)(Mouse *mouse);
-void (draw_background)();
+void (draw_background)(bool day);
 void draw_mouse(Mouse *mouse);
 
 #endif // _LCOM_CANVAS_H_
