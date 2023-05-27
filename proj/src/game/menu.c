@@ -55,7 +55,7 @@ void menu_mouse(Mouse *mouse, struct packet *pp){
 void main_menu_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
     
-      if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 400){
+      if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 494){
         game_state = GAME;
       }
       else if(mouse->x >= 400 && mouse->x <=800 && mouse->y >= 600 && mouse->y <= 680){

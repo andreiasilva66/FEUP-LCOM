@@ -95,7 +95,6 @@ int proj_int(){
 } 
 
 int close_game(){
-    if(mouse_write_cmd(MOUSE_DIS_DATA_REP)) return vg_exit();
 
     if(mouse_unsubscribe_int()) return vg_exit();
 
@@ -103,9 +102,8 @@ int close_game(){
 
     if(kbc_unsubscribe_int()) return vg_exit();
 
-    if(mouse_write_cmd(MOUSE_DIS_DATA_REP))
-        return vg_exit();
-
+    if(mouse_write_cmd(MOUSE_DIS_DATA_REP)) return vg_exit();
+    
     free_buffer();
 
     return vg_exit();
@@ -126,10 +124,6 @@ void timer_int_h(){
     
     switch(game_state){
         case MAINMENU:
-            printf("hora: %d \n", rtc.hours);
-            printf("min: %d \n", rtc.minutes);
-            printf("dia: %d \n", rtc.day);
-            printf("mes: %d \n", rtc.month);
             draw_player(&player);
             canvas_draw_menu(&mouse);
             draw_date(rtc.hours,rtc.minutes,rtc.seconds,rtc.day,rtc.month);

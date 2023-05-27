@@ -220,4 +220,14 @@ int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
 
 void free_buffer(){
     free(video_mem_sec);
+
+    for (int i = 0; i < NUM_XPM_FILES; i++) {
+    free(maps[i]);
+}
+
+
+for (int i = 0; i < NUM_XPM_FILES; i++) {
+    free(images[i].bytes);
+}
+
 }
