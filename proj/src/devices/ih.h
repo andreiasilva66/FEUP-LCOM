@@ -12,11 +12,13 @@
 #include "keyboard.h"
 #include "i8042.h"
 #include "video.h"
+#include "rtc.h"
 
 // Include models 
 #include "models/player.h"
 #include "models/bullet.h"
 #include "models/helicopter.h"
+#include "models/platforms.h"
 
 // Include views
 #include "view/canvas.h"

@@ -58,7 +58,7 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
       if(mouse->x >= 500 && mouse->x <=700 && mouse->y >= 400 && mouse->y <= 500){
         game_state = GAME;
       }
-      else if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 700){
+      else if(mouse->x >= 400 && mouse->x <=750 && mouse->y >= 600 && mouse->y <= 680){
         game_state =  INSTRUCTIONS; 
       }
 
@@ -67,7 +67,7 @@ void main_menu_mouse(Mouse *mouse, struct packet *pp){
 
 void instructions_mouse(Mouse *mouse, struct packet *pp){
   if(pp->lb){
-    if(mouse->x >= 450 && mouse->x <=600 && mouse->y >= 900 && mouse->y <= 1000){
+    if(mouse->x >= 450 && mouse->x <=650 && mouse->y >= 900 && mouse->y <= 1000){
           game_state =  MAINMENU; 
         }
   }

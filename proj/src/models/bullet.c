@@ -6,6 +6,7 @@
 #include "view/canvas.h"
 #include "devices/video.h"
 #include "xpm/xpm2.h"
+#include "xpm/xpm_id.h"
 
 extern GameState game_state;
 
@@ -25,14 +26,14 @@ void (initialize_bullets)(){
 
 int (draw_bullet_player)(Bullet *bullet){
     if(bullet->in_game){
-        return vg_draw_xpm(8, bullet->x, bullet->y);
+        return vg_draw_xpm(SOLDIER_BULLET_XPM_ID, bullet->x, bullet->y);
     }
     return 0;
 }
 
 int (draw_bullet_heli)(Bullet *bullet){
     if(bullet->in_game){
-        return vg_draw_xpm(9, bullet->x, bullet->y);
+        return vg_draw_xpm(HELI_BULLET_XPM_ID, bullet->x, bullet->y);
     }
     return 0;
 }
@@ -59,8 +60,8 @@ void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
       
         return;}
         
-    int delta_x = mouse->x   - obj->x;
-    int delta_y = mouse->y   - obj->y;
+    int delta_x = mouse->x + MOUSE_WIDTH   - obj->x;
+    int delta_y = mouse->y + MOUSE_HEIGHT - obj->y;
     double alpha = atan2((double)delta_y, (double)delta_x);
     player_bullets[n_player_bullets].x = obj->x;
     player_bullets[n_player_bullets].y = obj->y;
@@ -80,10 +81,10 @@ void heli_create_bullet( Helicopter* heli, Player* target){
     if(n_heli_bullets == BULLETS)
         n_heli_bullets=0;
 
-    int delta_x = target->x - (heli->x + HELI_WIDTH/2- 10);
+    int delta_x = target->x - (heli->x + HELI_WIDTH/2-10);
     int delta_y = target->y - (heli->y + HELI_HEIGHT);
     double alpha = atan2((double)delta_y, (double)delta_x);
-    heli_bullets[n_heli_bullets].x = heli->x + HELI_WIDTH/2- 10;
+    heli_bullets[n_heli_bullets].x = heli->x + HELI_WIDTH/2-10;
     heli_bullets[n_heli_bullets].y = heli->y + HELI_HEIGHT;
     heli_bullets[n_heli_bullets].in_game = true;
     heli_bullets[n_heli_bullets].vx = (int16_t)round(cos(alpha) * 5.0 * heli->vx);
@@ -91,6 +92,7 @@ void heli_create_bullet( Helicopter* heli, Player* target){
 
     n_heli_bullets++;
 }
+ 
  
 
 void heli_update_bullets(Player * player){
@@ -113,7 +115,6 @@ void verify_player_collision (Player * player, Bullet* bullet){
     if( bullet->x + BLTS_WIDTH >= player->x && bullet->x <= player->x + PLAYER_WIDTH && bullet->y + BLTS_HEIGHT >= player->y && bullet->y <= player->y + BLTS_WIDTH){
         bullet->in_game = false;
         player->hp -= HELI_BLTS_DMG;
-        draw_hp_bar(player->hp);
     }
     if(player->hp == 0){
         game_state = GAMEOVER;
@@ -124,7 +125,7 @@ void verify_player_collision (Player * player, Bullet* bullet){
 
 void verify_heli_collision (Helicopter * heli, Bullet* bullet){
 
-    if( bullet->x + BLTS_WIDTH >= heli->x && bullet->x <= heli->x + HELI_WIDTH && bullet->y + BLTS_HEIGHT >= heli->y && bullet->y <= heli->y + HELI_HEIGHT){
+    if( bullet->x + BLTS_WIDTH >= heli->x && bullet->x <= heli->x + HELI_WIDTH && bullet->y + BLTS_HEIGHT >= heli->y && bullet->y <= heli->y + HELI_HEIGHT-70){
         bullet->in_game = false;
         heli->hp -= PLAYER_BLTS_DMG;
     }
@@ -145,12 +146,12 @@ void draw_c_bullets(){
 void draw_remaining_bullets(uint8_t bullets){
 
     uint16_t space = BLTS_WIDTH + 10;
-    uint16_t x_value = 800;
-    uint16_t y_value = 950;
+    uint16_t x_value = 1100;
+    uint16_t y_value = 990;
 
 
         for(int i = 0; i < bullets; i++){
-            vg_draw_xpm(8,x_value + i*space,y_value);
+            vg_draw_xpm(SOLDIER_BULLET_XPM_ID,(x_value + i*space),y_value);
         }
 
 }

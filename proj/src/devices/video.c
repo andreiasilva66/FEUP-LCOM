@@ -2,68 +2,15 @@
 #include "video.h"
 #include "keyboard.h"
 #include "xpm/xpm2.h"
+#include "xpm/xpm_id.h"
 
 extern uint8_t data;
 vbe_mode_info_t info;
 void *video_mem;
 void *video_mem_sec;
 unsigned int vram_size;
-
- uint16_t* map_heli = NULL;
- uint16_t* map_soldier1 = NULL;
- uint16_t* map_soldier2 = NULL;
- uint16_t* map_soldier3 = NULL;
- uint16_t* map_platforms = NULL;
- uint16_t* map_background_day = NULL;
- uint16_t* map_background_night = NULL;
- uint16_t* map_s_bullet = NULL; 
- uint16_t* map_h_bullet = NULL;
- uint16_t* map_soldier_dead = NULL;
- uint16_t* map_heli_dead = NULL;
-uint16_t* map_target = NULL;
-uint16_t* map_title = NULL;
-uint16_t* map_back_no = NULL;
-uint16_t* map_back_yes = NULL;
-uint16_t* map_instructions_no = NULL;
-uint16_t* map_instructions_yes = NULL;
-uint16_t* map_textinstructions = NULL;
-uint16_t* map_start_yes = NULL;
-uint16_t* map_start_no = NULL;
-uint16_t* map_playagain_no = NULL;
-uint16_t* map_playagain_yes = NULL;
-uint16_t* map_gameover = NULL;
-uint16_t* map_explosion1 = NULL;
-uint16_t* map_explosion2 = NULL;
-uint16_t* map_explosion3 = NULL;
-
-xpm_image_t image_soldier_dead;
-xpm_image_t image_heli;
-xpm_image_t image_soldier1;
-xpm_image_t image_soldier2;
-xpm_image_t image_soldier3;
-xpm_image_t image_platforms;
-xpm_image_t image_background_day;
-xpm_image_t image_background_night;
-xpm_image_t image_s_bullet;
-xpm_image_t image_h_bullet;
-xpm_image_t image_heli_dead;
-xpm_image_t image_target;
-xpm_image_t image_title;
-xpm_image_t image_back_no;
-xpm_image_t image_back_yes;
-xpm_image_t image_instructions_no;
-xpm_image_t image_instructions_yes;
-xpm_image_t image_textinstructions;
-xpm_image_t image_start_yes;
-xpm_image_t image_start_no;
-xpm_image_t image_playagain_no;
-xpm_image_t image_playagain_yes;
-xpm_image_t image_gameover;
-xpm_image_t image_explosion1;
-xpm_image_t image_explosion2;
-xpm_image_t image_explosion3;
-
-
+uint16_t* maps[32];
+xpm_image_t images[32];
 
 
 void (change_buffer)(){
@@ -160,151 +107,61 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
 
 int (vg_load_xpm)(){
     //xpm_image_t image;
+        
+        maps[TITLE_XPM_ID] = (uint16_t*) xpm_load(title,XPM_5_6_5,&images[TITLE_XPM_ID]);
+        maps[HELI_XPM_ID] = (uint16_t*) xpm_load(heli_xpm, XPM_5_6_5, &images[HELI_XPM_ID]);
+         maps[HELI_DEAD_XPM_ID] = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&images[HELI_DEAD_XPM_ID]);
+        maps[SOLDIER1_XPM_ID] = (uint16_t*) xpm_load(soldado1,XPM_5_6_5,&images[SOLDIER1_XPM_ID]);
+        maps[SOLDIER2_XPM_ID] = (uint16_t*) xpm_load(soldado2,XPM_5_6_5,&images[SOLDIER2_XPM_ID]);
+        maps[SOLDIER3_XPM_ID] = (uint16_t*) xpm_load(soldado3,XPM_5_6_5,&images[SOLDIER3_XPM_ID]);
+        maps[SOLDIER_DEAD_XPM_ID] = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&images[SOLDIER_DEAD_XPM_ID]);
+        maps[BACKGROUND_DAY_XPM_ID] = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&images[BACKGROUND_DAY_XPM_ID]);
+        maps[HELI_BULLET_XPM_ID] = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&images[HELI_BULLET_XPM_ID]);
+        maps[SOLDIER_BULLET_XPM_ID] = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&images[SOLDIER_BULLET_XPM_ID]); 
+        maps[TARGET_XPM_ID] = (uint16_t*) xpm_load(target,XPM_5_6_5,&images[TARGET_XPM_ID]);
+        maps[GAMEOVER_XPM_ID] = (uint16_t*) xpm_load(gameover,XPM_5_6_5,&images[GAMEOVER_XPM_ID]);
+        maps[PLAYAGAIN_NO_XPM_ID] = (uint16_t*) xpm_load(playagain_no,XPM_5_6_5,&images[PLAYAGAIN_NO_XPM_ID]);
+        maps[PLAYAGAIN_YES_XPM_ID] = (uint16_t*) xpm_load(playagain_yes,XPM_5_6_5,&images[PLAYAGAIN_YES_XPM_ID]);
+        maps[TITLE_XPM_ID] = (uint16_t*) xpm_load(title,XPM_5_6_5,&images[TITLE_XPM_ID]);
+        maps[BACK_NO_XPM_ID] = (uint16_t*) xpm_load(back_no,XPM_5_6_5,&images[BACK_NO_XPM_ID]);
+        maps[BACK_YES_XPM_ID] = (uint16_t*) xpm_load(back_yes,XPM_5_6_5,&images[BACK_YES_XPM_ID]);
+        maps[INSTRUCT_NO_XPM_ID] = (uint16_t*) xpm_load(instructions_no,XPM_5_6_5,&images[INSTRUCT_NO_XPM_ID]);
+        maps[INSTRUCT_YES_XPM_ID] = (uint16_t*) xpm_load(instructions_yes,XPM_5_6_5,&images[INSTRUCT_YES_XPM_ID]);
+        maps[START_NO_XPM_ID] = (uint16_t*) xpm_load(start_no,XPM_5_6_5,&images[START_NO_XPM_ID]);
+        maps[START_YES_XPM_ID] = (uint16_t*) xpm_load(start_yes,XPM_5_6_5,&images[START_YES_XPM_ID]);
+        maps[INSTRUCTEXT_XPM_ID] = (uint16_t*) xpm_load(textinstructions,XPM_5_6_5,&images[INSTRUCTEXT_XPM_ID]);
+        maps[EXPLOSION1_XPM_ID] = (uint16_t*) xpm_load(explosion1,XPM_5_6_5,&images[EXPLOSION1_XPM_ID]);
+        maps[EXPLOSION2_XPM_ID] = (uint16_t*) xpm_load(explosion2,XPM_5_6_5,&images[EXPLOSION2_XPM_ID]);
+        maps[EXPLOSION3_XPM_ID] = (uint16_t*) xpm_load(explosion3,XPM_5_6_5,&images[EXPLOSION3_XPM_ID]);
+        maps[PLATFORFORM_XPM_ID] = (uint16_t*) xpm_load(plataformas,XPM_5_6_5,&images[PLATFORFORM_XPM_ID]);
+        maps[HP_100] = (uint16_t*) xpm_load(hp100,XPM_5_6_5,&images[HP_100]);
+        maps[HP_80] = (uint16_t*) xpm_load(hp80,XPM_5_6_5,&images[HP_80]);
+        maps[HP_60] = (uint16_t*) xpm_load(hp60,XPM_5_6_5,&images[HP_60]);
+        maps[HP_40] = (uint16_t*) xpm_load(hp40,XPM_5_6_5,&images[HP_40]);
+        maps[HP_20] = (uint16_t*) xpm_load(hp20,XPM_5_6_5,&images[HP_20]);
+        maps[HP_0] = (uint16_t*) xpm_load(hp0,XPM_5_6_5,&images[HP_0]);
+        maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+         maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+          maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+           maps[BACKGROUND_NIGHT_XPM_ID] = (uint16_t*) xpm_load(background_night,XPM_5_6_5,&images[BACKGROUND_NIGHT_XPM_ID]);
+        
 
-          map_heli = (uint16_t*) xpm_load(heli_xpm, XPM_5_6_5, &image_heli);
-          map_soldier1 = (uint16_t*) xpm_load(soldado1,XPM_5_6_5,&image_soldier1);
-          map_soldier2 = (uint16_t*) xpm_load(soldado2,XPM_5_6_5,&image_soldier2);
-          map_soldier3 = (uint16_t*) xpm_load(soldado3,XPM_5_6_5,&image_soldier3);
-          map_soldier_dead = (uint16_t*) xpm_load(soldado_morto,XPM_5_6_5,&image_soldier_dead);
-         // map_platforms = _mortouint16_t*) xpm_load(xpm,XPM_5_6_5,&image_platforms);
-          //map_background_night = (uint16_t*) xpm_load(xpm,XPM_5_6_5,&image_background_night);
-          map_background_day = (uint16_t*) xpm_load(background_day,XPM_5_6_5,&image_background_day);
-          map_h_bullet = (uint16_t*) xpm_load(bala_heli,XPM_5_6_5,&image_h_bullet);
-          map_s_bullet = (uint16_t*) xpm_load(bala_soldado,XPM_5_6_5,&image_s_bullet); 
-          map_heli_dead = (uint16_t*) xpm_load(heli_destruido,XPM_5_6_5,&image_heli_dead);
-          map_target = (uint16_t*) xpm_load(target,XPM_5_6_5,&image_target);
-          map_gameover = (uint16_t*) xpm_load(gameover,XPM_5_6_5,&image_gameover);
-          map_playagain_no = (uint16_t*) xpm_load(playagain_no,XPM_5_6_5,&image_playagain_no);
-          map_playagain_yes = (uint16_t*) xpm_load(playagain_yes,XPM_5_6_5,&image_playagain_yes);
-          map_title = (uint16_t*) xpm_load(title,XPM_5_6_5,&image_title);
-          map_back_no = (uint16_t*) xpm_load(back_no,XPM_5_6_5,&image_back_no);
-          map_back_yes = (uint16_t*) xpm_load(back_yes,XPM_5_6_5,&image_back_yes);
-          map_instructions_no = (uint16_t*) xpm_load(instructions_no,XPM_5_6_5,&image_instructions_no);
-          map_instructions_yes = (uint16_t*) xpm_load(instructions_yes,XPM_5_6_5,&image_instructions_yes);
-          map_start_no = (uint16_t*) xpm_load(start_no,XPM_5_6_5,&image_start_no);
-          map_start_yes = (uint16_t*) xpm_load(start_yes,XPM_5_6_5,&image_start_yes);
-          map_textinstructions = (uint16_t*) xpm_load(textinstructions,XPM_5_6_5,&image_textinstructions);
-          map_explosion1 = (uint16_t*) xpm_load(explosion1,XPM_5_6_5,&image_explosion1);
-          map_explosion2 = (uint16_t*) xpm_load(explosion2,XPM_5_6_5,&image_explosion2);
-          map_explosion3 = (uint16_t*) xpm_load(explosion3,XPM_5_6_5,&image_explosion3);
-          return 0;
+        return 0;
     }
 
 
 int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
-    if(x > info.XResolution || y > info.YResolution){
+    if(x > info.XResolution || y > info.YResolution || id < 0 || id > 31){
         return 1;
     }
-    xpm_image_t image;
-    uint16_t* map;
-    switch (id) {
-        case 1:
-            image = image_heli;
-            map = map_heli;
-            break;
-        case 2:
-            image = image_soldier1;
-            map = map_soldier1;
-            break;
-        case 3:
-            image = image_soldier2;
-            map = map_soldier2;
-            break;
-        case 4:
-            image = image_soldier3;
-            map = map_soldier3;
-            break;
-        case 5:
-            image = image_platforms;
-            map = map_platforms;
-            break;
-        case 6:
-            image = image_background_day;
-            map = map_background_day;
-            break;
-        case 7:
-            image = image_background_night;
-            map = map_background_night;
-            break;
-        case 8:
-            image = image_s_bullet;
-            map = map_s_bullet;
-            break;
-        case 9:
-            image = image_h_bullet;
-            map = map_h_bullet;
-            break;
-        case 10:
-            image = image_soldier_dead;
-            map = map_soldier_dead;
-            break;
-        case 11:
-            image = image_heli_dead;
-            map = map_heli_dead;
-            break;
-        case 12:
-            image = image_target;
-            map = map_target;
-            break;
-        case 13:
-            image = image_explosion1;
-            map = map_explosion1;
-            break;
-        case 14:
-            image = image_explosion2;
-            map = map_explosion2;
-            break;
-        case 15:
-            image = image_explosion3;
-            map = map_explosion3;
-            break;
-        case 16:
-            image = image_back_no;
-            map = map_back_no;
-            break;
-        case 17:
-            image = image_back_yes;
-            map = map_back_yes;
-            break;
-        case 18:
-            image = image_gameover;
-            map = map_gameover;
-            break;
-        case 19:
-            image = image_instructions_no;
-            map = map_instructions_no;
-            break;
-        case 20:
-            image = image_instructions_yes;
-            map = map_instructions_yes;
-            break;
-        case 21:
-            image = image_playagain_no;
-            map = map_playagain_no;
-            break;
-        case 22:
-            image = image_playagain_yes;
-            map = map_playagain_yes;
-            break;
-        case 23:
-            image = image_start_no;
-            map = map_start_no;
-            break;
-        case 24:
-            image = image_start_yes;
-            map = map_start_yes;
-            break;
-        case 25:
-            image = image_textinstructions;
-            map = map_textinstructions;
-            break;
-        case 26:
-            image = image_title;
-            map = map_title;
-            break;
-        default:
-            break;
-    }
+    
+    xpm_image_t image = images[id];
+    uint16_t* map = maps[id];
+    
+
     uint32_t counter = 0;
     uint32_t extra_x = 0;
 
@@ -334,23 +191,6 @@ int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
     }
     return 0;
 }
-
-// int (vg_update)(xpm_map_t xpm, uint16_t old_x, uint16_t old_y, uint16_t new_x, uint16_t new_y){
-//     xpm_image_t image;
-//     uint8_t* map;
-
-//     map = xpm_load(xpm, XPM_INDEXED, &image);
-
-//     if(vg_draw_rectangle(old_x, old_y, image.width, image.height,0)){
-//         return 1;
-//     }
-
-//     if(vg_draw_xpm(xpm, 0, new_x, new_y)){
-//         return 1;
-//     }
-//     return 0;
-// }
-
 
 void free_buffer(){
     free(video_mem_sec);

@@ -1,0 +1,39 @@
+#ifndef _LCOM_XPM_ID_H_
+#define _LCOM_XPM_ID_H_
+
+#define TITLE_XPM_ID 0
+#define HELI_XPM_ID 1
+#define SOLDIER1_XPM_ID 2
+#define SOLDIER2_XPM_ID 3
+#define SOLDIER3_XPM_ID 4
+#define PLATFORFORM_XPM_ID 5
+#define BACKGROUND_DAY_XPM_ID 6
+#define BACKGROUND_NIGHT_XPM_ID 7
+#define SOLDIER_BULLET_XPM_ID 8
+#define HELI_BULLET_XPM_ID 9
+#define SOLDIER_DEAD_XPM_ID 10
+#define HELI_DEAD_XPM_ID 11
+#define TARGET_XPM_ID 12
+#define EXPLOSION1_XPM_ID 13
+#define EXPLOSION2_XPM_ID 14
+#define EXPLOSION3_XPM_ID 15
+#define BACK_NO_XPM_ID 16
+#define BACK_YES_XPM_ID 17
+#define GAMEOVER_XPM_ID 18
+#define INSTRUCT_NO_XPM_ID 19
+#define INSTRUCT_YES_XPM_ID 20
+#define PLAYAGAIN_NO_XPM_ID 21
+#define PLAYAGAIN_YES_XPM_ID 22
+#define START_NO_XPM_ID 23
+#define START_YES_XPM_ID 24
+#define INSTRUCTEXT_XPM_ID 25
+#define HP_100 26
+#define HP_80 27
+#define HP_60 28
+#define HP_40 29
+#define HP_20 30
+#define HP_0 31
+
+
+
+#endif // _LCOM_CANVAS_H_

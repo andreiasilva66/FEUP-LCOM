@@ -3,9 +3,10 @@
 #include "helicopter.h"
 #include "bullet.h"
 #include "devices/video.h"
-
-
 #include "devices/i8042.h"
+
+#include "xpm/xpm_id.h"
+
 bool isRight = true;
 bool isGoingUp = true;
 uint32_t explosion = 1;
@@ -56,11 +57,11 @@ void draw_helicopter(Helicopter* heli){
   
   if(!heli->alive){
     if(!draw_explosions(heli)){ 
-    vg_draw_xpm(11, heli->x, heli->y);
+    vg_draw_xpm(HELI_DEAD_XPM_ID, heli->x, heli->y);
     }
   }
   else{
-    vg_draw_xpm(1, heli->x, heli->y);
+    vg_draw_xpm(HELI_XPM_ID, heli->x, heli->y);
   }
 
 }
@@ -86,19 +87,19 @@ int  draw_explosions(Helicopter * heli){
      explosion == 0 ? true:explosion++;
   
     if(explosion >= 2 && explosion <= 22){
-      vg_draw_xpm(1, heli->x, heli->y);
-      vg_draw_xpm(13,heli->x ,heli->y);
+      vg_draw_xpm(HELI_XPM_ID, heli->x, heli->y);
+      vg_draw_xpm(EXPLOSION1_XPM_ID,heli->x ,heli->y);
       return 1;
 
     }
     else if(explosion > 22 && explosion <= 44)
     {
-      vg_draw_xpm(1, heli->x, heli->y);
-      vg_draw_xpm(14,heli->x ,heli->y );
+      vg_draw_xpm(HELI_XPM_ID, heli->x, heli->y);
+      vg_draw_xpm(EXPLOSION2_XPM_ID,heli->x ,heli->y );
       return 1; 
     }
     else if(explosion < 66 && explosion > 44){
-    vg_draw_xpm(15,heli->x ,heli->y);}
+      vg_draw_xpm(EXPLOSION3_XPM_ID,heli->x ,heli->y);}
 
     else explosion = 0;
 

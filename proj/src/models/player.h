@@ -8,7 +8,6 @@
 #include "platforms.h"
 
 
-
 #define MOVE_UP_MAKE 0x11
 #define MOVE_DOWN_MAKE 0x1f 
 #define MOVE_LEFT_MAKE 0x1e 
@@ -33,7 +32,6 @@ void jump(Player* obj, uint16_t speed);
 
 void process_scancode(Player* obj, uint8_t* data);
 void process_packet(Player* obj, struct packet *pp, Mouse *mouse);
-void draw_mouse(Mouse *mouse);
 void draw_hp_bar(uint8_t hp);
 void draw_player(Player * player);
 void player_update_mov(Player *player);
