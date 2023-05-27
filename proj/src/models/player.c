@@ -2,9 +2,8 @@
 
 #include "bullet.h"
 #include "devices/i8042.h"
-#include "bullet.h"
-#include "xpm/xpm2.h"
 #include "devices/video.h"
+#include "xpm/xpm2.h"
 
 bool jumping = false;
 bool jump_down = false;
