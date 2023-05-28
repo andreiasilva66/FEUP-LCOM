@@ -38,21 +38,6 @@ uint8_t (rtc_convert_to_binary)(uint8_t bcd){
     return bcd;
 }
 
-// int (rtc_int_handler)(){
-//     rtc_counter++;
-// }
-
-// int (rtc_subscribe_int)(uint8_t *bit_no) {
-//     rtc_hook_id = *bit_no;
-//     if(rtc_hook_id == NULL){
-//         return 1;
-//     }
-//     return sys_irqrmpolicy(RTC_INTERRUPT_RQ, IRQ_REENABLE , &time_hook_id);
-// }
-
-// int (rtc_unsubscribe_int)() {
-//   return sys_irqrmpolicy(&rtc_hook_id);
-// }
 
 int(rtc_update)(){
     if(rtc_available() != 0){

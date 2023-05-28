@@ -1,6 +1,7 @@
 #ifndef _LCOM_XPM_ID_H_
 #define _LCOM_XPM_ID_H_
 
+#define NUM_XPM_FILES 56
 #define TITLE_XPM_ID 0
 #define HELI_XPM_ID 1
 #define SOLDIER1_XPM_ID 2
@@ -33,6 +34,32 @@
 #define HP_40 29
 #define HP_20 30
 #define HP_0 31
+#define NUMBER_0 32
+#define NUMBER_1 33
+#define NUMBER_2 34
+#define NUMBER_3 35
+#define NUMBER_4 36
+#define NUMBER_5 37
+#define NUMBER_6 38
+#define NUMBER_7 39
+#define NUMBER_8 40
+#define NUMBER_9 41
+#define DOUBLE_DOTS 42
+#define JANUARY 43
+#define FEBRUARY 44
+#define MARCH 45
+#define APRIL 46
+#define MAY 47
+#define JUNE 48
+#define JULY 49
+#define AUGUST 50
+#define SEPTEMBER 51
+#define OCTOBER 52 
+#define NOVEMBER 53
+#define DECEMBER 54
+
+
+
 
 
 

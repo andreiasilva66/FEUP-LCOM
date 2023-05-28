@@ -35,14 +35,31 @@ int(kbc_get_status)(uint8_t *st){
     return util_sys_inb(KBC_CMD_REG, st);
 }
 
-int(kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
+int( kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
     
     int err = 5;
     while(err != 0){
         if(kbc_get_status(st)){
             return 1;
         }
-        if((*st & OUT_BFF_FULL) && check_status(*st) == 0){
+        if((*st & OUT_BFF_FULL) && check_status(*st) == 0 && ((*st & KBC_AUX_MOUSE) == 0) ){
+            return util_sys_inb(KBC_OUT_BUF, data);
+            
+        }
+        err--;
+        if(tickdelay(micros_to_ticks(DELAY_US))) return 1;
+    }
+    return 1;
+}
+
+int(mouse_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
+    
+    int err = 5;
+    while(err != 0){
+        if(kbc_get_status(st)){
+            return 1;
+        }
+        if((*st & OUT_BFF_FULL) && (check_status(*st) == 0)  && ((*st & KBC_AUX_MOUSE) != 0)){
             return util_sys_inb(KBC_OUT_BUF, data);
             
         }
@@ -80,7 +97,7 @@ int(kbc_get_scancode)(uint8_t* data){ // substituir pelo kbc_ih ou vice-versa
 
 
 int(check_status)(uint8_t st){
-    return (st & (KBD_PAR_ERR | KBD_TO_ERR));
+    return (st & (KBD_PAR_ERR | KBD_TO_ERR) );
 }   
 
              
@@ -104,31 +121,17 @@ int(kbc_send_cmd)(uint8_t port, uint8_t cmd){
     return sys_outb(port, cmd);
 }
 
-int(kbc_reenable_int)(){
-    if(kbc_send_cmd(IN_BUF, READ_CMD_BYTE)) return 1;
-
-    uint8_t c;
-    uint8_t st;
-    if(kbc_read_out_buffer(&c,&st)) return 1;
-
-    c |= KBD_REENABLE_INT;
-
-    if(kbc_send_cmd(IN_BUF, WRITE_CMD_BYTE)) return 1;
-
-    return (kbc_send_cmd(IN_BUF_ARGS,c));
-
-}
-
 
 // Mouse --
 
 int(mouse_write_cmd)(uint8_t cmd) {
-  uint8_t ack_flag;
-  do {
-    kbc_send_cmd(0x64, 0xD4);
-    kbc_send_cmd(0x60, cmd);
-    util_sys_inb(IN_BUF_ARGS, &ack_flag);
-  } while (ack_flag != KBC_ACK);
+  uint8_t flag = 0;
+
+  while (flag != KBC_ACK){
+    kbc_send_cmd(KBC_CMD_REG, 0xD4);
+    kbc_send_cmd(KBC_OUT_BUF, cmd);
+    util_sys_inb(IN_BUF_ARGS, &flag);
+  }
   return 0;
 }
 
@@ -138,7 +141,7 @@ int (mouse_get_data)(struct packet* pp){
     
     if(kbc_get_status(&st) != 0) return 1;
 
-    if(kbc_read_out_buffer(&packet_byte,&st) != 0) return 1;
+    if(mouse_read_out_buffer(&packet_byte,&st) != 0) return 1;
     
 
     if(!(st & BIT(5))){
