@@ -67,38 +67,6 @@ if(video_mem == MAP_FAILED){
 
 
 
-int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
-    uint8_t bytes = (info.BitsPerPixel+7) / 8;
-    uint8_t* ptr = (uint8_t*) video_mem_sec + (y * info.XResolution + x) * bytes;
-    for(uint16_t i = 0; i < len ; i++){
-        for(uint8_t j = 0; j < bytes; j++){
-            *ptr = color >> (j * 8);
-            ptr++;
-        }
-    }
-    return 0;
-}
-
-
-
-int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
-    if(x > info.XResolution || y > info.YResolution || x<0 || y<0){
-        return 1;
-    }
-    if((x + width) > info.XResolution){
-        width = info.XResolution - x; // o que falta desenhar
-    }
-    if((y + height) > info.YResolution){
-        height = info.YResolution - y; // o que falta desenhar
-    }
-    for (uint16_t i = 0; i < height; i++){
-        vg_draw_hline(x, i+y, width, color);
-    }
-    return 0;
-}
-
-
-
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     if(x >= info.XResolution || y >= info.YResolution){
         return 0;
