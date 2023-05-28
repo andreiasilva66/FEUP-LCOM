@@ -145,7 +145,7 @@ int (mouse_get_data)(struct packet* pp){
     
 
     if(!(st & BIT(5))){
-        printf("Not reading mouse");
+        
         return 1;
     }
 

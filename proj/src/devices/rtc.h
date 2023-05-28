@@ -3,23 +3,7 @@
 
 #include <lcom/lcf.h>
 #include <minix/sysutil.h>
-
-// Macros
-
-#define RTC_INPUT_PORT      0x70
-#define RTC_OUTPUT_PORT     0x71
-
-#define RTC_AVAILABLE               10
-#define RTC_COUNTING_MODE           11
-
-#define RTC_INTERRUPT_RQ    8
-
-#define SECONDS    0
-#define MINUTES    2
-#define HOURS      4   
-#define DAY        7
-#define MONTH      8
-#define YEAR       9
+#include "rtc_Macros.h"
 
 // RTC Data
 
@@ -40,8 +24,5 @@ int (rtc_binary_mode)();
 uint8_t (rtc_convert_to_binary)(uint8_t bcd);
 int (rtc_update)();
 
-// int (rtc_int_handler)();
-// int (rtc_subscribe_int)(uint8_t *bit_no);
-// int (rtc_unsubscribe_int)();
 
 #endif

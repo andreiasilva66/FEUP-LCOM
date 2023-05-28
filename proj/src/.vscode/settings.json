@@ -20,6 +20,8 @@
     "CANVAS.H": "cpp",
     "helicopter.h": "c",
     "menu.h": "c",
-    "values.h": "c"
+    "values.h": "c",
+    "video.h": "c",
+    "rtc_macros.h": "c"
   },
 }

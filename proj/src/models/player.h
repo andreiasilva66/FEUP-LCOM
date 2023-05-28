@@ -20,7 +20,7 @@
 typedef struct {
     uint16_t x;
     uint16_t y;
-    uint8_t hp; // between 0 and 100 
+    uint8_t hp; 
     uint8_t frame;
 } Player;
 

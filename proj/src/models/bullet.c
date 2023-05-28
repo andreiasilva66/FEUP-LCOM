@@ -5,7 +5,7 @@
 #include "game/menu.h"
 #include "view/canvas.h"
 #include "devices/video.h"
-#include "xpm/xpm2.h"
+#include "xpm/xpm_sprites.h"
 #include "xpm/xpm_id.h"
 
 extern GameState game_state;
@@ -45,7 +45,7 @@ void player_update_bullets(Helicopter * heli){
             continue;
         player_bullets[i].x += player_bullets[i].vx;
         player_bullets[i].y += player_bullets[i].vy;
-        if(player_bullets[i].y<=50 || player_bullets[i].y >= Y_RESOLUTION-50 || player_bullets[i].x <= 50 || player_bullets[i].x >= X_RESOLUTION-BLTS_WIDTH){
+        if(player_bullets[i].y<=BLTS_HEIGHT || player_bullets[i].y >= Y_RESOLUTION-BLTS_HEIGHT || player_bullets[i].x <= BLTS_HEIGHT || player_bullets[i].x >= X_RESOLUTION-BLTS_WIDTH){
             player_bullets[i].in_game=false;
             return;
     }
@@ -60,8 +60,8 @@ void player_create_bullet( Player* obj,struct packet *pp, Mouse *mouse){
       
         return;}
         
-    int delta_x = mouse->x + MOUSE_WIDTH   - obj->x;
-    int delta_y = mouse->y + MOUSE_HEIGHT - obj->y;
+    int delta_x = mouse->x - obj->x;
+    int delta_y = mouse->y - obj->y;
     double alpha = atan2((double)delta_y, (double)delta_x);
     player_bullets[n_player_bullets].x = obj->x;
     player_bullets[n_player_bullets].y = obj->y;
@@ -101,7 +101,7 @@ void heli_update_bullets(Player * player){
             continue;
         heli_bullets[i].x += heli_bullets[i].vx;
         heli_bullets[i].y += heli_bullets[i].vy;
-        if(heli_bullets[i].y<=50 || heli_bullets[i].y >= Y_RESOLUTION-50 || heli_bullets[i].x <= 50 || heli_bullets[i].x >= X_RESOLUTION-BLTS_WIDTH){
+        if(heli_bullets[i].y<=BLTS_HEIGHT || heli_bullets[i].y >= Y_RESOLUTION-BLTS_HEIGHT || heli_bullets[i].x <= BLTS_WIDTH || heli_bullets[i].x >= X_RESOLUTION-BLTS_WIDTH){
             heli_bullets[i].in_game=false;
             return;
         }
@@ -146,12 +146,9 @@ void draw_c_bullets(){
 void draw_remaining_bullets(uint8_t bullets){
 
     uint16_t space = BLTS_WIDTH + 10;
-    uint16_t x_value = 1100;
-    uint16_t y_value = 990;
-
 
         for(int i = 0; i < bullets; i++){
-            vg_draw_xpm(SOLDIER_BULLET_XPM_ID,(x_value + i*space),y_value);
+            vg_draw_xpm(SOLDIER_BULLET_XPM_ID,(BLTS_DISPLAY_X + i*space),BLTS_DISPLAY_Y);
         }
 
 }

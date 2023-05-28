@@ -40,17 +40,6 @@ union timer_status_field_val {
   bool bcd;                /*!< counting base, true if BCD */
 };
 
-/**
- * @brief Changes the operating frequency of a timer
- * 
- * Must use the read-back command so that it does not change 
- *   the 4 LSBs (mode and BCD/binary) of the timer's control word.
- * 
- * @param timer Timer to configure. (Ranges from 0 to 2)
- * @param freq Timer operating frequency
- * @return Return 0 upon success and non-zero otherwise
- */
-int(timer_set_frequency)(uint8_t timer, uint32_t freq);
 
 /**
  * @brief Subscribes and enables Timer 0 interrupts

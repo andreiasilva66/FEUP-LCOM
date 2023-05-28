@@ -6,6 +6,7 @@
 
 // Include menu
 #include "game/menu.h"
+#include "Graphic.Macros.h"
 
 // Include devices
 #include "timer.h"
@@ -24,7 +25,7 @@
 #include "view/canvas.h"
 
 // Include xpm
-#include "../xpm/xpm2.h"
+#include "../xpm/xpm_sprites.h"
 
 
 int init_game();
