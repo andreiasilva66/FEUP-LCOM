@@ -18,10 +18,42 @@ typedef struct {
 
 // Methods
 
+/**
+ * @brief This method outputs a command to the RTC
+ * 
+ * @param command Command to send to the RTC
+ * @param output Pointer to the variable where the output will be stored
+ * @return Returns an int value of zero upon success and one otherwise
+ */
 int (rtc_output)(uint8_t command, uint8_t *output);
+
+/**
+ * @brief This method checks if the RTC is available to be read
+ * 
+ * @return Returns an int value of zero if the RTC is available to be read and one otherwise
+ */
 int (rtc_available)();
-int (rtc_binary_mode)();
-uint8_t (rtc_convert_to_binary)(uint8_t bcd);
+
+/**
+ * @brief This method checks if the RTC is in binary mode
+ * 
+ * @return Returns an int value of one if there is an error otherwise returns zero if is in BCD mode or a non-zero value if is in binary mode
+ */
+int (rtc_in_binary_mode)();
+
+/**
+ * @brief This method converts a BCD value to binary
+ * 
+ * @param bcd BCD value to convert
+ * @return Returns the binary equivalent of the BCD value
+ */
+uint8_t  (rtc_convert_to_binary)(uint8_t bcd);
+
+/**
+ * @brief This method updates the RTC values
+ * 
+ * @return Returns an int value of zero upon success and one otherwise
+ */
 int (rtc_update)();
 
 

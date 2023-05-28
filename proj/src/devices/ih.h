@@ -28,17 +28,45 @@
 #include "../xpm/xpm_sprites.h"
 
 
+/**
+ * @brief This method initializes the game
+ * 
+ * @return Returns an int value of zero if successful otherwise returns 1
+ */
 int init_game();
 
+/**
+ * @brief This method handles the interrupts for the game
+ * 
+ * @return Returns an int value of zero
+ */
 int proj_int();
 
+/**
+ * @brief This method closes the game
+ * 
+ * @return Returns vg_exit()
+ */
 int close_game();
 
+/**
+ * @brief This method handles the timer interrupts
+ * 
+ */
 void timer_int_h();
 
+/**
+ * @brief This method handles the keyboard interrupts
+ * 
+ */
 void kbc_int_h();
 
+/**
+ * @brief This method handles the mouse interrupts
+ * 
+ */
 void mouse_int_h();
+
 
 
 #endif // _LCOM_IH_H_

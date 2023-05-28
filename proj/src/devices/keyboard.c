@@ -1,7 +1,7 @@
 #include <lcom/lcf.h>
 #include "keyboard.h"
 #include "i8042.h"
-                                //possivel refactor (meter)
+                                
 int kbd_hook_id;
 int mouse_hook_id; 
 uint8_t scan_codes[2];
@@ -35,7 +35,7 @@ int(kbc_get_status)(uint8_t *st){
     return util_sys_inb(KBC_CMD_REG, st);
 }
 
-int( kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
+int( kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ 
     
     int err = 5;
     while(err != 0){
@@ -52,7 +52,7 @@ int( kbc_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
     return 1;
 }
 
-int(mouse_read_out_buffer)(uint8_t *data, uint8_t *st ){ // read outputbuffer
+int(mouse_read_out_buffer)(uint8_t *data, uint8_t *st ){ 
     
     int err = 5;
     while(err != 0){
