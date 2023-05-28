@@ -1,7 +1,7 @@
 #include <lcom/lcf.h>
 #include "video.h"
 #include "keyboard.h"
-#include "xpm/xpm2.h"
+#include "xpm/xpm_sprites.h"
 #include "xpm/xpm_id.h"
 
 extern uint8_t data;
@@ -173,6 +173,8 @@ int (vg_load_xpm)(){
         maps[OCTOBER] = (uint16_t*) xpm_load(oct,XPM_5_6_5,&images[OCTOBER]);
         maps[NOVEMBER] = (uint16_t*) xpm_load(nov,XPM_5_6_5,&images[NOVEMBER]);
         maps[DECEMBER] = (uint16_t*) xpm_load(dec,XPM_5_6_5,&images[DECEMBER]);
+
+        printf("&x->%u &y->%u",images[12].width,images[12].height);
          
 
         return 0;

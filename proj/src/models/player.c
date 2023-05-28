@@ -3,10 +3,10 @@
 #include "bullet.h"
 #include "devices/i8042.h"
 #include "bullet.h"
-#include "xpm/xpm2.h"
+#include "xpm/xpm_sprites.h"
 #include "xpm/xpm_id.h"
 #include "devices/video.h"
-#include "xpm/xpm2.h"
+#include "xpm/xpm_sprites.h"
 
 bool jumping = false;
 bool jump_down = false;

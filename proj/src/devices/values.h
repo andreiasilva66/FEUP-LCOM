@@ -3,6 +3,20 @@
 
 #include <lcom/lcf.h>
 
+//hook
+#define TIMER_HOOK 0
+#define KBC_HOOK 12
+#define MOUSE_HOOK 3
+
+//rtc 
+#define NIGHT_TIME_BEGIN 18
+#define NIGHT_TIME_END 6
+
+//resolution 
+#define Y_RESOLUTION 1024
+#define  X_RESOLUTION 1280
+#define VIDEO_MODE 0x11A
+
 //player
 #define PLAYER_WIDTH 22
 #define PLAYER_HEIGHT 47
@@ -18,6 +32,8 @@
 #define HELI_HP 200
 #define HELI_INI_X 1330 
 #define HELI_INI_Y 100
+#define HELI_VX 1
+#define HELI_VY 1
 
 //bullets
 #define BLTS_WIDTH 9
@@ -27,13 +43,13 @@
 #define PLAYER_BLTS_DMG 10
 
 
-//resolution 
-#define Y_RESOLUTION 1024
-#define  X_RESOLUTION 1280
+
 
 //mouse
 #define MOUSE_WIDTH 36
 #define MOUSE_HEIGHT 36
+#define MOUSE_INI_X 640
+#define MOUSE_INI_Y 512
 
 
 //menu 
