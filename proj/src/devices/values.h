@@ -41,9 +41,8 @@
 #define BULLETS 10
 #define HELI_BLTS_DMG 20
 #define PLAYER_BLTS_DMG 10
-
-
-
+#define BLTS_DISPLAY_X 1100
+#define BLTS_DISPLAY_Y 990
 
 //mouse
 #define MOUSE_WIDTH 36

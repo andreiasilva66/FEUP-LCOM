@@ -146,12 +146,9 @@ void draw_c_bullets(){
 void draw_remaining_bullets(uint8_t bullets){
 
     uint16_t space = BLTS_WIDTH + 10;
-    uint16_t x_value = 1100;
-    uint16_t y_value = 990;
-
 
         for(int i = 0; i < bullets; i++){
-            vg_draw_xpm(SOLDIER_BULLET_XPM_ID,(x_value + i*space),y_value);
+            vg_draw_xpm(SOLDIER_BULLET_XPM_ID,(BLTS_DISPLAY_X + i*space),BLTS_DISPLAY_Y);
         }
 
 }
