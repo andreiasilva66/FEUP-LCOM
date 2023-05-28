@@ -2,7 +2,7 @@
 #define _LCOM_VIDEO_H
 
 #include <lcom/lcf.h>
-
+#include "Graphic.Macros.h"
 
 
 // graphic

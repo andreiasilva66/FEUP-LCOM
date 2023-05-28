@@ -22,7 +22,7 @@ int (rtc_available)(){
     if(rtc_output(RTC_AVAILABLE, &output) != 0){
         return 1;
     }
-    return output & BIT(7);
+    return output & RTC_CHECK_AVAILABLE_BIT;
 }
 
 int (rtc_binary_mode)(){
@@ -30,7 +30,7 @@ int (rtc_binary_mode)(){
     if(rtc_output(RTC_COUNTING_MODE, &mode) != 0){
         return 1;
     }
-    return mode & BIT(2);
+    return mode & RTC_CHECK_MODE_BIT;
 }
 
 uint8_t (rtc_convert_to_binary)(uint8_t bcd){

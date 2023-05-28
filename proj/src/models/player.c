@@ -18,26 +18,26 @@ extern u_int32_t n_bullets;
 void jump(Player *obj, uint16_t speed) {
 
   if (jump_down) {
-    if (obj->y == y_ground || check_collision_player(obj, &platforms[4], jump_down)) {
+    if (obj->y == y_ground || check_collision_player(obj, &platforms[N_PLATFORMS], jump_down)) {
       jumping = false;
       jump_down = false;
       return;
     }
-    moveDown(obj, 4);
+    moveDown(obj, PLAYER_SPEED - 1);
   }
   else {
-    if (obj->y == y_ini - 120) {
+    if (obj->y == y_ini - PLAYER_JUMP_HEIGHT) {
       jump_down = true;
       return;
     }
-    moveUp(obj, 4);
+    moveUp(obj, PLAYER_SPEED - 1 );
   }
 }
 
 void moveUp(Player *obj, uint16_t speed) {
 
-  if (obj->y - speed <= 50) {
-    obj->y -= (obj->y - 50);
+  if (obj->y - speed <= PLAYER_HEIGHT) {
+    obj->y -= (obj->y - PLAYER_HEIGHT);
   }
   else {
     obj->y -= speed;
@@ -45,8 +45,8 @@ void moveUp(Player *obj, uint16_t speed) {
 }
 
 void moveDown(Player *obj, uint16_t speed) {
-  if (obj->y + 50 + speed >= 974) {
-    obj->y += (974 - obj->y - 50);
+  if (obj->y + PLAYER_HEIGHT + speed >= PLAYER_GROUND) {
+    obj->y += (PLAYER_GROUND - obj->y - PLAYER_HEIGHT);
   }
   else {
     obj->y += speed;
@@ -60,8 +60,8 @@ void moveLeft(Player *obj, uint16_t speed) {
     jumping = true;
     jump_down = true;
   }
-  else if (obj->x - speed <= 50) {
-    obj->x -= (obj->x - 50);
+  else if (obj->x - speed <= 0) {
+    obj->x -= (obj->x);
   }
 
   else {
@@ -76,8 +76,8 @@ void moveRight(Player *obj, uint16_t speed) {
     jump_down = true;
   }
 
-  else if (obj->x + 50 + speed > 1230) {
-    obj->x += (1230 - obj->x - 50);
+  else if (obj->x + PLAYER_WIDTH + speed > X_RESOLUTION) {
+    obj->x += (X_RESOLUTION - obj->x - PLAYER_WIDTH);
   }
   else {
     obj->x += speed;
@@ -125,27 +125,27 @@ void draw_hp_bar(uint8_t hp) {
     switch (hp)
     {
     case 0:
-      vg_draw_xpm(HP_0,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_0,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
       
       break;
     case 20:
-      vg_draw_xpm(HP_20,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_20,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
      
       break;
     case 40:
-      vg_draw_xpm(HP_40,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_40,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
      
       break;
     case 60:
-      vg_draw_xpm(HP_60,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_60,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
      
       break;
     case 80:
-      vg_draw_xpm(HP_80,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_80,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
      
       break;
     case 100:
-      vg_draw_xpm(HP_100,40, Y_RESOLUTION-50);
+      vg_draw_xpm(HP_100,PLAYER_HP_BAR_X, PLAYER_HP_BAR_Y);
      
       break;
     default:
@@ -163,17 +163,17 @@ void draw_player(Player * player){
     {
     case 0:
         vg_draw_xpm(SOLDIER1_XPM_ID,player->x, player->y);
-        //vg_draw_rectangle(player->x, player->y, 50, 50, 0x000F);
+        
         break;
     
     case 1:
         vg_draw_xpm(SOLDIER2_XPM_ID, player->x, player->y);
-        //vg_draw_rectangle(player->x, player->y, 50, 50, 0x0F00);
+       
         break;
 
     case 2:
         vg_draw_xpm(SOLDIER3_XPM_ID, player->x, player->y);
-        //vg_draw_rectangle(player->x, player->y, 50, 50, 0xF000);
+       
         break;
 
     default:
@@ -186,18 +186,18 @@ void draw_player(Player * player){
 
 void player_update_mov(Player *player) {
   if (jumping) {
-    jump(player, 5);
+    jump(player, PLAYER_SPEED);
   }
   if (leftKeyPressed()) {
-    moveLeft(player, 5);
+    moveLeft(player, PLAYER_SPEED);
   }
   else if (rightKeyPressed()) {
-    moveRight(player, 5);
+    moveRight(player, PLAYER_SPEED);
   }
 }
 
 int check_collision_player(Player *player, Platform platform[], bool jump_down) {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < N_PLATFORMS; i++) {
     Platform *platform = &platforms[i];
     uint16_t player_left = player->x;
     uint16_t player_right = player->x + PLAYER_WIDTH;
@@ -207,15 +207,13 @@ int check_collision_player(Player *player, Platform platform[], bool jump_down) 
     uint16_t platform_left = platform->x;
     uint16_t platform_right = platform->x + platform->width;
     uint16_t platform_top = platform->y;
-    // uint16_t platform_bottom = platform->y + platform->height;
+
 
     if ((player_left < platform_right && player_right > platform_left && player_bottom > platform_top) && !(player_top > platform_top - PLAYER_HEIGHT + 4 && player_left < platform_right && player_right > platform_left)) {
-      // Player collided with the current platform
       return 1;
     }
   }
   jump_down = true;
-  // Player did not collide with any platform
   return 0;
 }
 

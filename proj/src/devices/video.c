@@ -17,8 +17,6 @@ void (change_buffer)(){
     memcpy(video_mem, video_mem_sec, vram_size);
 }
 
-
-
 int(set_frame_buffer)(uint16_t mode){
     vbe_get_mode_info(mode, &info);
 
@@ -53,12 +51,12 @@ if(video_mem == MAP_FAILED){
     //memset(video_mem, 0, vram_size);
     reg86_t r86;
     memset(&r86, 0, sizeof(r86));
-    r86.ax = 0x4F02; // VBE call, function 02 -- set VBE mode
-    r86.bx = 1<<14|mode; // set bit 14: linear framebuffer
+    r86.ax = VBE_CALL_FNC_2_16; // VBE call, function 02 -- set VBE mode
+    r86.bx = VBE_LINEAR_FRAMEBUFFER|mode; // set bit 14: linear framebuffer
     r86.intno = 0x10;
 
     if( sys_int86(&r86) != OK ) {
-        printf("set_vbe_mode: sys_int86() failed \n");
+       
         return 1;
     }
     video_mem_sec = malloc(vram_size);
@@ -142,7 +140,6 @@ int (vg_load_xpm)(){
         maps[NOVEMBER] = (uint16_t*) xpm_load(nov,XPM_5_6_5,&images[NOVEMBER]);
         maps[DECEMBER] = (uint16_t*) xpm_load(dec,XPM_5_6_5,&images[DECEMBER]);
 
-        printf("&x->%u &y->%u",images[12].width,images[12].height);
          
 
         return 0;
@@ -150,7 +147,7 @@ int (vg_load_xpm)(){
 
 
 int (vg_draw_xpm) (uint8_t id, uint16_t x, uint16_t y){
-    if(x > info.XResolution || y > info.YResolution || id < 0 || id > 55){
+    if(x > info.XResolution || y > info.YResolution || id < 0 || id > NUM_XPM_FILES){
         return 1;
     }
     

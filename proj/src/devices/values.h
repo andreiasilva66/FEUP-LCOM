@@ -12,19 +12,18 @@
 #define NIGHT_TIME_BEGIN 18
 #define NIGHT_TIME_END 6
 
-//resolution 
-#define Y_RESOLUTION 1024
-#define  X_RESOLUTION 1280
-#define VIDEO_MODE 0x11A
 
 //player
 #define PLAYER_WIDTH 22
 #define PLAYER_HEIGHT 47
 #define PLAYER_HP 100
-#define PLAYER_INI_Y (924)
+#define PLAYER_INI_Y 924
 #define PLAYER_INI_X 100 
-#define PLAYER_SPEED 8
-
+#define PLAYER_JUMP_HEIGHT 120
+#define PLAYER_GROUND 974
+#define PLAYER_HP_BAR_X 40
+#define PLAYER_HP_BAR_Y 1230
+#define PLAYER_SPEED 5
 
 //helicopter
 #define HELI_WIDTH 200

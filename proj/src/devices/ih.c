@@ -2,7 +2,7 @@
 #include <lcom/lcf.h>
 #include "ih.h"
 #include "devices/rtc.h"
-#include "game/menu.h"
+
 #include "devices/video.h"
 #include "xpm/xpm_id.h"
 
@@ -66,7 +66,7 @@ int proj_int(){
     
     int flag = driver_receive(ANY, &msg, &ipc_status);
     if (flag){
-        printf("driver_receive failed with: %d", flag);
+        
         return 0;
     }
 
@@ -224,7 +224,6 @@ void mouse_int_h(){
     if(mouse.y <= MOUSE_HEIGHT/2) mouse.y = MOUSE_HEIGHT/2;
     if(mouse.y >= Y_RESOLUTION-MOUSE_HEIGHT/2) mouse.y = Y_RESOLUTION-MOUSE_HEIGHT/2;
 
-    printf("mouse.x->%d , mouse->y%d \n", mouse.x, mouse.y);
 
     if(game_state == MAINMENU || game_state == INSTRUCTIONS || game_state == GAMEOVER){
         menu_mouse(&mouse, &pp);
