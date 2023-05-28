@@ -1,4 +1,3 @@
-
 #include "menu.h"
 #include "view/canvas.h"
 #include "models/bullet.h"

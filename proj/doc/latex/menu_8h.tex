@@ -1,0 +1,126 @@
+\hypertarget{menu_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/game/menu.h File Reference}
+\label{menu_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/game/menu.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/game/menu.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}devices/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/values.\+h\char`\"{}}\newline
+Include dependency graph for menu.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{menu_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu_8h_a7899b65f1ea0f655e4bbf8d2a5714285}\label{menu_8h_a7899b65f1ea0f655e4bbf8d2a5714285}} 
+enum {\bfseries Game\+State} \{ {\bfseries MAINMENU}
+, {\bfseries INSTRUCTIONS}
+, {\bfseries GAME}
+, {\bfseries GAMEOVER}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a57087448428946798bffb07f5369aa48}{menu\+\_\+mouse}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse, struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method handles mouse events for the current game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_a31db499f6de11bad2f065c516b5f4a2a}{main\+\_\+menu\+\_\+mouse}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse, struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method handles mouse input for the main menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_af9bf9f622b9f955932fd49fc31a27cac}{instructions\+\_\+mouse}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse, struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method checks if the left button of the mouse was clicked inside the menu area to set the game state to MAINMENU. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{menu_8h_a05e5620df54c70ee8cc8b8929a98fe5b}{game\+\_\+over\+\_\+mouse}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse, struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method changes the game state to MAINMENU when \char`\"{}\+Play Again\char`\"{} is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_ab7c80852d8534223a908585f0fb0b2bd}{restore\+\_\+game\+\_\+def}} ()
+\begin{DoxyCompactList}\small\item\em This method restores the game to its default settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8h_a05e5620df54c70ee8cc8b8929a98fe5b}\label{menu_8h_a05e5620df54c70ee8cc8b8929a98fe5b}} 
+\index{menu.h@{menu.h}!game\_over\_mouse@{game\_over\_mouse}}
+\index{game\_over\_mouse@{game\_over\_mouse}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{game\_over\_mouse()}{game\_over\_mouse()}}
+{\footnotesize\ttfamily void() game\+\_\+over\+\_\+mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse,  }\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method changes the game state to MAINMENU when \char`\"{}\+Play Again\char`\"{} is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the mouse \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_af9bf9f622b9f955932fd49fc31a27cac}\label{menu_8h_af9bf9f622b9f955932fd49fc31a27cac}} 
+\index{menu.h@{menu.h}!instructions\_mouse@{instructions\_mouse}}
+\index{instructions\_mouse@{instructions\_mouse}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{instructions\_mouse()}{instructions\_mouse()}}
+{\footnotesize\ttfamily void instructions\+\_\+mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse,  }\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method checks if the left button of the mouse was clicked inside the menu area to set the game state to MAINMENU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the mouse \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_a31db499f6de11bad2f065c516b5f4a2a}\label{menu_8h_a31db499f6de11bad2f065c516b5f4a2a}} 
+\index{menu.h@{menu.h}!main\_menu\_mouse@{main\_menu\_mouse}}
+\index{main\_menu\_mouse@{main\_menu\_mouse}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{main\_menu\_mouse()}{main\_menu\_mouse()}}
+{\footnotesize\ttfamily void main\+\_\+menu\+\_\+mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse,  }\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method handles mouse input for the main menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the mouse \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_a57087448428946798bffb07f5369aa48}\label{menu_8h_a57087448428946798bffb07f5369aa48}} 
+\index{menu.h@{menu.h}!menu\_mouse@{menu\_mouse}}
+\index{menu\_mouse@{menu\_mouse}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{menu\_mouse()}{menu\_mouse()}}
+{\footnotesize\ttfamily void menu\+\_\+mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse,  }\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method handles mouse events for the current game state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the mouse \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu_8h_ab7c80852d8534223a908585f0fb0b2bd}\label{menu_8h_ab7c80852d8534223a908585f0fb0b2bd}} 
+\index{menu.h@{menu.h}!restore\_game\_def@{restore\_game\_def}}
+\index{restore\_game\_def@{restore\_game\_def}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{restore\_game\_def()}{restore\_game\_def()}}
+{\footnotesize\ttfamily void restore\+\_\+game\+\_\+def (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method restores the game to its default settings. 
+

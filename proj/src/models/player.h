@@ -1,3 +1,8 @@
+/**
+ * @file player.h
+ * 
+ */
+
 #ifndef _LCOM_PLAYER_H_
 #define _LCOM_PLAYER_H_
 #include <lcom/lcf.h>

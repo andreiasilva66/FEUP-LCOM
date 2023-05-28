@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['destroy_5fhelicopter_0',['destroy_helicopter',['../helicopter_8h.html#a2632007d68e88fec5cd33b2cfcf6deb0',1,'helicopter.c']]],
+  ['draw_5fbackground_1',['draw_background',['../canvas_8h.html#a50dff11d2dd362bff3e39733094d3f32',1,'canvas.c']]],
+  ['draw_5fbullet_5fheli_2',['draw_bullet_heli',['../bullet_8h.html#a30029c5a1e48e3c708b045353b4e9c4f',1,'bullet.c']]],
+  ['draw_5fbullet_5fplayer_3',['draw_bullet_player',['../bullet_8h.html#ae96f65623ea5a6e413dde447cd6624bf',1,'bullet.c']]],
+  ['draw_5fc_5fbullets_4',['draw_c_bullets',['../bullet_8h.html#a19d035c611b7a50d2bfc144918b9cd7a',1,'bullet.c']]],
+  ['draw_5fdate_5',['draw_date',['../canvas_8h.html#a66f793ba6199c7eb6afa5ac164acbda1',1,'canvas.c']]],
+  ['draw_5fdouble_5fdots_6',['draw_double_dots',['../canvas_8h.html#a9bc55dde2f64c39e1fa8b56ba525994b',1,'canvas.c']]],
+  ['draw_5fexplosions_7',['draw_explosions',['../helicopter_8h.html#a68121c253286bbeae69ece3d40af06c4',1,'helicopter.c']]],
+  ['draw_5fhelicopter_8',['draw_helicopter',['../helicopter_8h.html#a4c9446f6b1e310707aa12376392fd3ab',1,'helicopter.c']]],
+  ['draw_5fhp_5fbar_9',['draw_hp_bar',['../player_8h.html#ab03974f5053e28b91f19f5870a771d5f',1,'player.c']]],
+  ['draw_5fmonth_10',['draw_month',['../canvas_8h.html#af84d06ecca1e4322efa223daff214918',1,'canvas.c']]],
+  ['draw_5fmouse_11',['draw_mouse',['../canvas_8h.html#a3555b6b8e70391041fcc0a29cf1cd638',1,'canvas.c']]],
+  ['draw_5fnumbers_12',['draw_numbers',['../canvas_8h.html#af2a6cf781b7f7bb19492d0ec01af4bcc',1,'canvas.c']]],
+  ['draw_5fplatforms_13',['draw_platforms',['../platforms_8h.html#acb8eda1b1f3c9f8c921e6f7d041a7efe',1,'platforms.c']]],
+  ['draw_5fplayer_14',['draw_player',['../player_8h.html#a21473296e1c865781a3b550ffaedbf24',1,'player.c']]],
+  ['draw_5fremaining_5fbullets_15',['draw_remaining_bullets',['../bullet_8h.html#a7fafa120581cf1a7446f11d19b8cc6c1',1,'bullet.c']]]
+];

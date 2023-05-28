@@ -1,0 +1,133 @@
+\hypertarget{video_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/devices/video.h File Reference}
+\label{video_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/video.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/video.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Graphic.\+Macros.\+h\char`\"{}}\newline
+Include dependency graph for video.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{video_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{video_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void() \mbox{\hyperlink{video_8h_ae23cd04843d234b69e18838c3828283f}{change\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em This method copies the contents of the secondary video buffer to the primary video buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video_8h_a55bb0148c696baca125c2c03bd585ae5}{set\+\_\+frame\+\_\+buffer}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em This method sets the frame buffer for the video memory. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video_8h_a08c498ffeb0a3962e3b7711b57397741}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em This method draws a colored pixel. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video_8h_a62f81cb6978651d0e7a67993f08999a4}{vg\+\_\+load\+\_\+xpm}} ()
+\begin{DoxyCompactList}\small\item\em This method loads all the xpm images. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video_8h_a505bd6cca189a46aa3bfb8ad5c593512}{vg\+\_\+draw\+\_\+xpm}} (uint8\+\_\+t id, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em This method draws a xpm image on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{video_8h_a996ad0d46e46edac713af64ea63be162}{free\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em This method frees the memory allocated to the buffer and to the spm images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{video_8h_ae23cd04843d234b69e18838c3828283f}\label{video_8h_ae23cd04843d234b69e18838c3828283f}} 
+\index{video.h@{video.h}!change\_buffer@{change\_buffer}}
+\index{change\_buffer@{change\_buffer}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{change\_buffer()}{change\_buffer()}}
+{\footnotesize\ttfamily void() change\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method copies the contents of the secondary video buffer to the primary video buffer. 
+
+\mbox{\Hypertarget{video_8h_a996ad0d46e46edac713af64ea63be162}\label{video_8h_a996ad0d46e46edac713af64ea63be162}} 
+\index{video.h@{video.h}!free\_buffer@{free\_buffer}}
+\index{free\_buffer@{free\_buffer}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{free\_buffer()}{free\_buffer()}}
+{\footnotesize\ttfamily void free\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method frees the memory allocated to the buffer and to the spm images. 
+
+\mbox{\Hypertarget{video_8h_a55bb0148c696baca125c2c03bd585ae5}\label{video_8h_a55bb0148c696baca125c2c03bd585ae5}} 
+\index{video.h@{video.h}!set\_frame\_buffer@{set\_frame\_buffer}}
+\index{set\_frame\_buffer@{set\_frame\_buffer}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{set\_frame\_buffer()}{set\_frame\_buffer()}}
+{\footnotesize\ttfamily int() set\+\_\+frame\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+This method sets the frame buffer for the video memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & VBE Mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one othersise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video_8h_a08c498ffeb0a3962e3b7711b57397741}\label{video_8h_a08c498ffeb0a3962e3b7711b57397741}} 
+\index{video.h@{video.h}!vg\_draw\_pixel@{vg\_draw\_pixel}}
+\index{vg\_draw\_pixel@{vg\_draw\_pixel}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_pixel()}{vg\_draw\_pixel()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+This method draws a colored pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the pixel \\
+\hline
+{\em y} & The y coordinate of the pixel \\
+\hline
+{\em color} & Color of the pixel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video_8h_a505bd6cca189a46aa3bfb8ad5c593512}\label{video_8h_a505bd6cca189a46aa3bfb8ad5c593512}} 
+\index{video.h@{video.h}!vg\_draw\_xpm@{vg\_draw\_xpm}}
+\index{vg\_draw\_xpm@{vg\_draw\_xpm}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_xpm()}{vg\_draw\_xpm()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+xpm (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+This method draws a xpm image on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the xpm image \\
+\hline
+{\em x} & The X coordinate of the top-\/left corner of the xpm image \\
+\hline
+{\em y} & The Y coordinate of the top-\/left corner of the xpm image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one othersise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video_8h_a62f81cb6978651d0e7a67993f08999a4}\label{video_8h_a62f81cb6978651d0e7a67993f08999a4}} 
+\index{video.h@{video.h}!vg\_load\_xpm@{vg\_load\_xpm}}
+\index{vg\_load\_xpm@{vg\_load\_xpm}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_load\_xpm()}{vg\_load\_xpm()}}
+{\footnotesize\ttfamily int() vg\+\_\+load\+\_\+xpm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method loads all the xpm images. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 
+\end{DoxyReturn}

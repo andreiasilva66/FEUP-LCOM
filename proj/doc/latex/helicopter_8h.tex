@@ -1,0 +1,156 @@
+\hypertarget{helicopter_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/models/helicopter.h File Reference}
+\label{helicopter_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/helicopter.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/helicopter.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}devices/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+Include dependency graph for helicopter.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{helicopter_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{helicopter_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_helicopter}{Helicopter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{helicopter_8h_a5c71cc5488cdb7e393aaddeaf5d23ffa}{update\+\_\+heli\+\_\+move}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method updates the position of the helicopter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{helicopter_8h_a6d1bda87bfd52f6d1fa144017cc16ffd}{helicopter\+\_\+shoot}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli, \mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em This method creates a bullet for the helicopter to shoot at the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{helicopter_8h_a4c9446f6b1e310707aa12376392fd3ab}{draw\+\_\+helicopter}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method draws the helicopter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{helicopter_8h_a2632007d68e88fec5cd33b2cfcf6deb0}{destroy\+\_\+helicopter}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method destroys the helicopter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{helicopter_8h_a190b712ce9ced6ea88ef29c166f65e78}{init\+\_\+helicopter}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method initializes the helicopter with the default settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{helicopter_8h_a1fcc9517fd83e8a5c5bbf87911128e39}{helicopter\+\_\+add\+\_\+difficulty}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method increases the difficulty of the game by increasing the helicopter stats. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{helicopter_8h_a68121c253286bbeae69ece3d40af06c4}{draw\+\_\+explosions}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method draws an explosion animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{helicopter_8h_a2632007d68e88fec5cd33b2cfcf6deb0}\label{helicopter_8h_a2632007d68e88fec5cd33b2cfcf6deb0}} 
+\index{helicopter.h@{helicopter.h}!destroy\_helicopter@{destroy\_helicopter}}
+\index{destroy\_helicopter@{destroy\_helicopter}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_helicopter()}{destroy\_helicopter()}}
+{\footnotesize\ttfamily void destroy\+\_\+helicopter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method destroys the helicopter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{helicopter_8h_a68121c253286bbeae69ece3d40af06c4}\label{helicopter_8h_a68121c253286bbeae69ece3d40af06c4}} 
+\index{helicopter.h@{helicopter.h}!draw\_explosions@{draw\_explosions}}
+\index{draw\_explosions@{draw\_explosions}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{draw\_explosions()}{draw\_explosions()}}
+{\footnotesize\ttfamily int draw\+\_\+explosions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method draws an explosion animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of one if the explosion is ongoing and zero if it is finished 
+\end{DoxyReturn}
+\mbox{\Hypertarget{helicopter_8h_a4c9446f6b1e310707aa12376392fd3ab}\label{helicopter_8h_a4c9446f6b1e310707aa12376392fd3ab}} 
+\index{helicopter.h@{helicopter.h}!draw\_helicopter@{draw\_helicopter}}
+\index{draw\_helicopter@{draw\_helicopter}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{draw\_helicopter()}{draw\_helicopter()}}
+{\footnotesize\ttfamily void draw\+\_\+helicopter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method draws the helicopter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{helicopter_8h_a1fcc9517fd83e8a5c5bbf87911128e39}\label{helicopter_8h_a1fcc9517fd83e8a5c5bbf87911128e39}} 
+\index{helicopter.h@{helicopter.h}!helicopter\_add\_difficulty@{helicopter\_add\_difficulty}}
+\index{helicopter\_add\_difficulty@{helicopter\_add\_difficulty}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{helicopter\_add\_difficulty()}{helicopter\_add\_difficulty()}}
+{\footnotesize\ttfamily void helicopter\+\_\+add\+\_\+difficulty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method increases the difficulty of the game by increasing the helicopter stats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{helicopter_8h_a6d1bda87bfd52f6d1fa144017cc16ffd}\label{helicopter_8h_a6d1bda87bfd52f6d1fa144017cc16ffd}} 
+\index{helicopter.h@{helicopter.h}!helicopter\_shoot@{helicopter\_shoot}}
+\index{helicopter\_shoot@{helicopter\_shoot}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{helicopter\_shoot()}{helicopter\_shoot()}}
+{\footnotesize\ttfamily void helicopter\+\_\+shoot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli,  }\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+This method creates a bullet for the helicopter to shoot at the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{helicopter_8h_a190b712ce9ced6ea88ef29c166f65e78}\label{helicopter_8h_a190b712ce9ced6ea88ef29c166f65e78}} 
+\index{helicopter.h@{helicopter.h}!init\_helicopter@{init\_helicopter}}
+\index{init\_helicopter@{init\_helicopter}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{init\_helicopter()}{init\_helicopter()}}
+{\footnotesize\ttfamily void init\+\_\+helicopter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method initializes the helicopter with the default settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{helicopter_8h_a5c71cc5488cdb7e393aaddeaf5d23ffa}\label{helicopter_8h_a5c71cc5488cdb7e393aaddeaf5d23ffa}} 
+\index{helicopter.h@{helicopter.h}!update\_heli\_move@{update\_heli\_move}}
+\index{update\_heli\_move@{update\_heli\_move}!helicopter.h@{helicopter.h}}
+\doxysubsubsection{\texorpdfstring{update\_heli\_move()}{update\_heli\_move()}}
+{\footnotesize\ttfamily void update\+\_\+heli\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method updates the position of the helicopter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}

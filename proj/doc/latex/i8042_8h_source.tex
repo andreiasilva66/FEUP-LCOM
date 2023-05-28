@@ -1,0 +1,62 @@
+\hypertarget{i8042_8h_source}{}\doxysection{i8042.\+h}
+\label{i8042_8h_source}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/i8042.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/i8042.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DELAY\_US\ 20000}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ KBC\_ESC\ 0x81}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ KBC\_CMD\_REG\ 0x64}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ KBD\_PAR\_ERR\ BIT(7)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ KBD\_TO\_ERR\ BIT(6)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ KBD\_ST\_IBF\ BIT(1)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ OUT\_BFF\_FULL\ BIT(0)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ KBC\_AUX\_MOUSE\ BIT(5)}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ KBD\_ESC\ 0x81}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ KBC\_ACK\ 0xFA}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MOUSE\_DIS\_DATA\_REP\ 0xF5}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MOUSE\_EN\_DATA\_REP\ 0xF4}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PACKET\_RIGHT\_BOTTON\ BIT(1)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PACKET\_LEFT\_BOTTON\ BIT(0)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PACKET\_MIDDLE\_BOTTON\ BIT(2)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PACKET\_X\_NEGATIVE\ BIT(4)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ PACKET\_Y\_NEGATIVE\ BIT(5)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PACKET\_X\_OVERFLOW\ BIT(6)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ PACKET\_Y\_OVERFLOW\ BIT(7)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ KBD\_REENABLE\_INT\ BIT(0)}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ KBC\_IRQ\ 1}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MOUSE\_IRQ\ 12}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ KBD\_IRQ\ 1}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ KBC\_ST\_IBF\ BIT(1)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ KBC\_OUT\_BUF\ 0x60}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ KBC\_PAR\_ERR\ BIT(7)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ KBC\_TO\_ERR\ BIT(6)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ TWO\_BYTE\ 0xE0}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MAKE\ 0x80}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ OUT\_BUF\ 0x60}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ IN\_BUF\ 0x64}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ IN\_BUF\_ARGS\ 0x60}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ STAT\_REG\ 0x64}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ READ\_CMD\_BYTE\ 0x20}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ WRITE\_CMD\_BYTE\ 0x60}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ KBC\_REENABLE\_INT\ BIT(0)}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,4 @@
+<map id="timer_int_handler" name="timer_int_handler">
+<area shape="rect" id="node1" title="Timer 0 interrupt handler." alt="" coords="140,5,261,31"/>
+<area shape="rect" id="node2" href="$ih_8c.html#ac5f6495de5a9fc2672030df51b9a0d6d" title="This method handles the timer interrupts." alt="" coords="5,5,92,31"/>
+</map>

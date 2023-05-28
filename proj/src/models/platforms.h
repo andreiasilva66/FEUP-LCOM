@@ -1,3 +1,8 @@
+/**
+ * @file platforms.h
+ * 
+ */
+
 #ifndef _LCOM_PLATFORMS_H_
 #define _LCOM_PLATFORMS_H_
 

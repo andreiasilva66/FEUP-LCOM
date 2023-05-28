@@ -1,3 +1,8 @@
+/**
+ * @file ih.h
+ * 
+ */
+
 #ifndef _LCOM_IH_H_
 #define _LCOM_IH_H_
 

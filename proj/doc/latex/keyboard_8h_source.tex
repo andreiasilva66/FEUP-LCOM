@@ -1,0 +1,62 @@
+\hypertarget{keyboard_8h_source}{}\doxysection{keyboard.\+h}
+\label{keyboard_8h_source}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/keyboard.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/keyboard.h}}
+\mbox{\hyperlink{keyboard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ KEYBOARD\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ KEYBOARD\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}i8042.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00014\ \ \ uint16\_t\ x;}
+\DoxyCodeLine{00015\ \ \ uint16\_t\ y;}
+\DoxyCodeLine{00016\ \}\ \mbox{\hyperlink{struct_mouse}{Mouse}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ int(\mbox{\hyperlink{keyboard_8h_a02884ada1971dbade466081413210b18}{kbc\_subscribe\_int}})(uint8\_t\ *bit\_no);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ int(\mbox{\hyperlink{keyboard_8h_a1102381e6a9e876e05dd78c58ccb5673}{kbc\_unsubscribe\_int}})();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ int(\mbox{\hyperlink{keyboard_8h_a478e9d9e6e396379599060715e26730a}{kbc\_get\_status}})(uint8\_t\ *st);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ int(\mbox{\hyperlink{keyboard_8h_a7f0d4f98cc264f6ee367223edc07b866}{kbc\_read\_out\_buffer}})(uint8\_t\ *data,\ uint8\_t\ *\ st);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ int(\mbox{\hyperlink{keyboard_8h_a90ee70597d16a7488600b38f012d51a6}{kbc\_send\_cmd}})(uint8\_t\ port,\ uint8\_t\ cmd);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00071\ int(\mbox{\hyperlink{keyboard_8h_a2db345f941ede44f2854db9e3ea8f456}{mouse\_read\_out\_buffer}})(uint8\_t\ *data,\ uint8\_t\ *st\ );}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ int(\mbox{\hyperlink{keyboard_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\_subscribe\_int}})(uint8\_t\ *bit\_no);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ int(\mbox{\hyperlink{keyboard_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\_unsubscribe\_int}})();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ int(\mbox{\hyperlink{keyboard_8h_adce7a7604f8b0782158b70bf728eb411}{mouse\_write\_cmd}})(uint8\_t\ cmd);\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00102\ int\ (\mbox{\hyperlink{keyboard_8h_a4ef6e9b3fe6752ceb423f88fd49c232d}{mouse\_parse\_packet}})(\textcolor{keyword}{struct\ }packet\ *pp);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00110\ int\ (\mbox{\hyperlink{keyboard_8h_aecade84d14f887f98d5bbe8d2e7a77a9}{mouse\_get\_data}})(\textcolor{keyword}{struct\ }packet\ *pp);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00118\ int(\mbox{\hyperlink{keyboard_8h_aa280ff3a3bfc845bc9b9c49e404d1ce9}{kbc\_get\_scancode}})(uint8\_t*\ data);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{keyboard_8h_a430b7a71a90e6ee1669b1f33a7441691}{check\_status}}(uint8\_t\ st);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{keyboard_8h_a2a87a9dcbb69e2ee1737a3adc4bd78f7}{leftKeyPressed}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{keyboard_8h_a4e89c77b37f7442f2e2888538de2d7b3}{rightKeyPressed}}();}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keyboard_8h_a6ea02e869d5a136b34dc43e3f041ce0a}{pressLeftKey}}(\textcolor{keywordtype}{bool}\ is\_pressed);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keyboard_8h_acb90eff9c034581654b1103811293d04}{pressRightKey}}(\textcolor{keywordtype}{bool}\ is\_pressed);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00161\ }
+
+\end{DoxyCode}

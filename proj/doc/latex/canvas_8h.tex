@@ -1,0 +1,191 @@
+\hypertarget{canvas_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/view/canvas.h File Reference}
+\label{canvas_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/view/canvas.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/view/canvas.h}}
+{\ttfamily \#include \char`\"{}../devices/video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../models/player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../models/helicopter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../devices/values.\+h\char`\"{}}\newline
+Include dependency graph for canvas.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{canvas_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{canvas_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{canvas_8h_a9dad80291e87e485d248aca88043ab9a}{canvas\+\_\+draw\+\_\+menu}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method draws the game main menu. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{canvas_8h_a0cc619730ef896411dcbd027b5997fd6}{canvas\+\_\+draw\+\_\+instructions}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method draws the game instructions menu. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{canvas_8h_abaa8144565446eba6f55129d08b545d9}{canvas\+\_\+draw\+\_\+game\+\_\+over}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method draws the game over menu. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{canvas_8h_a50dff11d2dd362bff3e39733094d3f32}{draw\+\_\+background}} (bool day)
+\begin{DoxyCompactList}\small\item\em This method draws the background image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{canvas_8h_a3555b6b8e70391041fcc0a29cf1cd638}{draw\+\_\+mouse}} (\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method draws the mouse cursor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{canvas_8h_af2a6cf781b7f7bb19492d0ec01af4bcc}{draw\+\_\+numbers}} (uint8\+\_\+t number, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em This method draws the numbers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{canvas_8h_af84d06ecca1e4322efa223daff214918}{draw\+\_\+month}} (uint8\+\_\+t month, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em This method draws the month. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{canvas_8h_a9bc55dde2f64c39e1fa8b56ba525994b}{draw\+\_\+double\+\_\+dots}} (uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em This method draws the double dots. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{canvas_8h_a66f793ba6199c7eb6afa5ac164acbda1}{draw\+\_\+date}} (uint8\+\_\+t hours, uint8\+\_\+t minutes, uint8\+\_\+t seconds, uint8\+\_\+t day, uint8\+\_\+t month)
+\begin{DoxyCompactList}\small\item\em This method draw the date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{canvas_8h_abaa8144565446eba6f55129d08b545d9}\label{canvas_8h_abaa8144565446eba6f55129d08b545d9}} 
+\index{canvas.h@{canvas.h}!canvas\_draw\_game\_over@{canvas\_draw\_game\_over}}
+\index{canvas\_draw\_game\_over@{canvas\_draw\_game\_over}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{canvas\_draw\_game\_over()}{canvas\_draw\_game\_over()}}
+{\footnotesize\ttfamily int() canvas\+\_\+draw\+\_\+game\+\_\+over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method draws the game over menu. 
+
+\mbox{\Hypertarget{canvas_8h_a0cc619730ef896411dcbd027b5997fd6}\label{canvas_8h_a0cc619730ef896411dcbd027b5997fd6}} 
+\index{canvas.h@{canvas.h}!canvas\_draw\_instructions@{canvas\_draw\_instructions}}
+\index{canvas\_draw\_instructions@{canvas\_draw\_instructions}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{canvas\_draw\_instructions()}{canvas\_draw\_instructions()}}
+{\footnotesize\ttfamily int() canvas\+\_\+draw\+\_\+instructions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method draws the game instructions menu. 
+
+\mbox{\Hypertarget{canvas_8h_a9dad80291e87e485d248aca88043ab9a}\label{canvas_8h_a9dad80291e87e485d248aca88043ab9a}} 
+\index{canvas.h@{canvas.h}!canvas\_draw\_menu@{canvas\_draw\_menu}}
+\index{canvas\_draw\_menu@{canvas\_draw\_menu}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{canvas\_draw\_menu()}{canvas\_draw\_menu()}}
+{\footnotesize\ttfamily int() canvas\+\_\+draw\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method draws the game main menu. 
+
+\mbox{\Hypertarget{canvas_8h_a50dff11d2dd362bff3e39733094d3f32}\label{canvas_8h_a50dff11d2dd362bff3e39733094d3f32}} 
+\index{canvas.h@{canvas.h}!draw\_background@{draw\_background}}
+\index{draw\_background@{draw\_background}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_background()}{draw\_background()}}
+{\footnotesize\ttfamily void() draw\+\_\+background (\begin{DoxyParamCaption}\item[{bool}]{day }\end{DoxyParamCaption})}
+
+
+
+This method draws the background image. 
+
+\mbox{\Hypertarget{canvas_8h_a66f793ba6199c7eb6afa5ac164acbda1}\label{canvas_8h_a66f793ba6199c7eb6afa5ac164acbda1}} 
+\index{canvas.h@{canvas.h}!draw\_date@{draw\_date}}
+\index{draw\_date@{draw\_date}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_date()}{draw\_date()}}
+{\footnotesize\ttfamily int draw\+\_\+date (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hours,  }\item[{uint8\+\_\+t}]{minutes,  }\item[{uint8\+\_\+t}]{seconds,  }\item[{uint8\+\_\+t}]{day,  }\item[{uint8\+\_\+t}]{month }\end{DoxyParamCaption})}
+
+
+
+This method draw the date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hours} & Hour to draw \\
+\hline
+{\em minutes} & Minutes to draw \\
+\hline
+{\em seconds} & Seconds to draw \\
+\hline
+{\em day} & Day to draw \\
+\hline
+{\em month} & Month to draw \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{canvas_8h_a9bc55dde2f64c39e1fa8b56ba525994b}\label{canvas_8h_a9bc55dde2f64c39e1fa8b56ba525994b}} 
+\index{canvas.h@{canvas.h}!draw\_double\_dots@{draw\_double\_dots}}
+\index{draw\_double\_dots@{draw\_double\_dots}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_double\_dots()}{draw\_double\_dots()}}
+{\footnotesize\ttfamily int draw\+\_\+double\+\_\+dots (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+This method draws the double dots. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the position to draw the double dots \\
+\hline
+{\em y} & The y coordinate of the position to draw the double dots \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{canvas_8h_af84d06ecca1e4322efa223daff214918}\label{canvas_8h_af84d06ecca1e4322efa223daff214918}} 
+\index{canvas.h@{canvas.h}!draw\_month@{draw\_month}}
+\index{draw\_month@{draw\_month}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_month()}{draw\_month()}}
+{\footnotesize\ttfamily int draw\+\_\+month (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{month,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+This method draws the month. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em month} & Month to draw \\
+\hline
+{\em x} & The x coordinate of the position to draw the month \\
+\hline
+{\em y} & The y coordinate of the position to draw the month \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{canvas_8h_a3555b6b8e70391041fcc0a29cf1cd638}\label{canvas_8h_a3555b6b8e70391041fcc0a29cf1cd638}} 
+\index{canvas.h@{canvas.h}!draw\_mouse@{draw\_mouse}}
+\index{draw\_mouse@{draw\_mouse}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_mouse()}{draw\_mouse()}}
+{\footnotesize\ttfamily void draw\+\_\+mouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method draws the mouse cursor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse} & Pointer to the mouse \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{canvas_8h_af2a6cf781b7f7bb19492d0ec01af4bcc}\label{canvas_8h_af2a6cf781b7f7bb19492d0ec01af4bcc}} 
+\index{canvas.h@{canvas.h}!draw\_numbers@{draw\_numbers}}
+\index{draw\_numbers@{draw\_numbers}!canvas.h@{canvas.h}}
+\doxysubsubsection{\texorpdfstring{draw\_numbers()}{draw\_numbers()}}
+{\footnotesize\ttfamily int draw\+\_\+numbers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{number,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+This method draws the numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Number to draw \\
+\hline
+{\em x} & The x coordinate of the position to draw the number \\
+\hline
+{\em y} & The y coordinate of the position to draw the number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}

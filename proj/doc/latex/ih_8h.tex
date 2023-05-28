@@ -1,0 +1,143 @@
+\hypertarget{ih_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/devices/ih.h File Reference}
+\label{ih_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/ih.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/ih.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}game/menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Graphic.\+Macros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}models/player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}models/bullet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}models/helicopter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}models/platforms.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}view/canvas.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../xpm/xpm\+\_\+sprites.\+h\char`\"{}}\newline
+Include dependency graph for ih.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ih_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{ih_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ih_8h_a98396a1f6335b374d8b9bd3cd5376a6a}{init\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ih_8h_adda4488ab206faa63c7175187ba3207a}{proj\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em This method handles the interrupts for the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ih_8h_af7e907dabd37a08998e44e31c816cde2}{close\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em This method closes the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ih_8h_ac5f6495de5a9fc2672030df51b9a0d6d}{timer\+\_\+int\+\_\+h}} ()
+\begin{DoxyCompactList}\small\item\em This method handles the timer interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ih_8h_a0e760766276c756b3cfbab897ea20f7c}{kbc\+\_\+int\+\_\+h}} ()
+\begin{DoxyCompactList}\small\item\em This method handles the keyboard interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ih_8h_a38bc7de0287e1d9c41b6e2e0e0958db4}{mouse\+\_\+int\+\_\+h}} ()
+\begin{DoxyCompactList}\small\item\em This method handles the mouse interrupts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ih_8h_af7e907dabd37a08998e44e31c816cde2}\label{ih_8h_af7e907dabd37a08998e44e31c816cde2}} 
+\index{ih.h@{ih.h}!close\_game@{close\_game}}
+\index{close\_game@{close\_game}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{close\_game()}{close\_game()}}
+{\footnotesize\ttfamily int close\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method closes the game. 
+
+\begin{DoxyReturn}{Returns}
+Returns vg\+\_\+exit() 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{ih_8h_af7e907dabd37a08998e44e31c816cde2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ih_8h_a98396a1f6335b374d8b9bd3cd5376a6a}\label{ih_8h_a98396a1f6335b374d8b9bd3cd5376a6a}} 
+\index{ih.h@{ih.h}!init\_game@{init\_game}}
+\index{init\_game@{init\_game}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{init\_game()}{init\_game()}}
+{\footnotesize\ttfamily int init\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method initializes the game. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero if successful otherwise returns 1 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{ih_8h_a98396a1f6335b374d8b9bd3cd5376a6a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ih_8h_a0e760766276c756b3cfbab897ea20f7c}\label{ih_8h_a0e760766276c756b3cfbab897ea20f7c}} 
+\index{ih.h@{ih.h}!kbc\_int\_h@{kbc\_int\_h}}
+\index{kbc\_int\_h@{kbc\_int\_h}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_int\_h()}{kbc\_int\_h()}}
+{\footnotesize\ttfamily void kbc\+\_\+int\+\_\+h (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method handles the keyboard interrupts. 
+
+\mbox{\Hypertarget{ih_8h_a38bc7de0287e1d9c41b6e2e0e0958db4}\label{ih_8h_a38bc7de0287e1d9c41b6e2e0e0958db4}} 
+\index{ih.h@{ih.h}!mouse\_int\_h@{mouse\_int\_h}}
+\index{mouse\_int\_h@{mouse\_int\_h}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_int\_h()}{mouse\_int\_h()}}
+{\footnotesize\ttfamily void mouse\+\_\+int\+\_\+h (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method handles the mouse interrupts. 
+
+\mbox{\Hypertarget{ih_8h_adda4488ab206faa63c7175187ba3207a}\label{ih_8h_adda4488ab206faa63c7175187ba3207a}} 
+\index{ih.h@{ih.h}!proj\_int@{proj\_int}}
+\index{proj\_int@{proj\_int}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{proj\_int()}{proj\_int()}}
+{\footnotesize\ttfamily int proj\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method handles the interrupts for the game. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ih_8h_ac5f6495de5a9fc2672030df51b9a0d6d}\label{ih_8h_ac5f6495de5a9fc2672030df51b9a0d6d}} 
+\index{ih.h@{ih.h}!timer\_int\_h@{timer\_int\_h}}
+\index{timer\_int\_h@{timer\_int\_h}!ih.h@{ih.h}}
+\doxysubsubsection{\texorpdfstring{timer\_int\_h()}{timer\_int\_h()}}
+{\footnotesize\ttfamily void timer\+\_\+int\+\_\+h (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method handles the timer interrupts. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{ih_8h_ac5f6495de5a9fc2672030df51b9a0d6d_cgraph}
+\end{center}
+\end{figure}

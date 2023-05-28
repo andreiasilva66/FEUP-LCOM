@@ -1,0 +1,4 @@
+<map id="init_game" name="init_game">
+<area shape="rect" id="node1" title="This method initializes the game." alt="" coords="5,5,84,31"/>
+<area shape="rect" id="node2" href="$group__timer.html#gac57a7e1140a7e00ad95ac5488d2a671b" title="Subscribes and enables Timer 0 interrupts." alt="" coords="132,5,267,31"/>
+</map>

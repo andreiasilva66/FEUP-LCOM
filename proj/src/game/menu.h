@@ -1,3 +1,8 @@
+/**
+ * @file menu.h
+ * 
+ */
+
 #ifndef _LCOM_MENU_H_
 #define _LCOM_MENU_H_
 

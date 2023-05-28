@@ -1,0 +1,271 @@
+\hypertarget{player_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/models/player.h File Reference}
+\label{player_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/player.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/player.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../devices/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../devices/values.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}platforms.\+h\char`\"{}}\newline
+Include dependency graph for player.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_player}{Player}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{player_8h_adb444748cd7ee19560ec179d4bc6d638}\label{player_8h_adb444748cd7ee19560ec179d4bc6d638}} 
+\#define {\bfseries MOVE\+\_\+\+UP\+\_\+\+MAKE}~0x11
+\item 
+\mbox{\Hypertarget{player_8h_a0318834e69537b119153c8a96ad51803}\label{player_8h_a0318834e69537b119153c8a96ad51803}} 
+\#define {\bfseries MOVE\+\_\+\+DOWN\+\_\+\+MAKE}~0x1f
+\item 
+\mbox{\Hypertarget{player_8h_a710d5f1d85c51895f754c6769fbe6204}\label{player_8h_a710d5f1d85c51895f754c6769fbe6204}} 
+\#define {\bfseries MOVE\+\_\+\+LEFT\+\_\+\+MAKE}~0x1e
+\item 
+\mbox{\Hypertarget{player_8h_a57e9ef9474107447a398a79e47437658}\label{player_8h_a57e9ef9474107447a398a79e47437658}} 
+\#define {\bfseries MOVE\+\_\+\+RIGHT\+\_\+\+MAKE}~0x20
+\item 
+\mbox{\Hypertarget{player_8h_ae57df1480bf9be1c76a28ab199ef04f7}\label{player_8h_ae57df1480bf9be1c76a28ab199ef04f7}} 
+\#define {\bfseries MOVE\+\_\+\+UP\+\_\+\+BREAK}~0x91
+\item 
+\mbox{\Hypertarget{player_8h_a3e7db68d6ce0249d4f1988e441d2df3b}\label{player_8h_a3e7db68d6ce0249d4f1988e441d2df3b}} 
+\#define {\bfseries MOVE\+\_\+\+DOWN\+\_\+\+BREAK}~0x9f
+\item 
+\mbox{\Hypertarget{player_8h_a1476c56a99f79184030d1137be730ede}\label{player_8h_a1476c56a99f79184030d1137be730ede}} 
+\#define {\bfseries MOVE\+\_\+\+LEFT\+\_\+\+BREAK}~0x9e
+\item 
+\mbox{\Hypertarget{player_8h_aac0591495f4db2814011c3326671e33e}\label{player_8h_aac0591495f4db2814011c3326671e33e}} 
+\#define {\bfseries MOVE\+\_\+\+RIGHT\+\_\+\+BREAK}~0xa0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{player_8h_aef51515580448dbe58661566608a8477}{move\+Up}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em This method makes the player move up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a41afc332ed20b9cbe507ac5745d284b7}{move\+Down}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em This method makes the player move down. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a96028329c127c8b8f3e7e96a3df798f0}{move\+Left}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em This method makes the player move left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_aefcc2b179a9b1241ad8dc74cc8bf139b}{move\+Right}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em This method makes the player move right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_abcc8ff7889f22b6b5743c3b0042226bf}{jump}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em This method makes the player jump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_ab34376a16b870f8e22e7bf0f77122a5b}{process\+\_\+scancode}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This method processes a scancode and performs the corresponding action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_ae89179d886f4026251e499f8a2c964ee}{process\+\_\+packet}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, struct packet $\ast$pp, \mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method processes a packet and creates a bullet if the left button is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_ab03974f5053e28b91f19f5870a771d5f}{draw\+\_\+hp\+\_\+bar}} (uint8\+\_\+t hp)
+\begin{DoxyCompactList}\small\item\em This method draws an health bar based on the given health value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a21473296e1c865781a3b550ffaedbf24}{draw\+\_\+player}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em This method draws the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{player_8h_a9fd92f3b609d20014f66434f33f86cd6}{player\+\_\+update\+\_\+mov}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em This method updates the movement of the player based on the input received. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{player_8h_a9dd4fba1b072dd95f7c7fee7d4b90e9b}{check\+\_\+collision\+\_\+player}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player, \mbox{\hyperlink{struct_platform}{Platform}} platform\mbox{[}$\,$\mbox{]}, bool jump\+\_\+down)
+\begin{DoxyCompactList}\small\item\em This method checks if the player collides with any given platforms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{player_8h_a9dd4fba1b072dd95f7c7fee7d4b90e9b}\label{player_8h_a9dd4fba1b072dd95f7c7fee7d4b90e9b}} 
+\index{player.h@{player.h}!check\_collision\_player@{check\_collision\_player}}
+\index{check\_collision\_player@{check\_collision\_player}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{check\_collision\_player()}{check\_collision\_player()}}
+{\footnotesize\ttfamily int check\+\_\+collision\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player,  }\item[{\mbox{\hyperlink{struct_platform}{Platform}}}]{platform\mbox{[}$\,$\mbox{]},  }\item[{bool}]{jump\+\_\+down }\end{DoxyParamCaption})}
+
+
+
+This method checks if the player collides with any given platforms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+{\em platform} & Platforms to check for collision \\
+\hline
+{\em jump\+\_\+down} & Indicates if the player is in the fall part of the jump \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of one if the player collides with a platform and zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{player_8h_ab03974f5053e28b91f19f5870a771d5f}\label{player_8h_ab03974f5053e28b91f19f5870a771d5f}} 
+\index{player.h@{player.h}!draw\_hp\_bar@{draw\_hp\_bar}}
+\index{draw\_hp\_bar@{draw\_hp\_bar}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{draw\_hp\_bar()}{draw\_hp\_bar()}}
+{\footnotesize\ttfamily void draw\+\_\+hp\+\_\+bar (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hp }\end{DoxyParamCaption})}
+
+
+
+This method draws an health bar based on the given health value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & Health value of the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_a21473296e1c865781a3b550ffaedbf24}\label{player_8h_a21473296e1c865781a3b550ffaedbf24}} 
+\index{player.h@{player.h}!draw\_player@{draw\_player}}
+\index{draw\_player@{draw\_player}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{draw\_player()}{draw\_player()}}
+{\footnotesize\ttfamily void draw\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+This method draws the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_abcc8ff7889f22b6b5743c3b0042226bf}\label{player_8h_abcc8ff7889f22b6b5743c3b0042226bf}} 
+\index{player.h@{player.h}!jump@{jump}}
+\index{jump@{jump}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily void jump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+This method makes the player jump. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em speed} & Speed at which the player jumps \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_a41afc332ed20b9cbe507ac5745d284b7}\label{player_8h_a41afc332ed20b9cbe507ac5745d284b7}} 
+\index{player.h@{player.h}!moveDown@{moveDown}}
+\index{moveDown@{moveDown}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{moveDown()}{moveDown()}}
+{\footnotesize\ttfamily void move\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+This method makes the player move down. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em speed} & Speed at which the player moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_a96028329c127c8b8f3e7e96a3df798f0}\label{player_8h_a96028329c127c8b8f3e7e96a3df798f0}} 
+\index{player.h@{player.h}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily void move\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+This method makes the player move left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em speed} & Speed at which the player moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_aefcc2b179a9b1241ad8dc74cc8bf139b}\label{player_8h_aefcc2b179a9b1241ad8dc74cc8bf139b}} 
+\index{player.h@{player.h}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily void move\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+This method makes the player move right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em speed} & Speed at which the player moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_aef51515580448dbe58661566608a8477}\label{player_8h_aef51515580448dbe58661566608a8477}} 
+\index{player.h@{player.h}!moveUp@{moveUp}}
+\index{moveUp@{moveUp}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{moveUp()}{moveUp()}}
+{\footnotesize\ttfamily void move\+Up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+This method makes the player move up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em speed} & Speed at which the player moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_a9fd92f3b609d20014f66434f33f86cd6}\label{player_8h_a9fd92f3b609d20014f66434f33f86cd6}} 
+\index{player.h@{player.h}!player\_update\_mov@{player\_update\_mov}}
+\index{player\_update\_mov@{player\_update\_mov}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{player\_update\_mov()}{player\_update\_mov()}}
+{\footnotesize\ttfamily void player\+\_\+update\+\_\+mov (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+This method updates the movement of the player based on the input received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_ae89179d886f4026251e499f8a2c964ee}\label{player_8h_ae89179d886f4026251e499f8a2c964ee}} 
+\index{player.h@{player.h}!process\_packet@{process\_packet}}
+\index{process\_packet@{process\_packet}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{process\_packet()}{process\_packet()}}
+{\footnotesize\ttfamily void process\+\_\+packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{struct packet $\ast$}]{pp,  }\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method processes a packet and creates a bullet if the left button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+{\em mouse} & Pointer to the mouse \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{player_8h_ab34376a16b870f8e22e7bf0f77122a5b}\label{player_8h_ab34376a16b870f8e22e7bf0f77122a5b}} 
+\index{player.h@{player.h}!process\_scancode@{process\_scancode}}
+\index{process\_scancode@{process\_scancode}!player.h@{player.h}}
+\doxysubsubsection{\texorpdfstring{process\_scancode()}{process\_scancode()}}
+{\footnotesize\ttfamily void process\+\_\+scancode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+This method processes a scancode and performs the corresponding action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em data} & Pointer to the scancode to be processed \\
+\hline
+\end{DoxyParams}
