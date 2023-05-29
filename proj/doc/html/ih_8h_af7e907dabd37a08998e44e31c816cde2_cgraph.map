@@ -1,0 +1,4 @@
+<map id="close_game" name="close_game">
+<area shape="rect" id="node1" title="This method closes the game." alt="" coords="5,5,97,31"/>
+<area shape="rect" id="node2" href="$group__timer.html#gafabd21de449be154dd65d5fdb2d8045d" title="Unsubscribes Timer 0 interrupts." alt="" coords="145,5,295,31"/>
+</map>

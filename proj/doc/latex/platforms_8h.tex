@@ -1,0 +1,91 @@
+\hypertarget{platforms_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/models/platforms.h File Reference}
+\label{platforms_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/platforms.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/platforms.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for platforms.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{platforms_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{platforms_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_platform}{Platform}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{platforms_8h_a37ade904a04e48a47f1488dd7f9454b2}\label{platforms_8h_a37ade904a04e48a47f1488dd7f9454b2}} 
+\#define {\bfseries N\+\_\+\+PLATFORMS}~4
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{platforms_8h_adb9c44d2a2c72af7f88d9802c0017753}{initialize\+\_\+platforms}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the platforms for the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{platforms_8h_aa7089698ba313e143f1a72cc79dc3ab7}{platforms\+\_\+location}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint8\+\_\+t number)
+\begin{DoxyCompactList}\small\item\em This method sets the location and the size of the platforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{platforms_8h_acb8eda1b1f3c9f8c921e6f7d041a7efe}{draw\+\_\+platforms}} ()
+\begin{DoxyCompactList}\small\item\em This method draws the platforms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{platforms_8h_a278935356524777b86506e8bb0dd48f4}\label{platforms_8h_a278935356524777b86506e8bb0dd48f4}} 
+\mbox{\hyperlink{struct_platform}{Platform}} {\bfseries platforms} \mbox{[}N\+\_\+\+PLATFORMS\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{platforms_8h_acb8eda1b1f3c9f8c921e6f7d041a7efe}\label{platforms_8h_acb8eda1b1f3c9f8c921e6f7d041a7efe}} 
+\index{platforms.h@{platforms.h}!draw\_platforms@{draw\_platforms}}
+\index{draw\_platforms@{draw\_platforms}!platforms.h@{platforms.h}}
+\doxysubsubsection{\texorpdfstring{draw\_platforms()}{draw\_platforms()}}
+{\footnotesize\ttfamily void draw\+\_\+platforms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method draws the platforms. 
+
+\mbox{\Hypertarget{platforms_8h_adb9c44d2a2c72af7f88d9802c0017753}\label{platforms_8h_adb9c44d2a2c72af7f88d9802c0017753}} 
+\index{platforms.h@{platforms.h}!initialize\_platforms@{initialize\_platforms}}
+\index{initialize\_platforms@{initialize\_platforms}!platforms.h@{platforms.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_platforms()}{initialize\_platforms()}}
+{\footnotesize\ttfamily void initialize\+\_\+platforms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method initializes the platforms for the game. 
+
+\mbox{\Hypertarget{platforms_8h_aa7089698ba313e143f1a72cc79dc3ab7}\label{platforms_8h_aa7089698ba313e143f1a72cc79dc3ab7}} 
+\index{platforms.h@{platforms.h}!platforms\_location@{platforms\_location}}
+\index{platforms\_location@{platforms\_location}!platforms.h@{platforms.h}}
+\doxysubsubsection{\texorpdfstring{platforms\_location()}{platforms\_location()}}
+{\footnotesize\ttfamily void platforms\+\_\+location (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint8\+\_\+t}]{number }\end{DoxyParamCaption})}
+
+
+
+This method sets the location and the size of the platforms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the platform\textquotesingle{}s top-\/left corner \\
+\hline
+{\em y} & The y coordinate of the platform\textquotesingle{}s top-\/left corner \\
+\hline
+{\em width} & The width of the platform \\
+\hline
+{\em height} & The height of the platform \\
+\hline
+{\em number} & The index of the platform to modify \\
+\hline
+\end{DoxyParams}

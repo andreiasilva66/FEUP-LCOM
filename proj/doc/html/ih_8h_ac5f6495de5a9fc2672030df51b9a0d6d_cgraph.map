@@ -1,0 +1,4 @@
+<map id="timer_int_h" name="timer_int_h">
+<area shape="rect" id="node1" title="This method handles the timer interrupts." alt="" coords="5,5,92,31"/>
+<area shape="rect" id="node2" href="$group__timer.html#ga91a2072306c68353712a6b771287dc2c" title="Timer 0 interrupt handler." alt="" coords="140,5,261,31"/>
+</map>

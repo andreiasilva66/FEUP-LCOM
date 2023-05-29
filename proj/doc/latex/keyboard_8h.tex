@@ -1,0 +1,356 @@
+\hypertarget{keyboard_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/devices/keyboard.h File Reference}
+\label{keyboard_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/keyboard.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/keyboard.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+Include dependency graph for keyboard.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{keyboard_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{keyboard_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_mouse}{Mouse}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{keyboard_8h_a02884ada1971dbade466081413210b18}{kbc\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em This method subscribes and enables the keyboard interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a1102381e6a9e876e05dd78c58ccb5673}{kbc\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em This method unsubscribes the keyboard interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a478e9d9e6e396379599060715e26730a}{kbc\+\_\+get\+\_\+status}} (uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em This method reads the keyboard configuration. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a7f0d4f98cc264f6ee367223edc07b866}{kbc\+\_\+read\+\_\+out\+\_\+buffer}} (uint8\+\_\+t $\ast$data, uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em This method reads the output buffer of the keyboard. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a90ee70597d16a7488600b38f012d51a6}{kbc\+\_\+send\+\_\+cmd}} (uint8\+\_\+t port, uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em This method sends a command to the keyboard. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a2db345f941ede44f2854db9e3ea8f456}{mouse\+\_\+read\+\_\+out\+\_\+buffer}} (uint8\+\_\+t $\ast$data, uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em This method reads the output buffer of the mouse. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em This method subscribes and enables the mouse interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em This method unsubscribes the mouse interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_adce7a7604f8b0782158b70bf728eb411}{mouse\+\_\+write\+\_\+cmd}} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em This method writes a command to the mouse. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a4ef6e9b3fe6752ceb423f88fd49c232d}{mouse\+\_\+parse\+\_\+packet}} (struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method parses the mouse packet and sets its values. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aecade84d14f887f98d5bbe8d2e7a77a9}{mouse\+\_\+get\+\_\+data}} (struct packet $\ast$pp)
+\begin{DoxyCompactList}\small\item\em This method retrieves data from the mouse. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aa280ff3a3bfc845bc9b9c49e404d1ce9}{kbc\+\_\+get\+\_\+scancode}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This method reads a scancode from the keyboard. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{keyboard_8h_a430b7a71a90e6ee1669b1f33a7441691}{check\+\_\+status}} (uint8\+\_\+t st)
+\begin{DoxyCompactList}\small\item\em This method checks the keyboard status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{keyboard_8h_a2a87a9dcbb69e2ee1737a3adc4bd78f7}{left\+Key\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if the left movement key (A) is pressed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{keyboard_8h_a4e89c77b37f7442f2e2888538de2d7b3}{right\+Key\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if the right movement key (D) is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keyboard_8h_a6ea02e869d5a136b34dc43e3f041ce0a}{press\+Left\+Key}} (bool is\+\_\+pressed)
+\begin{DoxyCompactList}\small\item\em This method sets the state for the left movement key (A) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keyboard_8h_acb90eff9c034581654b1103811293d04}{press\+Right\+Key}} (bool is\+\_\+pressed)
+\begin{DoxyCompactList}\small\item\em This method sets the state for the right movement key (D) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{keyboard_8h_a430b7a71a90e6ee1669b1f33a7441691}\label{keyboard_8h_a430b7a71a90e6ee1669b1f33a7441691}} 
+\index{keyboard.h@{keyboard.h}!check\_status@{check\_status}}
+\index{check\_status@{check\_status}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{check\_status()}{check\_status()}}
+{\footnotesize\ttfamily int check\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{st }\end{DoxyParamCaption})}
+
+
+
+This method checks the keyboard status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Variable that contains the keyboard status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_aa280ff3a3bfc845bc9b9c49e404d1ce9}\label{keyboard_8h_aa280ff3a3bfc845bc9b9c49e404d1ce9}} 
+\index{keyboard.h@{keyboard.h}!kbc\_get\_scancode@{kbc\_get\_scancode}}
+\index{kbc\_get\_scancode@{kbc\_get\_scancode}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_get\_scancode()}{kbc\_get\_scancode()}}
+{\footnotesize\ttfamily int() kbc\+\_\+get\+\_\+scancode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+This method reads a scancode from the keyboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the array that will store the scancode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a478e9d9e6e396379599060715e26730a}\label{keyboard_8h_a478e9d9e6e396379599060715e26730a}} 
+\index{keyboard.h@{keyboard.h}!kbc\_get\_status@{kbc\_get\_status}}
+\index{kbc\_get\_status@{kbc\_get\_status}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_get\_status()}{kbc\_get\_status()}}
+{\footnotesize\ttfamily int() kbc\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+This method reads the keyboard configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em st} & Address of the memory position that will receive the status byte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a7f0d4f98cc264f6ee367223edc07b866}\label{keyboard_8h_a7f0d4f98cc264f6ee367223edc07b866}} 
+\index{keyboard.h@{keyboard.h}!kbc\_read\_out\_buffer@{kbc\_read\_out\_buffer}}
+\index{kbc\_read\_out\_buffer@{kbc\_read\_out\_buffer}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_read\_out\_buffer()}{kbc\_read\_out\_buffer()}}
+{\footnotesize\ttfamily int() kbc\+\_\+read\+\_\+out\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+This method reads the output buffer of the keyboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the variable where the data read from the output buffer will be stored. \\
+\hline
+{\em st} & Address of the memory position that will receive the status byte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a90ee70597d16a7488600b38f012d51a6}\label{keyboard_8h_a90ee70597d16a7488600b38f012d51a6}} 
+\index{keyboard.h@{keyboard.h}!kbc\_send\_cmd@{kbc\_send\_cmd}}
+\index{kbc\_send\_cmd@{kbc\_send\_cmd}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_send\_cmd()}{kbc\_send\_cmd()}}
+{\footnotesize\ttfamily int() kbc\+\_\+send\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+This method sends a command to the keyboard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port to use for sending the command \\
+\hline
+{\em cmd} & The command to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a02884ada1971dbade466081413210b18}\label{keyboard_8h_a02884ada1971dbade466081413210b18}} 
+\index{keyboard.h@{keyboard.h}!kbc\_subscribe\_int@{kbc\_subscribe\_int}}
+\index{kbc\_subscribe\_int@{kbc\_subscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_subscribe\_int()}{kbc\_subscribe\_int()}}
+{\footnotesize\ttfamily int() kbc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+This method subscribes and enables the keyboard interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to the variable that holds the keyboard hook id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a1102381e6a9e876e05dd78c58ccb5673}\label{keyboard_8h_a1102381e6a9e876e05dd78c58ccb5673}} 
+\index{keyboard.h@{keyboard.h}!kbc\_unsubscribe\_int@{kbc\_unsubscribe\_int}}
+\index{kbc\_unsubscribe\_int@{kbc\_unsubscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbc\_unsubscribe\_int()}{kbc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() kbc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method unsubscribes the keyboard interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a2a87a9dcbb69e2ee1737a3adc4bd78f7}\label{keyboard_8h_a2a87a9dcbb69e2ee1737a3adc4bd78f7}} 
+\index{keyboard.h@{keyboard.h}!leftKeyPressed@{leftKeyPressed}}
+\index{leftKeyPressed@{leftKeyPressed}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{leftKeyPressed()}{leftKeyPressed()}}
+{\footnotesize\ttfamily bool left\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method checks if the left movement key (A) is pressed. 
+
+\begin{DoxyReturn}{Returns}
+true if the key is pressed 
+
+false if the key is not pressed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_aecade84d14f887f98d5bbe8d2e7a77a9}\label{keyboard_8h_aecade84d14f887f98d5bbe8d2e7a77a9}} 
+\index{keyboard.h@{keyboard.h}!mouse\_get\_data@{mouse\_get\_data}}
+\index{mouse\_get\_data@{mouse\_get\_data}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_get\_data()}{mouse\_get\_data()}}
+{\footnotesize\ttfamily int() mouse\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method retrieves data from the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Pointer to the struct where that data will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one othersise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a4ef6e9b3fe6752ceb423f88fd49c232d}\label{keyboard_8h_a4ef6e9b3fe6752ceb423f88fd49c232d}} 
+\index{keyboard.h@{keyboard.h}!mouse\_parse\_packet@{mouse\_parse\_packet}}
+\index{mouse\_parse\_packet@{mouse\_parse\_packet}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_parse\_packet()}{mouse\_parse\_packet()}}
+{\footnotesize\ttfamily int() mouse\+\_\+parse\+\_\+packet (\begin{DoxyParamCaption}\item[{struct packet $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+This method parses the mouse packet and sets its values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Pointer to the packet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a2db345f941ede44f2854db9e3ea8f456}\label{keyboard_8h_a2db345f941ede44f2854db9e3ea8f456}} 
+\index{keyboard.h@{keyboard.h}!mouse\_read\_out\_buffer@{mouse\_read\_out\_buffer}}
+\index{mouse\_read\_out\_buffer@{mouse\_read\_out\_buffer}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_read\_out\_buffer()}{mouse\_read\_out\_buffer()}}
+{\footnotesize\ttfamily int() mouse\+\_\+read\+\_\+out\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+This method reads the output buffer of the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the variable where the data read from the output buffer will be stored. \\
+\hline
+{\em st} & Address of the memory position that will receive the status byte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a20285aed4b3ef45812cd967532dd09db}\label{keyboard_8h_a20285aed4b3ef45812cd967532dd09db}} 
+\index{keyboard.h@{keyboard.h}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+This method subscribes and enables the mouse interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & Pointer to the variable that holds the mouse hook id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a3ecf823d80520009ae5e0d76ae40a3c3}\label{keyboard_8h_a3ecf823d80520009ae5e0d76ae40a3c3}} 
+\index{keyboard.h@{keyboard.h}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method unsubscribes the mouse interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_adce7a7604f8b0782158b70bf728eb411}\label{keyboard_8h_adce7a7604f8b0782158b70bf728eb411}} 
+\index{keyboard.h@{keyboard.h}!mouse\_write\_cmd@{mouse\_write\_cmd}}
+\index{mouse\_write\_cmd@{mouse\_write\_cmd}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_write\_cmd()}{mouse\_write\_cmd()}}
+{\footnotesize\ttfamily int() mouse\+\_\+write\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+This method writes a command to the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Command to write to the mouse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a6ea02e869d5a136b34dc43e3f041ce0a}\label{keyboard_8h_a6ea02e869d5a136b34dc43e3f041ce0a}} 
+\index{keyboard.h@{keyboard.h}!pressLeftKey@{pressLeftKey}}
+\index{pressLeftKey@{pressLeftKey}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{pressLeftKey()}{pressLeftKey()}}
+{\footnotesize\ttfamily void press\+Left\+Key (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+pressed }\end{DoxyParamCaption})}
+
+
+
+This method sets the state for the left movement key (A) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+pressed} & Boolean value indicating whether the left key is pressed or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{keyboard_8h_acb90eff9c034581654b1103811293d04}\label{keyboard_8h_acb90eff9c034581654b1103811293d04}} 
+\index{keyboard.h@{keyboard.h}!pressRightKey@{pressRightKey}}
+\index{pressRightKey@{pressRightKey}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{pressRightKey()}{pressRightKey()}}
+{\footnotesize\ttfamily void press\+Right\+Key (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+pressed }\end{DoxyParamCaption})}
+
+
+
+This method sets the state for the right movement key (D) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+pressed} & Boolean value indicating whether the right key is pressed or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{keyboard_8h_a4e89c77b37f7442f2e2888538de2d7b3}\label{keyboard_8h_a4e89c77b37f7442f2e2888538de2d7b3}} 
+\index{keyboard.h@{keyboard.h}!rightKeyPressed@{rightKeyPressed}}
+\index{rightKeyPressed@{rightKeyPressed}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{rightKeyPressed()}{rightKeyPressed()}}
+{\footnotesize\ttfamily bool right\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method checks if the right movement key (D) is pressed. 
+
+\begin{DoxyReturn}{Returns}
+true if the key is pressed 
+
+false if the key is not pressed 
+\end{DoxyReturn}

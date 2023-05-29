@@ -1,0 +1,119 @@
+\hypertarget{rtc_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/devices/rtc.h File Reference}
+\label{rtc_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/rtc.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/rtc.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rtc\+\_\+\+Macros.\+h\char`\"{}}\newline
+Include dependency graph for rtc.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{rtc_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{rtc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_rtc}{Rtc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{rtc_8h_ad542c59f2f234f2befd0efbeb4193fb7}{rtc\+\_\+output}} (uint8\+\_\+t command, uint8\+\_\+t $\ast$output)
+\begin{DoxyCompactList}\small\item\em This method outputs a command to the RTC. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8h_a9dac5e6637f21aa7ab6dcb7b8fe2c58a}{rtc\+\_\+available}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if the RTC is available to be read. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8h_afca0276844b2d261eef637e4d727d57e}{rtc\+\_\+in\+\_\+binary\+\_\+mode}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if the RTC is in binary mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t() \mbox{\hyperlink{rtc_8h_a838c9510a764729a14e7aa2226b941bb}{rtc\+\_\+convert\+\_\+to\+\_\+binary}} (uint8\+\_\+t bcd)
+\begin{DoxyCompactList}\small\item\em This method converts a BCD value to binary. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8h_acb1eb50cf24b1160c8bd0ef35882cbc6}{rtc\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em This method updates the RTC values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8h_a9dac5e6637f21aa7ab6dcb7b8fe2c58a}\label{rtc_8h_a9dac5e6637f21aa7ab6dcb7b8fe2c58a}} 
+\index{rtc.h@{rtc.h}!rtc\_available@{rtc\_available}}
+\index{rtc\_available@{rtc\_available}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_available()}{rtc\_available()}}
+{\footnotesize\ttfamily int() rtc\+\_\+available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method checks if the RTC is available to be read. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero if the RTC is available to be read and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rtc_8h_a838c9510a764729a14e7aa2226b941bb}\label{rtc_8h_a838c9510a764729a14e7aa2226b941bb}} 
+\index{rtc.h@{rtc.h}!rtc\_convert\_to\_binary@{rtc\_convert\_to\_binary}}
+\index{rtc\_convert\_to\_binary@{rtc\_convert\_to\_binary}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_convert\_to\_binary()}{rtc\_convert\_to\_binary()}}
+{\footnotesize\ttfamily uint8\+\_\+t() rtc\+\_\+convert\+\_\+to\+\_\+binary (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bcd }\end{DoxyParamCaption})}
+
+
+
+This method converts a BCD value to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bcd} & BCD value to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the binary equivalent of the BCD value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rtc_8h_afca0276844b2d261eef637e4d727d57e}\label{rtc_8h_afca0276844b2d261eef637e4d727d57e}} 
+\index{rtc.h@{rtc.h}!rtc\_in\_binary\_mode@{rtc\_in\_binary\_mode}}
+\index{rtc\_in\_binary\_mode@{rtc\_in\_binary\_mode}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_in\_binary\_mode()}{rtc\_in\_binary\_mode()}}
+{\footnotesize\ttfamily int() rtc\+\_\+in\+\_\+binary\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method checks if the RTC is in binary mode. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of one if there is an error otherwise returns zero if is in BCD mode or a non-\/zero value if is in binary mode 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rtc_8h_ad542c59f2f234f2befd0efbeb4193fb7}\label{rtc_8h_ad542c59f2f234f2befd0efbeb4193fb7}} 
+\index{rtc.h@{rtc.h}!rtc\_output@{rtc\_output}}
+\index{rtc\_output@{rtc\_output}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_output()}{rtc\_output()}}
+{\footnotesize\ttfamily int() rtc\+\_\+output (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{uint8\+\_\+t $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+This method outputs a command to the RTC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command to send to the RTC \\
+\hline
+{\em output} & Pointer to the variable where the output will be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rtc_8h_acb1eb50cf24b1160c8bd0ef35882cbc6}\label{rtc_8h_acb1eb50cf24b1160c8bd0ef35882cbc6}} 
+\index{rtc.h@{rtc.h}!rtc\_update@{rtc\_update}}
+\index{rtc\_update@{rtc\_update}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_update()}{rtc\_update()}}
+{\footnotesize\ttfamily int() rtc\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method updates the RTC values. 
+
+\begin{DoxyReturn}{Returns}
+Returns an int value of zero upon success and one otherwise 
+\end{DoxyReturn}

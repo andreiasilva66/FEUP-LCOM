@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 #ifndef BIT
-#  define BIT(n) (1 << (n))
+#  define BIT(n) (1 << (n)) 
 #endif
 
 /**
@@ -32,3 +32,5 @@ int (util_get_MSB)(uint16_t val, uint8_t *msb);
  * @return Return 0 upon success and non-zero otherwise
  */
 int (util_sys_inb)(int port, uint8_t *value);
+
+int(util_sys_outb)(int port, uint8_t *cmd);

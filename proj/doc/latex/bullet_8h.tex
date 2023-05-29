@@ -1,0 +1,222 @@
+\hypertarget{bullet_8h}{}\doxysection{/\+Users/brunodrumond/\+Documents/\+Git\+Hub/g1/proj/src/models/bullet.h File Reference}
+\label{bullet_8h}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/bullet.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/bullet.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}helicopter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/values.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}devices/keyboard.\+h\char`\"{}}\newline
+Include dependency graph for bullet.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bullet_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{bullet_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_bullet}{Bullet}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void() \mbox{\hyperlink{bullet_8h_a20e0737c578410ffc06f74c3c6e26722}{initialize\+\_\+bullets}} ()
+\begin{DoxyCompactList}\small\item\em This method initializes the player and the helicopter bullets. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{bullet_8h_ae96f65623ea5a6e413dde447cd6624bf}{draw\+\_\+bullet\+\_\+player}} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$bullet)
+\begin{DoxyCompactList}\small\item\em This method draws a player bullet. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{bullet_8h_a30029c5a1e48e3c708b045353b4e9c4f}{draw\+\_\+bullet\+\_\+heli}} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$bullet)
+\begin{DoxyCompactList}\small\item\em This method draws a helicopter bullet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_a19d035c611b7a50d2bfc144918b9cd7a}{draw\+\_\+c\+\_\+bullets}} ()
+\begin{DoxyCompactList}\small\item\em This method draws all player and helicopter bullets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_ae2600b6c042d05b856c92889c1cc57bc}{heli\+\_\+update\+\_\+bullets}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em This method updates the position of the bullets fired by the helicopter and checks the collisions with the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_af1a04353591c360b57e03a2732ecf01d}{heli\+\_\+create\+\_\+bullet}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$obj, \mbox{\hyperlink{struct_player}{Player}} $\ast$target)
+\begin{DoxyCompactList}\small\item\em This method creates a bullet fired by the helicopter towards the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_ad7d53f4f51e3fd2747dcb20e2d501381}{verify\+\_\+heli\+\_\+collision}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$bullet)
+\begin{DoxyCompactList}\small\item\em This method verifies if a bullet collides with the helicopter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_aeb072b584535e1257b053553b1d3e5cf}{player\+\_\+update\+\_\+bullets}} (\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$heli)
+\begin{DoxyCompactList}\small\item\em This method updates the position of the bullets fired by the player and checks the collisions with the helicopter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_a9b9c40ec03b2d8f4c11a35260083510d}{player\+\_\+create\+\_\+bullet}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$obj, struct packet $\ast$pp, \mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$mouse)
+\begin{DoxyCompactList}\small\item\em This method creates a new bullet fired by the player towards the current mouse position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_a2f272715125ca335b29f9f83d014379f}{verify\+\_\+player\+\_\+collision}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$bullet)
+\begin{DoxyCompactList}\small\item\em This method verifies if a bullet has collided with the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bullet_8h_a7fafa120581cf1a7446f11d19b8cc6c1}{draw\+\_\+remaining\+\_\+bullets}} (uint8\+\_\+t bullets)
+\begin{DoxyCompactList}\small\item\em This method draws the remaining player bullets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bullet_8h_a30029c5a1e48e3c708b045353b4e9c4f}\label{bullet_8h_a30029c5a1e48e3c708b045353b4e9c4f}} 
+\index{bullet.h@{bullet.h}!draw\_bullet\_heli@{draw\_bullet\_heli}}
+\index{draw\_bullet\_heli@{draw\_bullet\_heli}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{draw\_bullet\_heli()}{draw\_bullet\_heli()}}
+{\footnotesize\ttfamily int() draw\+\_\+bullet\+\_\+heli (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{bullet }\end{DoxyParamCaption})}
+
+
+
+This method draws a helicopter bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullet} & Pointer to the bullet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_ae96f65623ea5a6e413dde447cd6624bf}\label{bullet_8h_ae96f65623ea5a6e413dde447cd6624bf}} 
+\index{bullet.h@{bullet.h}!draw\_bullet\_player@{draw\_bullet\_player}}
+\index{draw\_bullet\_player@{draw\_bullet\_player}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{draw\_bullet\_player()}{draw\_bullet\_player()}}
+{\footnotesize\ttfamily int() draw\+\_\+bullet\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{bullet }\end{DoxyParamCaption})}
+
+
+
+This method draws a player bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullet} & Pointer to the bullet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_a19d035c611b7a50d2bfc144918b9cd7a}\label{bullet_8h_a19d035c611b7a50d2bfc144918b9cd7a}} 
+\index{bullet.h@{bullet.h}!draw\_c\_bullets@{draw\_c\_bullets}}
+\index{draw\_c\_bullets@{draw\_c\_bullets}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{draw\_c\_bullets()}{draw\_c\_bullets()}}
+{\footnotesize\ttfamily void draw\+\_\+c\+\_\+bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method draws all player and helicopter bullets. 
+
+\mbox{\Hypertarget{bullet_8h_a7fafa120581cf1a7446f11d19b8cc6c1}\label{bullet_8h_a7fafa120581cf1a7446f11d19b8cc6c1}} 
+\index{bullet.h@{bullet.h}!draw\_remaining\_bullets@{draw\_remaining\_bullets}}
+\index{draw\_remaining\_bullets@{draw\_remaining\_bullets}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{draw\_remaining\_bullets()}{draw\_remaining\_bullets()}}
+{\footnotesize\ttfamily void draw\+\_\+remaining\+\_\+bullets (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bullets }\end{DoxyParamCaption})}
+
+
+
+This method draws the remaining player bullets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullets} & Number of remaining bullets \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_af1a04353591c360b57e03a2732ecf01d}\label{bullet_8h_af1a04353591c360b57e03a2732ecf01d}} 
+\index{bullet.h@{bullet.h}!heli\_create\_bullet@{heli\_create\_bullet}}
+\index{heli\_create\_bullet@{heli\_create\_bullet}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{heli\_create\_bullet()}{heli\_create\_bullet()}}
+{\footnotesize\ttfamily void heli\+\_\+create\+\_\+bullet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{obj,  }\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+This method creates a bullet fired by the helicopter towards the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the helicopter \\
+\hline
+{\em target} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_ae2600b6c042d05b856c92889c1cc57bc}\label{bullet_8h_ae2600b6c042d05b856c92889c1cc57bc}} 
+\index{bullet.h@{bullet.h}!heli\_update\_bullets@{heli\_update\_bullets}}
+\index{heli\_update\_bullets@{heli\_update\_bullets}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{heli\_update\_bullets()}{heli\_update\_bullets()}}
+{\footnotesize\ttfamily void heli\+\_\+update\+\_\+bullets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+This method updates the position of the bullets fired by the helicopter and checks the collisions with the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_a20e0737c578410ffc06f74c3c6e26722}\label{bullet_8h_a20e0737c578410ffc06f74c3c6e26722}} 
+\index{bullet.h@{bullet.h}!initialize\_bullets@{initialize\_bullets}}
+\index{initialize\_bullets@{initialize\_bullets}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_bullets()}{initialize\_bullets()}}
+{\footnotesize\ttfamily void() initialize\+\_\+bullets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method initializes the player and the helicopter bullets. 
+
+\mbox{\Hypertarget{bullet_8h_a9b9c40ec03b2d8f4c11a35260083510d}\label{bullet_8h_a9b9c40ec03b2d8f4c11a35260083510d}} 
+\index{bullet.h@{bullet.h}!player\_create\_bullet@{player\_create\_bullet}}
+\index{player\_create\_bullet@{player\_create\_bullet}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{player\_create\_bullet()}{player\_create\_bullet()}}
+{\footnotesize\ttfamily void player\+\_\+create\+\_\+bullet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{obj,  }\item[{struct packet $\ast$}]{pp,  }\item[{\mbox{\hyperlink{struct_mouse}{Mouse}} $\ast$}]{mouse }\end{DoxyParamCaption})}
+
+
+
+This method creates a new bullet fired by the player towards the current mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to the player \\
+\hline
+{\em pp} & Pointer to the packet \\
+\hline
+{\em mouse} & Pointer to the mouse \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_aeb072b584535e1257b053553b1d3e5cf}\label{bullet_8h_aeb072b584535e1257b053553b1d3e5cf}} 
+\index{bullet.h@{bullet.h}!player\_update\_bullets@{player\_update\_bullets}}
+\index{player\_update\_bullets@{player\_update\_bullets}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{player\_update\_bullets()}{player\_update\_bullets()}}
+{\footnotesize\ttfamily void player\+\_\+update\+\_\+bullets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli }\end{DoxyParamCaption})}
+
+
+
+This method updates the position of the bullets fired by the player and checks the collisions with the helicopter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_ad7d53f4f51e3fd2747dcb20e2d501381}\label{bullet_8h_ad7d53f4f51e3fd2747dcb20e2d501381}} 
+\index{bullet.h@{bullet.h}!verify\_heli\_collision@{verify\_heli\_collision}}
+\index{verify\_heli\_collision@{verify\_heli\_collision}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{verify\_heli\_collision()}{verify\_heli\_collision()}}
+{\footnotesize\ttfamily void verify\+\_\+heli\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_helicopter}{Helicopter}} $\ast$}]{heli,  }\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{bullet }\end{DoxyParamCaption})}
+
+
+
+This method verifies if a bullet collides with the helicopter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heli} & Pointer to the helicopter \\
+\hline
+{\em bullet} & Pointer to the bullet \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bullet_8h_a2f272715125ca335b29f9f83d014379f}\label{bullet_8h_a2f272715125ca335b29f9f83d014379f}} 
+\index{bullet.h@{bullet.h}!verify\_player\_collision@{verify\_player\_collision}}
+\index{verify\_player\_collision@{verify\_player\_collision}!bullet.h@{bullet.h}}
+\doxysubsubsection{\texorpdfstring{verify\_player\_collision()}{verify\_player\_collision()}}
+{\footnotesize\ttfamily void verify\+\_\+player\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player,  }\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{bullet }\end{DoxyParamCaption})}
+
+
+
+This method verifies if a bullet has collided with the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+{\em bullet} & Pointer to the bullet \\
+\hline
+\end{DoxyParams}

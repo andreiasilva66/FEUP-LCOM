@@ -1,0 +1,57 @@
+\hypertarget{player_8h_source}{}\doxysection{player.\+h}
+\label{player_8h_source}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/player.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/player.h}}
+\mbox{\hyperlink{player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_PLAYER\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_LCOM\_PLAYER\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../devices/keyboard.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../devices/values.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{platforms_8h}{platforms.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MOVE\_UP\_MAKE\ 0x11}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MOVE\_DOWN\_MAKE\ 0x1f\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MOVE\_LEFT\_MAKE\ 0x1e\ }}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MOVE\_RIGHT\_MAKE\ 0x20}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MOVE\_UP\_BREAK\ 0x91}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MOVE\_DOWN\_BREAK\ 0x9f\ }}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MOVE\_LEFT\_BREAK\ 0x9e\ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MOVE\_RIGHT\_BREAK\ 0xa0\ }}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ uint16\_t\ x;}
+\DoxyCodeLine{00027\ \ \ \ \ uint16\_t\ y;}
+\DoxyCodeLine{00028\ \ \ \ \ uint8\_t\ hp;\ }
+\DoxyCodeLine{00029\ \ \ \ \ uint8\_t\ frame;}
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{struct_player}{Player}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_aef51515580448dbe58661566608a8477}{moveUp}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint16\_t\ speed);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_a41afc332ed20b9cbe507ac5745d284b7}{moveDown}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint16\_t\ speed);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_a96028329c127c8b8f3e7e96a3df798f0}{moveLeft}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint16\_t\ speed);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_aefcc2b179a9b1241ad8dc74cc8bf139b}{moveRight}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint16\_t\ speed);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_abcc8ff7889f22b6b5743c3b0042226bf}{jump}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint16\_t\ speed);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_ab34376a16b870f8e22e7bf0f77122a5b}{process\_scancode}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ uint8\_t*\ data);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_ae89179d886f4026251e499f8a2c964ee}{process\_packet}}(\mbox{\hyperlink{struct_player}{Player}}*\ obj,\ \textcolor{keyword}{struct}\ packet\ *pp,\ \mbox{\hyperlink{struct_mouse}{Mouse}}\ *mouse);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_ab03974f5053e28b91f19f5870a771d5f}{draw\_hp\_bar}}(uint8\_t\ hp);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_a21473296e1c865781a3b550ffaedbf24}{draw\_player}}(\mbox{\hyperlink{struct_player}{Player}}\ *\ player);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{player_8h_a9fd92f3b609d20014f66434f33f86cd6}{player\_update\_mov}}(\mbox{\hyperlink{struct_player}{Player}}\ *player);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{player_8h_a9dd4fba1b072dd95f7c7fee7d4b90e9b}{check\_collision\_player}}(\mbox{\hyperlink{struct_player}{Player}}\ *player,\ \mbox{\hyperlink{struct_platform}{Platform}}\ platform[],\ \textcolor{keywordtype}{bool}\ jump\_down);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_LCOM\_PLAYER\_H\_}}
+
+\end{DoxyCode}

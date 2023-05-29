@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "lcf.h": "c",
+        "video.h": "c",
+        "canvas.h": "c"
     }
 }

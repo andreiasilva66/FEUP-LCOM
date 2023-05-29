@@ -1,6 +1,6 @@
 # LCOM Project
 
-LCOM Project for group T&lt;m&gt;&lt;n&gt;G&lt;p&gt;&lt;q&gt;.
+LCOM Project for group T 15 G1.
 
 Group members:
 

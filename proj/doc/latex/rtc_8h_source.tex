@@ -1,0 +1,39 @@
+\hypertarget{rtc_8h_source}{}\doxysection{rtc.\+h}
+\label{rtc_8h_source}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/rtc.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/devices/rtc.h}}
+\mbox{\hyperlink{rtc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <minix/sysutil.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}rtc\_Macros.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ RTC\ Data}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00016\ \ \ \ \ uint8\_t\ year;}
+\DoxyCodeLine{00017\ \ \ \ \ uint8\_t\ month;}
+\DoxyCodeLine{00018\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{00019\ \ \ \ \ uint8\_t\ hours;}
+\DoxyCodeLine{00020\ \ \ \ \ uint8\_t\ minutes;}
+\DoxyCodeLine{00021\ \ \ \ \ uint8\_t\ seconds;}
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{struct_rtc}{Rtc}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00033\ int\ (\mbox{\hyperlink{rtc_8h_ad542c59f2f234f2befd0efbeb4193fb7}{rtc\_output}})(uint8\_t\ command,\ uint8\_t\ *output);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ int\ (\mbox{\hyperlink{rtc_8h_a9dac5e6637f21aa7ab6dcb7b8fe2c58a}{rtc\_available}})();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ int\ (\mbox{\hyperlink{rtc_8h_afca0276844b2d261eef637e4d727d57e}{rtc\_in\_binary\_mode}})();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ uint8\_t\ \ (\mbox{\hyperlink{rtc_8h_a838c9510a764729a14e7aa2226b941bb}{rtc\_convert\_to\_binary}})(uint8\_t\ bcd);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ int\ (\mbox{\hyperlink{rtc_8h_acb1eb50cf24b1160c8bd0ef35882cbc6}{rtc\_update}})();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

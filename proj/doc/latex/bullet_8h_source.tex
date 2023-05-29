@@ -1,0 +1,50 @@
+\hypertarget{bullet_8h_source}{}\doxysection{bullet.\+h}
+\label{bullet_8h_source}\index{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/bullet.h@{/Users/brunodrumond/Documents/GitHub/g1/proj/src/models/bullet.h}}
+\mbox{\hyperlink{bullet_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_LCOM\_BULLET\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_LCOM\_BULLET\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{helicopter_8h}{helicopter.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}devices/values.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{keyboard_8h}{devices/keyboard.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00016\ \ \ \ \ uint16\_t\ x;}
+\DoxyCodeLine{00017\ \ \ \ \ uint16\_t\ y;}
+\DoxyCodeLine{00018\ \ \ \ \ int16\_t\ vx;}
+\DoxyCodeLine{00019\ \ \ \ \ int16\_t\ vy;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_game;}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{struct_bullet}{Bullet}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ void\ (\mbox{\hyperlink{bullet_8h_a20e0737c578410ffc06f74c3c6e26722}{initialize\_bullets}})();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ int\ (\mbox{\hyperlink{bullet_8h_ae96f65623ea5a6e413dde447cd6624bf}{draw\_bullet\_player}})(\mbox{\hyperlink{struct_bullet}{Bullet}}*\ bullet);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ int\ (\mbox{\hyperlink{bullet_8h_a30029c5a1e48e3c708b045353b4e9c4f}{draw\_bullet\_heli}})(\mbox{\hyperlink{struct_bullet}{Bullet}}*\ bullet);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_a19d035c611b7a50d2bfc144918b9cd7a}{draw\_c\_bullets}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_ae2600b6c042d05b856c92889c1cc57bc}{heli\_update\_bullets}}(\mbox{\hyperlink{struct_player}{Player}}\ *\ player);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_af1a04353591c360b57e03a2732ecf01d}{heli\_create\_bullet}}(\ \mbox{\hyperlink{struct_helicopter}{Helicopter}}*\ obj,\mbox{\hyperlink{struct_player}{Player}}*\ target);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_ad7d53f4f51e3fd2747dcb20e2d501381}{verify\_heli\_collision}}\ (\mbox{\hyperlink{struct_helicopter}{Helicopter}}\ *\ heli,\ \mbox{\hyperlink{struct_bullet}{Bullet}}*\ bullet);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_aeb072b584535e1257b053553b1d3e5cf}{player\_update\_bullets}}(\mbox{\hyperlink{struct_helicopter}{Helicopter}}\ *\ heli);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_a9b9c40ec03b2d8f4c11a35260083510d}{player\_create\_bullet}}(\ \mbox{\hyperlink{struct_player}{Player}}*\ obj,\textcolor{keyword}{struct}\ packet\ *pp,\ \mbox{\hyperlink{struct_mouse}{Mouse}}\ *mouse);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_a2f272715125ca335b29f9f83d014379f}{verify\_player\_collision}}\ (\mbox{\hyperlink{struct_player}{Player}}\ *\ player,\ \mbox{\hyperlink{struct_bullet}{Bullet}}*\ bullet);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bullet_8h_a7fafa120581cf1a7446f11d19b8cc6c1}{draw\_remaining\_bullets}}(uint8\_t\ bullets);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_LCOM\_BULLET\_H\_}}
+
+\end{DoxyCode}
